@@ -2036,15 +2036,15 @@ html[data-menu="day"] .pp.has-cls:not(.next) .pp-sc{text-decoration:underline do
 .ppp-all .ic{width:14px;height:14px}
 .ppp-all:hover{text-decoration:underline}
 @media (max-width:760px){
-  html[data-menu="day"] .pp.has-cls:not(.next) .pp-s{display:flex;align-items:center;justify-content:center;gap:3px;min-height:16px}
-  .pp-th{display:block;width:12px;height:16px;border-radius:2px;object-fit:cover;object-position:top;border:1px solid rgba(21,24,15,.25);box-shadow:0 1px 2px rgba(0,0,0,.2)}
-  html[data-menu="day"] .pp.has-cls:not(.next) .pp-sc{display:none}
-  #pp-pop{left:8px;right:8px;width:auto;padding:10px 12px 8px}
-  #pp-pop .ppp-list{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
-  .ppp-c{grid-template-columns:1fr;justify-items:center;text-align:center;width:124px;flex:none;gap:6px;padding:6px}
-  .ppp-c img{width:100px;height:134px}
+  html[data-menu="day"] .pp.has-cls:not(.next) .pp-s{display:flex;align-items:center;justify-content:center;min-height:15px}
+  html[data-menu="day"] .pp.has-cls:not(.next) .pp-sc{display:inline-block;padding:1px 5px;border-radius:99px;background:var(--g50);color:var(--mid);font-weight:600;font-size:9px;line-height:1.4;text-decoration:none;white-space:nowrap}
+  html[data-menu="day"] .pp.has-cls:not(.next) .pp-sc.many .pp-af{display:none}
+  #pp-pop{width:min(256px,calc(100vw - 16px));padding:8px}
+  #pp-pop .ppp-h,#pp-pop .ppp-all{display:none}
+  .ppp-c{grid-template-columns:36px 1fr;gap:10px;padding:6px}
+  .ppp-c img{width:36px;height:48px;border-radius:5px}
   .ppp-c small,.ppp-c i,.ppp-t{display:none}
-  .ppp-c b{font-size:13.5px}
+  .ppp-c b{font-size:14px;line-height:1.25}
   .ppp-c em{font-size:12.5px}
 }
 html .ftr-brand{display:flex;flex-direction:column;align-items:flex-start}
@@ -2056,6 +2056,44 @@ html .ftr-pill{display:flex;align-items:center;justify-content:center;gap:9px;mi
 html .ftr-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55);text-decoration:none}
 html .ftr-pill .ic{width:22px;height:22px;flex:none;color:#b7e39a}
 
+/* ---- 19 Nov: a calmer footer, everything visible on a phone ---- */
+.ftr-quick{display:none}
+.ftr-hours{margin:16px 0 0;display:grid;gap:12px}
+.ftr-hours div{margin:0}
+.ftr-hours dt{font-size:13.5px;color:#b0c2a5}
+.ftr-hours dd{margin:0;font-weight:600;color:#f4f8f0}
+.ftr .cr-note{margin:8px 0 0;font-size:12.5px;color:#a9bb9d}
+.ftr .ftr-more a{font-weight:600;color:#b7e39a}
+@media (max-width:760px){
+  html .ftr-sky{height:120px}
+  html .ftr{padding-block:36px 100px}
+  html .ftr-grid.ftr-slim{grid-template-columns:1fr;gap:0}
+  html .ftr-brand{padding-bottom:28px}
+  html .ftr-visit,html .ftr-col{padding:20px 0;border-top:1px solid rgba(255,255,255,.14)}
+  html .ftr-start{order:2}
+  html .ftr-explore{order:3}
+  html .ftr-grid h4{margin:0 0 14px}
+  html .ftr-visit address{margin:0 0 14px;font-size:17px;line-height:1.5}
+  html .ftr-quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  html .ftr-quick a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:68px;padding:10px 6px;border:1.5px solid rgba(255,255,255,.3);border-radius:12px;background:rgba(255,255,255,.07);color:#f4f8f0;font-size:14.5px;font-weight:500;text-decoration:none}
+  html .ftr-quick .ic{width:24px;height:24px;color:#b7e39a}
+  html .ftr-lines{display:none}
+  html .ftr-hours{margin-top:16px;gap:8px}
+  html .ftr-hours div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.06)}
+  html .ftr-hours dt{font-size:14px}
+  html .ftr .ftr-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  html .ftr .ftr-tiles li{margin:0}
+  html .ftr .ftr-tiles a{display:flex;align-items:center;justify-content:center;min-height:54px;padding:8px 10px;border:1.5px solid rgba(255,255,255,.3);border-radius:12px;background:rgba(255,255,255,.07);text-align:center;font-size:16px;font-weight:500;line-height:1.25;text-decoration:none}
+  html .ftr .ftr-two{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+  html .ftr .ftr-two li{margin:0}
+  html .ftr .ftr-two a{display:flex;align-items:center;gap:8px;min-height:44px;font-size:17px}
+  html .ftr .ftr-two .ftr-dup{display:none}
+  html .ftr .ftr-two .ftr-more{grid-column:1 / -1}
+  html details.credits{margin-top:22px}
+  html .ftr-legal{display:grid;gap:10px;margin-top:22px;padding-top:18px;font-size:13.5px;line-height:1.5;color:#b0c2a5}
+  html .ftr-legal .ftr-sm-links{display:flex;flex-wrap:wrap;gap:6px 18px}
+}
+
 /* ---- phones (19 Nov): long stacks become swipe rows, the footer is shorter ---- */
 @media (max-width:640px){
   html .aud-cards{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-16px;padding:2px 16px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
@@ -2064,8 +2102,6 @@ html .ftr-pill .ic{width:22px;height:22px;flex:none;color:#b7e39a}
   html .glb{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-16px;padding:2px 16px 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   html .glb::-webkit-scrollbar{display:none}
   html .glb > *{flex:0 0 74%;scroll-snap-align:center}
-  html .ftr-grid.ftr-slim{grid-template-columns:1fr 1fr;gap:24px 18px}
-  html .ftr-slim .ftr-brand,html .ftr-slim > :nth-child(2){grid-column:1 / -1}
 }
 
 /* ---- a much smaller menu (18 Nov): six big tiles, no long link lists ---- */
@@ -2832,7 +2868,7 @@ function homeDayHTML(){
 const pageHeadStyle = k => ' ph-photo" style="background-image:url(' + D.photos[k] + ')';
 function creditsHTML(){
   const rows = Object.keys(D.photoMeta).map(k => { const m = D.photoMeta[k]; if (m.ig) return '<li>' + esc(m.label) + ': ' + esc(m.alt) + '. From Instagram ' + esc(m.account) + ' (<a href="' + esc(m.page) + '" target="_blank" rel="noopener">the post</a>). © Toronto Islamic Centre, to be confirmed. This is a screen capture, so the original file should replace it.</li>'; return '<li>' + esc(m.label) + ': ' + esc(m.alt) + '. Photo by ' + esc(m.artist) + ', <a href="' + esc(m.licenseUrl || m.page) + '" target="_blank" rel="noopener">' + esc(m.license) + '</a> · <a href="' + esc(m.page) + '" target="_blank" rel="noopener">Wikimedia Commons</a></li>'; }).join('');
-  return '<details class="credits"><summary>Photo credits: sample photos for this concept, to be replaced with photos of the centre</summary><ul>' + rows + '<li>Instagram pictures and video covers, and the flag-over-the-skyline artwork: © Toronto Islamic Centre, from its Instagram pages <a href="' + D.ig.accounts.official.url + '" target="_blank" rel="noopener">@ticmasjid</a> and <a href="' + D.ig.accounts.unfiltered.url + '" target="_blank" rel="noopener">@tic_unfiltered</a>. Used here only to design the page. The centre has to say yes to each one, and so do the people who appear in them.</li><li>Fonts: headings in Playfair Display and text in Inter, the closest matches to the logo’s lettering and the centre’s flyers; Arabic in Amiri Quran (as on the live site). All are free Google Fonts under the SIL Open Font Licence.</li></ul></details>';
+  return '<details class="credits"><summary>Photo credits</summary><p class="cr-note">Sample photos for this concept, to be replaced with photos of the centre.</p><ul>' + rows + '<li>Instagram pictures and video covers, and the flag-over-the-skyline artwork: © Toronto Islamic Centre, from its Instagram pages <a href="' + D.ig.accounts.official.url + '" target="_blank" rel="noopener">@ticmasjid</a> and <a href="' + D.ig.accounts.unfiltered.url + '" target="_blank" rel="noopener">@tic_unfiltered</a>. Used here only to design the page. The centre has to say yes to each one, and so do the people who appear in them.</li><li>Fonts: headings in Playfair Display and text in Inter, the closest matches to the logo’s lettering and the centre’s flyers; Arabic in Amiri Quran (as on the live site). All are free Google Fonts under the SIL Open Font Licence.</li></ul></details>';
 }
 /* ---------- Instagram ---------- */
 const IG = D.ig, IGI = D.igImg;
@@ -3873,11 +3909,11 @@ function updateStrip(){
     const cl = sess.filter(x => x.s.start.p === p.key), cnt = cl.length;
     a.querySelector('.pp-n').textContent = p.name;
     a.querySelector('.pp-t').textContent = p.name === 'Jumu’ah' ? '12:30 · 1:30' : p.text.replace(/ (am|pm)$/, '');
-    const sEl = a.querySelector('.pp-s'), th = cnt ? D.thumbs[cl[0].c.poster] : '';
+    const sEl = a.querySelector('.pp-s');
     const sKey = isNext ? 'n' + (nx.tomorrow ? 'T' : fmtIn(nx.inMin)) : cnt ? 'c' + cnt + cl[0].c.id : '';
     if (sEl.dataset.k !== sKey) {
       sEl.dataset.k = sKey;
-      sEl.innerHTML = isNext ? esc(nx.tomorrow ? 'tomorrow' : fmtIn(nx.inMin)) : cnt ? (th ? '<img class="pp-th" src="' + th + '" alt="">' : '') + '<span class="pp-sc">' + cnt + (cnt === 1 ? ' class after' : ' classes after') + '</span>' : '';
+      sEl.innerHTML = isNext ? esc(nx.tomorrow ? 'tomorrow' : fmtIn(nx.inMin)) : cnt ? '<span class="pp-sc' + (cnt > 1 ? ' many' : '') + '">' + cnt + (cnt === 1 ? ' class' : ' classes') + '<span class="pp-af"> after</span></span>' : '';
     }
     a.dataset.cls = cl.map(x => x.c.id).join(',');
     a.classList.toggle('has-cls', cnt > 0);
@@ -3897,7 +3933,7 @@ function ppPopHTML(a){
 }
 function ppPlace(a){
   const r = a.getBoundingClientRect(), vw = document.documentElement.clientWidth, pw = ppPop.offsetWidth;
-  const left = ppTouch() ? 8 : Math.max(8, Math.min(r.left + r.width / 2 - pw / 2, vw - pw - 8));
+  const left = Math.max(8, Math.min(r.left + r.width / 2 - pw / 2, vw - pw - 8));
   ppPop.style.left = left + 'px'; ppPop.style.top = Math.round(r.bottom + 8) + 'px';
   ppPop.style.setProperty('--cx', Math.round(r.left + r.width / 2 - left) + 'px');
 }
@@ -3930,7 +3966,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') ppHide(true)
 document.addEventListener('click', e => {
   if (!e.target.closest) return;
   const a = e.target.closest('#pstrip .pp');
-  if (a && a.dataset.cls && ppTouch()) { e.preventDefault(); e.stopPropagation(); if (ppCur === a && ppPop.classList.contains('on')) ppHide(true); else ppShow(a); return; }
+  if (a && a.dataset.cls && ppTouch() && !a.classList.contains('next')) { e.preventDefault(); e.stopPropagation(); if (ppCur === a && ppPop.classList.contains('on')) ppHide(true); else ppShow(a); return; }
   if (!e.target.closest('#pp-pop') || e.target.closest('#pp-pop a')) ppHide(true);
 }, true);
 window.addEventListener('scroll', () => { if (ppPop.classList.contains('on')) ppHide(true); }, {passive:true});
@@ -4374,18 +4410,20 @@ document.addEventListener('keydown', e => {
 /* ---------- the footer, from the same list as the menus ---------- */
 function footerHTML(){
   const G = siteGroups(), by = k => G.find(g => g.k === k);
-  const li = (t, h, ext) => '<li><a href="' + h + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>' + t + (ext ? ' ' + icon('ext') : '') + '</a></li>';
-  const explore = [['Prayer times', '#/prayer'], ['Classes', '#/classes'], ['Ramadan', '#/ramadan'], ['Events and news', '#/events'], ['Gallery', '#/gallery'], ['Visit and contact', '#/visit'], ['Volunteer', LIVE + '/volunteer', true], ['Give', '#/give']];
+  const li = (t, h, ext, dup) => '<li' + (dup ? ' class="ftr-dup"' : '') + '><a href="' + h + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>' + t + (ext ? ' ' + icon('ext') : '') + '</a></li>';
+  const short = {'#/new':'New to Islam', '#/find':'Find a class', '#/help':'Get support', '#/explore':'Learn about Islam'};
+  const explore = [['Prayer times', '#/prayer'], ['Classes', '#/classes'], ['Ramadan', '#/ramadan'], ['Events and news', '#/events'], ['Gallery', '#/gallery'], ['Visit and contact', '#/visit', false, true], ['Volunteer', LIVE + '/volunteer', true], ['Give', '#/give', false, true]];
   return '<div class="ftr-sky" style="background-image:url(' + D.igImg.banner + ')"></div><footer class="ftr" id="footer"><div class="zl zl-ftr" aria-hidden="true"></div><div class="container"><div class="ftr-grid ftr-slim">' +
     '<div class="ftr-brand"><a class="logo ftr-logo" href="#/" aria-label="Toronto Islamic Centre, home">' + D.logoSvg.white + '</a><p>A masjid built by the community, owned by the community.</p>' +
     '<div class="ftr-act"><a class="btn" href="#/give">Donate</a><a class="ftr-pill" href="' + C.instagram + '" target="_blank" rel="noopener">' + icon('ig') + '<span>Instagram</span></a><a class="ftr-pill" href="' + C.youtube + '" target="_blank" rel="noopener">' + icon('rec') + '<span>YouTube</span></a></div></div>' +
-    '<div><h4>Visit us</h4><address>817 Yonge St<br>Toronto, ON M4W 2G9</address>' +
-    '<ul class="ftr-list"><li><a class="ftr-line" href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + 'Get directions ' + icon('ext') + '</a></li>' +
+    '<div class="ftr-visit"><h4>Visit us</h4><address>817 Yonge St<br>Toronto, ON M4W 2G9</address>' +
+    '<div class="ftr-quick"><a href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + '<span>Directions</span></a><a href="tel:' + C.tel + '">' + icon('phone') + '<span>Call</span></a><a href="mailto:' + C.email + '">' + icon('mail') + '<span>Email</span></a></div>' +
+    '<ul class="ftr-list ftr-lines"><li><a class="ftr-line" href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + 'Get directions ' + icon('ext') + '</a></li>' +
     '<li><a class="ftr-line" href="tel:' + C.tel + '">' + icon('phone') + C.phone + '</a></li><li><a class="ftr-line" href="mailto:' + C.email + '">' + icon('mail') + C.email + '</a></li></ul>' +
-    '<p class="ftr-sm">Office hours</p><p class="ftr-b">' + C.hours + '</p><p class="ftr-sm">Jumu’ah</p><p class="ftr-b">12:30 pm and 1:30 pm</p></div>' +
-    '<div><h4>Explore</h4><ul class="ftr-list">' + explore.map(x => li(x[0], x[1], x[2])).join('') + '</ul></div>' +
-    '<div><h4>Start here</h4><ul class="ftr-list">' + by('start').items.slice(1).map(it => li(it[0], it[2])).join('') + '<li class="ftr-more"><a href="#/sitemap">All pages ' + icon('arrow') + '</a></li></ul></div></div>' +
-    creditsHTML() + '<div class="ftr-legal"><span>Registered charity ' + C.charity + ' · Tax receipts issued for every donation</span><span class="ftr-sm-links"><a href="#/classes?go=download">Downloads</a><a href="#/sitemap">All pages</a><span>Redesign concept, not the live site</span></span></div></div></footer>';
+    '<dl class="ftr-hours"><div><dt>Office hours</dt><dd>' + C.hours + '</dd></div><div><dt>Jumu’ah</dt><dd>12:30 pm and 1:30 pm</dd></div></dl></div>' +
+    '<div class="ftr-col ftr-explore"><h4>Explore</h4><ul class="ftr-list ftr-two">' + explore.map(x => li(x[0], x[1], x[2], x[3])).join('') + '<li class="ftr-more"><a href="#/sitemap">All pages ' + icon('arrow') + '</a></li></ul></div>' +
+    '<div class="ftr-col ftr-start"><h4>Start here</h4><ul class="ftr-list ftr-tiles">' + by('start').items.slice(1).map(it => '<li><a href="' + it[2] + '" title="' + esc(it[0]) + '">' + esc(short[it[2]] || it[0]) + '</a></li>').join('') + '</ul></div></div>' +
+    creditsHTML() + '<div class="ftr-legal"><span>Registered charity ' + C.charity + ' · Tax receipts issued for every donation</span><span class="ftr-sm-links"><a href="#/classes?go=download">Downloads</a><span>Redesign concept, not the live site</span></span></div></div></footer>';
 }
 /* ---------- all pages, with a check that every page is linked ---------- */
 function auditLinks(){
