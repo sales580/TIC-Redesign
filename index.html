@@ -1952,6 +1952,66 @@ html .ftr{padding-block:54px 110px}
 .qk-h{margin:30px 0 12px}
 @media (max-width:1100px){.tiles.six{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:640px){.tiles.six{grid-template-columns:repeat(2,1fr)}.tiles.six .tile{min-height:170px}}
+/* ---- Instagram band: a brighter green, with light cards and dark words on them (18 Nov) ---- */
+html .ig-sec.sec-dark{background:linear-gradient(120deg,rgba(42,110,61,.96) 0%,rgba(47,122,67,.96) 55%,rgba(55,138,76,.96) 100%),var(--star) #2f7a43;color:#fff}
+html .ig-sec.sec-dark h2{color:#fff}
+html .ig-sec.sec-dark .eyebrow{color:#f1fbe9}
+html .ig-sec.sec-dark .ig-line,html .ig-sec.sec-dark .ig-line span,html .ig-sec.sec-dark .ig-fol,html .ig-sec.sec-dark .ig-note{color:#f3faed}
+html .ig-sec.sec-dark .ig-line a{color:#fff;text-decoration:underline}
+html .ig-sec.sec-dark .seg{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5)}
+html .ig-sec.sec-dark .seg button{color:#fff}
+html .ig-sec.sec-dark .seg button[aria-pressed="true"]{background:#fff;color:#1f4429}
+html .ig-sec.sec-dark .ig-follow{background:#fff;border-color:#fff;color:#1f4429}
+html .ig-sec.sec-dark .ig-follow .ic{color:#1f4429}
+html .ig-sec.sec-dark .ig-line a.ig-follow{color:#1f4429;text-decoration:none}
+html .ig-sec.sec-dark .ig-arrows button{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.7);color:#fff}
+html .ig-sec.sec-dark .igt{background:#f7f3ea;border-color:rgba(255,255,255,.55);color:#15180f;box-shadow:0 12px 30px rgba(8,40,20,.35)}
+html .ig-sec.sec-dark .igt-cap b{color:#15180f}
+html .ig-sec.sec-dark .igt-cap small{color:#454b3d}
+
+/* ---- phones (19 Nov): long stacks become swipe rows, the footer is shorter ---- */
+@media (max-width:640px){
+  html .aud-cards{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-16px;padding:2px 16px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  html .aud-cards::-webkit-scrollbar{display:none}
+  html .aud-cards .aud-card{flex:0 0 78%;min-height:380px;scroll-snap-align:center}
+  html .glb{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-16px;padding:2px 16px 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  html .glb::-webkit-scrollbar{display:none}
+  html .glb > *{flex:0 0 74%;scroll-snap-align:center}
+  html .ftr-grid.ftr-slim{grid-template-columns:1fr 1fr;gap:24px 18px}
+  html .ftr-slim .ftr-brand,html .ftr-slim > :nth-child(2){grid-column:1 / -1}
+}
+
+/* ---- a much smaller menu (18 Nov): six big tiles, no long link lists ---- */
+.mpanel.mp-slim .mp-in{grid-template-columns:repeat(3,1fr);gap:10px;padding-block:18px 6px}
+.mpanel.mp-slim .mt{padding:0;gap:0}
+.mpanel.mp-slim .mt-main{padding:14px 16px;min-height:78px}
+.mpanel.mp-slim .mp-more{padding:10px 0 18px;font-size:14.5px;gap:6px 22px}
+.mpanel.mp-slim .mp-more span{font:italic 500 1rem var(--serif);color:var(--ink2)}
+.mpanel.mp-slim .mp-more a{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.mpanel.mp-slim .mp-more .ic{width:14px;height:14px}
+@media (max-width:760px){html .mpanel.mp-slim .mp-in{grid-template-columns:1fr 1fr}html .mpanel.mp-slim .mt small{display:none}html .mpanel.mp-slim .mt-main{padding:12px;min-height:62px;gap:10px}html .mpanel.mp-slim .mt-ic{width:40px;height:40px}}
+
+/* ---- smooth page changes (18 Nov): a soft cross-fade instead of a sudden swap ---- */
+::view-transition-group(root){animation-duration:.34s;animation-timing-function:cubic-bezier(.3,.7,.3,1)}
+@keyframes pgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.pg-in{animation:pgIn .34s cubic-bezier(.2,.7,.2,1) both}
+
+/* ---- long pages as tabs (18 Nov) ---- */
+.tabs-bar{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:16px max(16px,calc((100vw - 1160px)/2)) 12px;background:var(--cream);border-bottom:1px solid var(--line)}
+.tabs-bar::-webkit-scrollbar{display:none}
+.tabs-bar button{flex:none;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 20px 0 12px;border-radius:99px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:600 15px var(--sans);cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s,color .2s}
+.tabs-bar button .ic{width:28px;height:28px}
+.tabs-bar button:hover{border-color:var(--mid)}
+.tabs-bar button[aria-selected="true"]{background:var(--deep);border-color:var(--deep);color:#fff;--ic-tn:rgba(255,255,255,.22);--ic-t2:rgba(255,255,255,.4)}
+.tab-panel[hidden]{display:none}
+@media (max-width:640px){
+.tabs-bar{padding-inline:16px;display:grid;grid-template-columns:1fr 1fr;gap:8px;overflow:visible}
+.tabs-bar button{height:auto;min-height:52px;padding:6px 10px 6px 8px;font-size:14px;line-height:1.15;gap:7px;white-space:normal;text-align:left;justify-content:flex-start;border-radius:18px}
+.tabs-bar button .ic{width:30px;height:30px;flex:none}
+}
+@keyframes softIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.soft-in{animation:softIn .3s ease both}
+@media (prefers-reduced-motion:reduce){.pg-in,.soft-in{animation:none}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
 /* ---- readability pass (18 Nov): darker, calmer backgrounds behind text ---- */
 /* the old band pattern mask had hidden the dark overlay of the home give band on the left, where the words are */
 html .gv-home::before{opacity:1;-webkit-mask-image:none;mask-image:none;background:linear-gradient(95deg,rgba(8,24,14,.96) 0%,rgba(8,24,14,.9) 46%,rgba(8,24,14,.74) 100%)}
@@ -2805,7 +2865,7 @@ function renderBody(){
   $('#sched').classList.toggle('wide', v === 'planner' && innerWidth >= 900 && !(who === 'mine' && !MY.size));
   $('#sched').innerHTML = html;
 }
-function renderSched(sync){ renderToolbar(); renderBody(); const lg = $('.legend'); if (lg) lg.style.display = state.view === 'planner' ? 'none' : ''; if (sync !== false) syncHash(); updateLive(); }
+function renderSched(sync){ renderToolbar(); renderBody(); softIn($('#sched')); const lg = $('.legend'); if (lg) lg.style.display = state.view === 'planner' ? 'none' : ''; if (sync !== false) syncHash(); updateLive(); }
 
 function dialogHTML(c){
   const t = TOP[c.topic], pic = D.posters[c.poster];
@@ -3479,6 +3539,7 @@ function renderGal(){
   const b = $('#gal-body'); if (!b) return;
   gFixCat();
   b.innerHTML = gBodyHTML();
+  softIn(b);
   const keep = gState.view === 'wall' || gState.view === 'all';
   const c = $('#gal-chips'); if (c) c.innerHTML = keep ? gChipsHTML(gState.cat) : '';
   $$('[data-gview]').forEach(x => x.setAttribute('aria-pressed', x.dataset.gview === gState.view));
@@ -3616,18 +3677,18 @@ function friendMsg(){
 }
 function pageGive(){
   const dd = daysToDue(), msg = friendMsg();
-  return '<section class="page-head gvp-head"><div class="container"><p class="eyebrow">Support the masjid</p><h1>' + (dd >= 0 ? 'Help the masjid repay its neighbours before the year ends' : 'Help the masjid repay its neighbours') + '</h1><p class="lead">In ' + GV.campaign.since + ', ' + LOAN.families + ' families lent the masjid ' + LOAN.lent + ' so it could buy its building with no mortgage and no interest. ' + LOAN.repaid + ' is repaid.' + (dd >= 0 ? ' ' + GV.campaign.amount + ' falls due in ' + GV.campaign.dueText + '.' : '') + '</p></div></section>' +
-    '<section class="sec" style="padding-top:8px"><div class="container gvp-top"><div class="gvp-main"><div class="gvp-prog"><p class="eyebrow">Where we stand</p><div class="big">' + LOAN.repaid + '<small>repaid of ' + LOAN.lent + '</small></div><div class="bar" role="img" aria-label="About ' + LOAN.pct + ' percent repaid"><i style="width:' + LOAN.pct + '%"></i></div>' + gvStats('gvp-stats') +
+  return '<section class="page-head gvp-head' + pageHeadStyle('hero') + '"><div class="container"><p class="eyebrow">Support the masjid</p><h1>' + (dd >= 0 ? 'Help the masjid repay its neighbours before the year ends' : 'Help the masjid repay its neighbours') + '</h1><p class="lead">In ' + GV.campaign.since + ', ' + LOAN.families + ' families lent the masjid ' + LOAN.lent + ' so it could buy its building with no mortgage and no interest. ' + LOAN.repaid + ' is repaid.' + (dd >= 0 ? ' ' + GV.campaign.amount + ' falls due in ' + GV.campaign.dueText + '.' : '') + '</p></div></section>' +
+    '<section class="sec" data-tab="give" style="padding-top:8px"><div class="container gvp-top"><div class="gvp-main"><div class="gvp-prog"><p class="eyebrow">Where we stand</p><div class="big">' + LOAN.repaid + '<small>repaid of ' + LOAN.lent + '</small></div><div class="bar" role="img" aria-label="About ' + LOAN.pct + ' percent repaid"><i style="width:' + LOAN.pct + '%"></i></div>' + gvStats('gvp-stats') +
     (dd >= 0 ? '<div class="gv-due">' + icon('alert') + '<span><b>' + dd + ' days</b> left in 2026. ' + GV.campaign.amount + ' is due in ' + GV.campaign.dueText + '.</span></div>' : '') +
     '<p class="rv">To confirm: the exact due date in December, how much of the ' + GV.campaign.amount + ' is already covered (a second bar for it could sit here), and the date these figures are as of.</p></div>' +
     gvMathHTML('light') + '<ul class="gvp-trust">' + gvTrust().map(x => '<li>' + icon('check') + x + '</li>').join('') + '</ul></div>' +
     '<div class="gv-card gv-give" id="give-now"><h3>Give today</h3>' + giveWidgetHTML() + '</div></div></section>' +
-    '<section class="sec sec-tint" id="how"><div class="container"><div class="sec-h"><div><p class="eyebrow">How it works</p><h2>How the community bought its building</h2></div></div><div class="gvp-steps">' + GV.steps.map((s, i) => '<article class="gvp-step"><i>' + (i + 1) + '</i><h3>' + esc(s.t) + '</h3><p>' + esc(s.d) + '</p></article>').join('') + '</div></div></section>' +
-    '<section class="sec" id="ways"><div class="container"><div class="sec-h"><div><p class="eyebrow">Ways to give</p><h2>Give in the way that suits you</h2></div></div><div class="gvp-ways">' +
+    '<section class="sec sec-tint" id="how" data-tab="how"><div class="container"><div class="sec-h"><div><p class="eyebrow">How it works</p><h2>How the community bought its building</h2></div></div><div class="gvp-steps">' + GV.steps.map((s, i) => '<article class="gvp-step"><i>' + (i + 1) + '</i><h3>' + esc(s.t) + '</h3><p>' + esc(s.d) + '</p></article>').join('') + '</div></div></section>' +
+    '<section class="sec" id="ways" data-tab="ways"><div class="container"><div class="sec-h"><div><p class="eyebrow">Ways to give</p><h2>Give in the way that suits you</h2></div></div><div class="gvp-ways">' +
     GV.ways.map(w => '<article class="gvp-w"><span class="gvp-ic">' + icon(w.ic) + '</span><div><h3>' + esc(w.t) + '</h3><p>' + esc(w.d) + '</p>' + (w.href ? '<a class="btn btn-sm btn-line" href="' + LIVE + w.href + '" target="_blank" rel="noopener">' + (w.k === 'loan' ? 'How the loan works' : 'Open the donation page') + ' ' + icon('ext') + '</a>' : '') + '</div></article>').join('') + '</div></div></section>' +
-    '<section class="sec sec-tint" id="share"><div class="container gvp-friend"><div><p class="eyebrow">Spread the word</p><h2>Ask someone to give with you</h2><p class="muted" style="margin-top:10px">One message can bring in a gift. Copy it, or send it on WhatsApp.</p></div><div class="gvp-msg"><blockquote id="gv-msg">' + esc(msg) + '</blockquote><div class="gvp-msg-act"><button type="button" class="btn" data-gcopy>Copy the message</button><a class="btn btn-line" href="https://wa.me/?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener">Send on WhatsApp ' + icon('ext') + '</a></div></div></div></section>' +
-    '<section class="sec" id="questions"><div class="container"><div class="sec-h"><div><p class="eyebrow">Questions</p><h2>Short answers</h2></div></div><div class="faq">' + GV.faq.map(f => '<details><summary>' + esc(f.q) + '</summary><p>' + esc(f.a.replace('{charity}', C.charity)) + '</p></details>').join('') + '</div></div></section>' +
-    '<section class="gvp-verse"><div class="container"><p class="ar" lang="ar" dir="rtl">' + GV.verse.ar + '</p><p>' + esc(GV.verse.en) + '</p><p><small>' + esc(GV.verse.ref) + '</small></p></div></section>';
+    '<section class="sec sec-tint" id="share" data-tab="ways"><div class="container gvp-friend"><div><p class="eyebrow">Spread the word</p><h2>Ask someone to give with you</h2><p class="muted" style="margin-top:10px">One message can bring in a gift. Copy it, or send it on WhatsApp.</p></div><div class="gvp-msg"><blockquote id="gv-msg">' + esc(msg) + '</blockquote><div class="gvp-msg-act"><button type="button" class="btn" data-gcopy>Copy the message</button><a class="btn btn-line" href="https://wa.me/?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener">Send on WhatsApp ' + icon('ext') + '</a></div></div></div></section>' +
+    '<section class="sec" id="questions" data-tab="faq"><div class="container"><div class="sec-h"><div><p class="eyebrow">Questions</p><h2>Short answers</h2></div></div><div class="faq">' + GV.faq.map(f => '<details><summary>' + esc(f.q) + '</summary><p>' + esc(f.a.replace('{charity}', C.charity)) + '</p></details>').join('') + '</div></div></section>' +
+    '<section class="gvp-verse" data-tab="faq"><div class="container"><p class="ar" lang="ar" dir="rtl">' + GV.verse.ar + '</p><p>' + esc(GV.verse.en) + '</p><p><small>' + esc(GV.verse.ref) + '</small></p></div></section>';
 }
 
 /* ---------- the new menus (day strip + tiles, dock, star, words) ---------- */
@@ -3692,9 +3753,23 @@ const SITE_MORE = [
   ['What changed', 'What was confusing, and what this version does', '#/notes', false, 'alert'],
   ['More ideas', 'Ideas for the site, with time and what each needs', '#/ideas', false, 'star']
 ];
-const ROUTE_GROUP = {prayer:'prayer', ramadan:'prayer', classes:'classes', events:'events', gallery:'gallery', visit:'visit', plan:'visit', new:'start', start:'start', find:'start', help:'start', explore:'start', give:'give', phonepdf:'tools', plansheet:'tools', poster:'tools', share:'tools', tv:'tools', sitemap:'more', menus:'more', notes:'more', ideas:'more'};
+const ROUTE_GROUP = {prayer:'prayer', ramadan:'ramadan', classes:'classes', events:'more', gallery:'more', visit:'visit', plan:'visit', new:'start', start:'start', find:'start', help:'start', explore:'start', give:'give', phonepdf:'more', plansheet:'more', poster:'more', share:'more', tv:'more', sitemap:'more', menus:'more', notes:'more', ideas:'more'};
+function slimGroups(){
+  const G = siteGroups(), by = k => G.find(g => g.k === k);
+  const pick = (g, ts) => Object.assign({}, g, {items: ts.map(t => g.items.find(i => i[0] === t)).filter(Boolean)});
+  return [
+    by('start'),
+    pick(by('prayer'), ['Today’s prayer times', 'Jumu’ah']),
+    {k:'ramadan', t:'Ramadan', d:'Timetable, iftar, Taraweeh', ic:'moon', href:'#/ramadan', items:[['Ramadan timetable', 'Suhoor, iftar and Isha every day', '#/ramadan', false, 'moon'], ['Iftar sponsors', 'Who feeds the community each night', '#/ramadan?go=sponsor', false, 'dates']]},
+    pick(by('classes'), ['Find my class', 'Weekly schedule']),
+    by('watch'),
+    pick(by('visit'), ['Plan a visit', 'Directions and hours']),
+    pick(by('give'), ['Give today', 'How the loan works']),
+    {k:'more', t:'More', d:'Events, gallery, volunteer', ic:'menu', href:'#/sitemap', items:[['Events and news', 'What is on', '#/events', false, 'calplus'], ['Gallery', 'Past activities and photos', '#/gallery', false, 'photo'], ['Volunteer', 'Help keep the masjid running', LIVE + '/volunteer', true, 'users'], ['All pages', 'Every page in one list', '#/sitemap', false, 'menu']]}
+  ];
+}
 function menuData(){
-  return siteGroups().map(g => ({k:g.k, t:g.t, d:g.d, ic:g.ic, href:g.href, ext:g.ext, sub:g.items.length > 1 ? g.items.map(i => [i[0], i[2], i[3]]) : []}));
+  return slimGroups().map(g => ({k:g.k, t:g.t, d:g.d, ic:g.ic, href:g.href, ext:g.ext, sub: g.k === 'ramadan' ? [] : g.items.map(i => [i[0], i[2], i[3]])}));
 }
 const moreLinks = cls => SITE_MORE.map(m => '<a' + (cls ? ' class="' + cls + '"' : '') + ' href="' + m[2] + '">' + m[0] + '</a>').join('');
 const mA = (m, cls, extra) => '<a class="' + cls + '"' + (extra || '') + ' href="' + m.href + '"' + (m.ext ? ' target="_blank" rel="noopener"' : '') + '>';
@@ -3718,9 +3793,9 @@ function updateStrip(){
 }
 function panelHTML(){
   const M = menuData();
-  const tile = m => '<div class="mt">' + mA(m, 'mt-main', ' data-ovf="tiles"') + '<span class="mt-ic">' + icon(m.ic) + '</span><span><b>' + m.t + (m.ext ? ' ' + icon('ext') : '') + '</b><small>' + m.d + '</small></span></a>' + (m.sub.length ? '<div class="mt-sub">' + mSub(m) + '</div>' : '') + '</div>';
-  return '<div class="mpanel" id="mpanel" role="group" aria-label="Menu"><div class="container"><div data-fy="day">' + forYouHTML('day') + '</div><div class="mp-in">' + M.filter(m => m.k !== 'start').map(tile).join('') + '</div>' +
-    '<div class="mp-foot"><span>Next: <b data-next-name></b> <b data-next-time></b> <span data-next-in></span></span><a href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + '817 Yonge St, Toronto</a><a href="tel:' + C.tel + '">' + icon('phone') + C.phone + '</a><a href="' + YTD.channel.live + '" target="_blank" rel="noopener">' + icon('rec') + 'Watch live</a><a href="' + C.instagram + '" target="_blank" rel="noopener">' + icon('ig') + 'Instagram</a></div><div class="mp-more"><span>More</span>' + moreLinks() + '</div></div></div>';
+  const tile = m => '<div class="mt">' + mA(m, 'mt-main', ' data-ovf="tiles"') + '<span class="mt-ic">' + icon(m.ic) + '</span><span><b>' + m.t + (m.ext ? ' ' + icon('ext') : '') + '</b><small>' + m.d + '</small></span></a></div>';
+  const more = (M.find(m => m.k === 'more') || {sub:[]}).sub.map(x => '<a href="' + x[1] + '"' + (x[2] ? ' target="_blank" rel="noopener"' : '') + '>' + x[0] + (x[2] ? ' ' + icon('ext') : '') + '</a>').join('');
+  return '<div class="mpanel mp-slim" id="mpanel" role="group" aria-label="Menu"><div class="container"><div data-fy="day">' + forYouHTML('day') + '</div><div class="mp-in">' + M.filter(m => m.k !== 'start' && m.k !== 'more').map(tile).join('') + '</div><div class="mp-more"><span>Also</span>' + more + '</div></div></div>';
 }
 function dockHTML(){
   const it = (k, t, ic, href) => '<a data-dk="' + k + '" href="' + href + '">' + icon(ic) + '<span>' + t + '</span></a>';
@@ -3924,7 +3999,7 @@ function twBoxHTML(){
 }
 function taraweehPastHTML(){
   const tabs = TW.years.map((y, i) => '<button type="button" data-twy="' + i + '" aria-pressed="' + (i === twY) + '">' + y.y + ' <small>' + y.h + '</small></button>').join('');
-  return '<section class="sec sec-dark tw" id="past"><div class="container"><div class="sec-h"><div><p class="eyebrow">Look back</p><h2>Taraweeh in past years</h2></div><div class="seg" role="group" aria-label="Choose a year">' + tabs + '</div></div>' +
+  return '<section class="sec sec-dark tw" id="past" data-tab="taraweeh"><div class="container"><div class="sec-h"><div><p class="eyebrow">Look back</p><h2>Taraweeh in past years</h2></div><div class="seg" role="group" aria-label="Choose a year">' + tabs + '</div></div>' +
     '<div id="tw-box">' + twBoxHTML() + '</div>' +
     '<p class="muted tw-note">Recordings come from the centre’s own YouTube channel, @TICmasjid. A night opens in the player above when you tap it, and nothing loads from YouTube until then.</p>' +
     '<div class="rv"><div class="card" style="margin-top:14px;padding:14px 16px"><b>To confirm with the centre</b> <span class="muted">· that it is happy to show these recordings here; who recited each night (the names could go under each night); and whether to add 2022 and earlier.</span></div></div></div></section>';
@@ -3941,16 +4016,16 @@ function ramBodyHTML(){
   const st = ramState();
   const nightly = RM.nightly.map(n => '<div class="card"><span class="ico">' + icon(n.ic) + '</span><h3>' + esc(n.t) + '</h3><p class="muted">' + esc(n.d) + '</p></div>').join('');
   const faq = RM.faq.map(f => '<details><summary>' + esc(f[0]) + '</summary><p>' + f[1].replace('{start}', longDateY(RM.start)).replace('{eid}', longDateY(RM.eid)) + '</p></details>').join('');
-  return '<section class="sec" style="padding-top:26px"><div class="container">' + ramHeroHTML(st) +
+  return '<section class="sec" data-tab="today" style="padding-top:26px"><div class="container">' + ramHeroHTML(st) +
     '<div class="sec-h"><div><p class="eyebrow">Every night</p><h2>What happens at the masjid</h2></div></div><div class="ram-nightly">' + nightly + '</div><p class="muted ram-note">Based on last Ramadan. The centre announces the schedule for ' + pd(RM.start).y + '.</p></div></section>' +
-    taraweehPastHTML() + '<section class="sec sec-tint" id="timetable"><div class="container"><div class="sec-h"><div><p class="eyebrow">Timetable</p><h2>Suhoor, iftar and Isha, every day</h2></div><div class="tb-act"><button type="button" class="btn btn-sm btn-line" data-ramics>' + icon('calplus') + ' Add to my calendar</button><button type="button" class="btn btn-sm btn-line" data-ramprint>' + icon('print') + ' Print</button></div></div>' + ramTableHTML(st) +
+    taraweehPastHTML() + '<section class="sec sec-tint" id="timetable" data-tab="timetable"><div class="container"><div class="sec-h"><div><p class="eyebrow">Timetable</p><h2>Suhoor, iftar and Isha, every day</h2></div><div class="tb-act"><button type="button" class="btn btn-sm btn-line" data-ramics>' + icon('calplus') + ' Add to my calendar</button><button type="button" class="btn btn-sm btn-line" data-ramprint>' + icon('print') + ' Print</button></div></div>' + ramTableHTML(st) +
     '<p class="muted ram-note">Calculated for Toronto and rounded to be safe: suhoor ends at Fajr, and iftar is at Maghrib. Follow the centre’s own timetable when it is published.</p></div></section>' +
-    '<section class="sec" id="sponsor"><div class="container">' + ramSponsorHeadHTML() + '<p class="lead" style="margin-bottom:18px">Choose an open night, then give on the centre’s donation page and write the night in the note.</p>' + ramSponsorHTML() + '</div></section>' +
-    '<section class="sec sec-tint"><div class="container two"><div class="card pad"><p class="eyebrow">The last ten nights</p><h3>Look for Laylat al-Qadr</h3><p class="muted">The last ten nights begin at sunset on day 20 (' + shortDay(ramDay(20)) + '). People look for Laylat al-Qadr on the odd nights: the 21st, 23rd, 25th, 27th and 29th. Extra night prayers (Qiyam) are held, and the centre announces the times.</p><p class="muted"><b>I‘tikaf</b> means staying in the masjid for worship. Ask the office how to register.</p></div>' +
+    '<section class="sec" id="sponsor" data-tab="sponsor"><div class="container">' + ramSponsorHeadHTML() + '<p class="lead" style="margin-bottom:18px">Choose an open night, then give on the centre’s donation page and write the night in the note.</p>' + ramSponsorHTML() + '</div></section>' +
+    '<section class="sec sec-tint" data-tab="ten"><div class="container two"><div class="card pad"><p class="eyebrow">The last ten nights</p><h3>Look for Laylat al-Qadr</h3><p class="muted">The last ten nights begin at sunset on day 20 (' + shortDay(ramDay(20)) + '). People look for Laylat al-Qadr on the odd nights: the 21st, 23rd, 25th, 27th and 29th. Extra night prayers (Qiyam) are held, and the centre announces the times.</p><p class="muted"><b>I‘tikaf</b> means staying in the masjid for worship. Ask the office how to register.</p></div>' +
     '<div class="card pad"><p class="eyebrow">Eid al-Fitr</p><h3>Expected ' + longDateY(RM.eid) + '</h3><p class="muted">After the moon is sighted at the end of the month. Eid prayer times and places are announced in the last days of Ramadan.</p><p class="muted"><b>Zakat al-Fitr</b> is given before the Eid prayer, for each person in the family. The centre announces the amount each year.</p><div class="dlg-act"><a class="btn btn-sm" href="' + LIVE + '/donations" target="_blank" rel="noopener">Give Zakat al-Fitr ' + icon('ext') + '</a></div></div></div></section>' +
-    '<section class="sec"><div class="container two"><div class="card pad"><p class="eyebrow">Bring a neighbour</p><h3>Invite someone to iftar</h3><p class="muted">Many people who are not Muslim have never been inside a masjid. Iftar is a friendly way to start. Tell us you are coming, and bring friends or a group if you like.</p><a class="btn btn-sm btn-line" href="#/plan?who=neighbour">Plan a visit</a></div>' +
+    '<section class="sec" data-tab="faq"><div class="container two"><div class="card pad"><p class="eyebrow">Bring a neighbour</p><h3>Invite someone to iftar</h3><p class="muted">Many people who are not Muslim have never been inside a masjid. Iftar is a friendly way to start. Tell us you are coming, and bring friends or a group if you like.</p><a class="btn btn-sm btn-line" href="#/plan?who=neighbour">Plan a visit</a></div>' +
     '<div class="card pad"><p class="eyebrow">Volunteer</p><h3>Help this Ramadan</h3><p class="muted">Around ninety volunteers keep the masjid running, and Ramadan is the busiest month. Join them.</p><a class="btn btn-sm btn-line" href="' + LIVE + '/volunteer" target="_blank" rel="noopener">Volunteer ' + icon('ext') + '</a></div></div></section>' +
-    '<section class="sec sec-tint"><div class="container"><div class="sec-h"><h2>Short answers</h2></div><div class="faq">' + faq + '</div><div class="rv"><div class="card" style="margin-top:14px;padding:14px 16px"><b>To confirm with the centre</b><ul class="rv-list">' + RM.review.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div></div></div></section>';
+    '<section class="sec sec-tint" data-tab="faq"><div class="container"><div class="sec-h"><h2>Short answers</h2></div><div class="faq">' + faq + '</div><div class="rv"><div class="card" style="margin-top:14px;padding:14px 16px"><b>To confirm with the centre</b><ul class="rv-list">' + RM.review.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div></div></div></section>';
 }
 function pageRamadan(r){
   const q = (r && r.q) || {};
@@ -3964,6 +4039,8 @@ function pageRamadan(r){
 function renderRam(){
   const b = $('#ram-body'); if (!b) return;
   b.innerHTML = ramBodyHTML();
+  autoTabs('ramadan');
+  softIn(b);
   $$('[data-ramprev]').forEach(x => { if (x.classList.contains('chip')) x.setAttribute('aria-pressed', String(x.dataset.ramprev === ramPrevKey())); });
   updateRamPill();
   safeReplace('#/ramadan' + (ramPrevKey() ? '?preview=' + ramPrevKey() : ''));
@@ -4002,13 +4079,13 @@ function nmFormHTML(){
 function pageNew(){
   const sh = NM.shahada;
   return '<section class="page-head' + pageHeadStyle('learn') + '"><div class="container"><p class="eyebrow">New to Islam?</p><h1>You are welcome here</h1><p class="lead">' + esc(NM.lead) + '</p><div class="dlg-act"><a class="btn" href="#/new?go=ask">Ask for a buddy</a><a class="btn btn-ghost-l" href="#/plan?who=new">Plan a first visit</a></div></div></section>' +
-    '<section class="sec"><div class="container"><div class="sec-h"><div><p class="eyebrow">Where are you?</p><h2>Start wherever you are</h2></div></div><div class="nm-paths">' + NM.paths.map(p => '<div class="card nm-p"><div class="nm-pic" style="background-image:url(' + gImg({shahada:'quran-light', did:'handshake', curious:'hall'}[p.id] || 'hall') + ')"></div><div class="pad"><h3>' + esc(p.t) + '</h3><p class="muted">' + esc(p.d) + '</p></div></div>').join('') + '</div><p class="muted nm-stat">' + esc(NM.stat) + '</p></div></section>' +
-    '<section class="sec sec-tint"><div class="container"><div class="nm-sh"><div><p class="eyebrow">The shahada</p><p class="ar" lang="ar" dir="rtl">' + sh.ar + '</p></div><div><p><i>' + esc(sh.tr) + '</i></p><p><b>' + esc(sh.en) + '</b></p><p>' + esc(sh.note) + '</p></div></div></div></section>' +
-    '<section class="sec"><div class="container"><div class="sec-h"><div><p class="eyebrow">Your first weeks</p><h2>Four small steps</h2></div></div><ol class="nm-steps">' + NM.steps.map(x => '<li><b>' + esc(x.t) + '</b><span class="muted">' + esc(x.d) + '</span></li>').join('') + '</ol></div></section>' +
-    '<section class="sec sec-tint"><div class="container"><div class="sec-h"><div><p class="eyebrow">Classes</p><h2>Good places to start</h2></div><a class="more" href="#/classes">All classes ' + icon('arrow') + '</a></div><div class="nm-classes">' + NM.classes.map(miniClass).join('') + '</div><p class="muted" style="margin-top:12px">Sisters: ask us which classes suit you, or <a href="#/classes?who=sisters">see the classes for sisters</a>.</p></div></section>' +
-    '<section class="sec" id="ask"><div class="container two nm-ask"><div><p class="eyebrow">Ask for a buddy</p><h2>Someone to walk with you</h2><p class="muted" style="margin:10px 0 16px">Tell us a little. A brother or sister will get back to you.</p>' + nmFormHTML() + '</div>' +
+    '<section class="sec" data-tab="start"><div class="container"><div class="sec-h"><div><p class="eyebrow">Where are you?</p><h2>Start wherever you are</h2></div></div><div class="nm-paths">' + NM.paths.map(p => '<div class="card nm-p"><div class="nm-pic" style="background-image:url(' + gImg({shahada:'quran-light', did:'handshake', curious:'hall'}[p.id] || 'hall') + ')"></div><div class="pad"><h3>' + esc(p.t) + '</h3><p class="muted">' + esc(p.d) + '</p></div></div>').join('') + '</div><p class="muted nm-stat">' + esc(NM.stat) + '</p></div></section>' +
+    '<section class="sec sec-tint" data-tab="start"><div class="container"><div class="nm-sh"><div><p class="eyebrow">The shahada</p><p class="ar" lang="ar" dir="rtl">' + sh.ar + '</p></div><div><p><i>' + esc(sh.tr) + '</i></p><p><b>' + esc(sh.en) + '</b></p><p>' + esc(sh.note) + '</p></div></div></div></section>' +
+    '<section class="sec" data-tab="steps"><div class="container"><div class="sec-h"><div><p class="eyebrow">Your first weeks</p><h2>Four small steps</h2></div></div><ol class="nm-steps">' + NM.steps.map(x => '<li><b>' + esc(x.t) + '</b><span class="muted">' + esc(x.d) + '</span></li>').join('') + '</ol></div></section>' +
+    '<section class="sec sec-tint" data-tab="steps"><div class="container"><div class="sec-h"><div><p class="eyebrow">Classes</p><h2>Good places to start</h2></div><a class="more" href="#/classes">All classes ' + icon('arrow') + '</a></div><div class="nm-classes">' + NM.classes.map(miniClass).join('') + '</div><p class="muted" style="margin-top:12px">Sisters: ask us which classes suit you, or <a href="#/classes?who=sisters">see the classes for sisters</a>.</p></div></section>' +
+    '<section class="sec" id="ask" data-tab="ask"><div class="container two nm-ask"><div><p class="eyebrow">Ask for a buddy</p><h2>Someone to walk with you</h2><p class="muted" style="margin:10px 0 16px">Tell us a little. A brother or sister will get back to you.</p>' + nmFormHTML() + '</div>' +
     '<div class="card pad"><h3>' + esc(NM.support.t) + '</h3><p class="muted">' + esc(NM.support.d) + '</p><h3 style="margin-top:22px">Prefer to talk?</h3><p class="muted">Call the office, Monday to Friday, 1 to 9 pm.</p><div class="dlg-act"><a class="btn btn-sm" href="tel:' + C.tel + '">' + icon('phone') + ' ' + C.phone + '</a><a class="btn btn-sm btn-line" href="mailto:' + C.email + '">' + icon('mail') + ' Email</a></div></div></div></section>' +
-    '<section class="sec sec-tint"><div class="container"><div class="sec-h"><h2>Short answers</h2></div><div class="faq">' + NM.faq.map(x => '<details><summary>' + esc(x[0]) + '</summary><p>' + esc(x[1]) + '</p></details>').join('') + '</div><div class="rv"><div class="card" style="margin-top:14px;padding:14px 16px"><b>To confirm with the centre</b><ul class="rv-list">' + NM.review.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div></div></div></section>';
+    '<section class="sec sec-tint" data-tab="faq"><div class="container"><div class="sec-h"><h2>Short answers</h2></div><div class="faq">' + NM.faq.map(x => '<details><summary>' + esc(x[0]) + '</summary><p>' + esc(x[1]) + '</p></details>').join('') + '</div><div class="rv"><div class="card" style="margin-top:14px;padding:14px 16px"><b>To confirm with the centre</b><ul class="rv-list">' + NM.review.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div></div></div></section>';
 }
 
 /* ---------- Plan a visit ---------- */
@@ -4043,17 +4120,18 @@ function pagePlan(r){
   if (planState.day == null) planState.day = NOW.dow;
   const oc = GALI.find(x => x.id === 'open-day-neighbours');
   return '<section class="page-head' + pageHeadStyle('visit') + '"><div class="container"><p class="eyebrow">817 Yonge St</p><h1>Plan a visit</h1><p class="lead">' + esc(PL.lead) + '</p></div></section>' +
-    '<section class="sec" style="padding-top:22px"><div class="container"><div class="sec-h"><div><p class="eyebrow">Step 1</p><h2>Who is coming?</h2></div></div><div class="pl-who" role="group" aria-label="Who is visiting">' + planWhoHTML() + '</div><div class="pl-panel" id="pl-panel">' + planPanelHTML() + '</div></div></section>' +
-    '<section class="sec sec-tint"><div class="container"><div class="sec-h"><div><p class="eyebrow">Step 2</p><h2>What to expect</h2></div></div><div class="pl-expect">' + PL.expect.map((x, i) => '<div class="card pad"><span class="pl-n">' + (i + 1) + '</span><h3>' + esc(x.t) + '</h3><p class="muted">' + esc(x.d) + '</p></div>').join('') + '</div></div></section>' +
-    '<section class="sec" id="when"><div class="container"><div class="sec-h"><div><p class="eyebrow">Step 3</p><h2>Pick a day and see what is on</h2></div></div><div id="pl-day">' + planDayTabsHTML() + planDayHTML() + '</div></div></section>' +
-    '<section class="sec sec-tint" id="getting"><div class="container two"><div class="card pad"><p class="eyebrow">Getting here</p><h3>817 Yonge St, Toronto</h3><address style="font-style:normal;margin:6px 0 10px">817 Yonge St<br>Toronto, ON M4W 2G9</address><p class="muted">Open doors at Yonge and Bloor, in the heart of Toronto.</p><div class="dlg-act"><a class="btn" href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + ' Get directions</a><button type="button" class="btn btn-line" data-pcopy>Copy the address to send</button></div></div>' +
+    '<section class="sec" data-tab="who" style="padding-top:22px"><div class="container"><div class="sec-h"><div><p class="eyebrow">Step 1</p><h2>Who is coming?</h2></div></div><div class="pl-who" role="group" aria-label="Who is visiting">' + planWhoHTML() + '</div><div class="pl-panel" id="pl-panel">' + planPanelHTML() + '</div></div></section>' +
+    '<section class="sec sec-tint" data-tab="who"><div class="container"><div class="sec-h"><div><p class="eyebrow">Step 2</p><h2>What to expect</h2></div></div><div class="pl-expect">' + PL.expect.map((x, i) => '<div class="card pad"><span class="pl-n">' + (i + 1) + '</span><h3>' + esc(x.t) + '</h3><p class="muted">' + esc(x.d) + '</p></div>').join('') + '</div></div></section>' +
+    '<section class="sec" id="when" data-tab="when"><div class="container"><div class="sec-h"><div><p class="eyebrow">Step 3</p><h2>Pick a day and see what is on</h2></div></div><div id="pl-day">' + planDayTabsHTML() + planDayHTML() + '</div></div></section>' +
+    '<section class="sec sec-tint" id="getting" data-tab="getting"><div class="container two"><div class="card pad"><p class="eyebrow">Getting here</p><h3>817 Yonge St, Toronto</h3><address style="font-style:normal;margin:6px 0 10px">817 Yonge St<br>Toronto, ON M4W 2G9</address><p class="muted">Open doors at Yonge and Bloor, in the heart of Toronto.</p><div class="dlg-act"><a class="btn" href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + ' Get directions</a><button type="button" class="btn btn-line" data-pcopy>Copy the address to send</button></div></div>' +
     '<div class="card pad"><p class="eyebrow">The office</p><h3>' + C.hours + '</h3><p class="muted">Ask for a tour, a quiet look around, or someone to answer your questions.</p><div class="dlg-act"><a class="btn btn-sm" href="tel:' + C.tel + '">' + icon('phone') + ' ' + C.phone + '</a><a class="btn btn-sm btn-line" href="mailto:' + C.email + '">' + icon('mail') + ' Email</a></div></div></div></section>' +
-    '<section class="sec" id="request"><div class="container two nm-ask"><div><p class="eyebrow">Step 4</p><h2>Ask for a visit or a tour</h2><p class="muted" style="margin:10px 0 16px">Tell us who is coming and what you would like. We will get back to you.</p>' + planFormHTML() + '</div><div>' + (oc ? '<p class="eyebrow" style="margin-bottom:10px">Our last open day for neighbours</p>' + gSmall(oc) : '') + '</div></div></section>' +
-    '<section class="sec sec-tint"><div class="container"><div class="rv"><div class="card" style="padding:14px 16px"><b>To confirm with the centre</b><ul class="rv-list">' + PL.review.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div></div><p class="muted">Coming in Ramadan? See the <a href="#/ramadan">Ramadan plan</a>. New to Islam? Start on <a href="#/new">this page</a>.</p></div></section>';
+    '<section class="sec" id="request" data-tab="ask"><div class="container two nm-ask"><div><p class="eyebrow">Step 4</p><h2>Ask for a visit or a tour</h2><p class="muted" style="margin:10px 0 16px">Tell us who is coming and what you would like. We will get back to you.</p>' + planFormHTML() + '</div><div>' + (oc ? '<p class="eyebrow" style="margin-bottom:10px">Our last open day for neighbours</p>' + gSmall(oc) : '') + '</div></div></section>' +
+    '<section class="sec sec-tint" data-tab="ask"><div class="container"><div class="rv"><div class="card" style="padding:14px 16px"><b>To confirm with the centre</b><ul class="rv-list">' + PL.review.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div></div><p class="muted">Coming in Ramadan? See the <a href="#/ramadan">Ramadan plan</a>. New to Islam? Start on <a href="#/new">this page</a>.</p></div></section>';
 }
 function renderPlan(){
   const w = $('.pl-who'), p = $('#pl-panel'); if (!w || !p) return;
   w.innerHTML = planWhoHTML(); p.innerHTML = planPanelHTML();
+  softIn(p);
   safeReplace('#/plan?who=' + planState.who);
 }
 function renderPlanDay(){ const d = $('#pl-day'); if (d) d.innerHTML = planDayTabsHTML() + planDayHTML(); }
@@ -4074,26 +4152,26 @@ document.addEventListener('submit', e => {
 
 /* ---------- three more menu styles: tabs, drawer, search ---------- */
 function tabstripHTML(){
-  const G = siteGroups();
+  const G = slimGroups();
   return '<nav class="tabstrip" id="tabstrip" aria-label="Main"><div class="ts-row">' + G.map(g => '<a class="ts" data-k="' + g.k + '" href="' + g.href + '"' + (g.ext ? ' target="_blank" rel="noopener"' : '') + '>' + icon(g.ic) + '<span>' + g.t + '</span></a>').join('') +
-    '<a class="ts" data-k="more" href="#/sitemap">' + icon('menu') + '<span>All pages</span></a></div><div class="ts-sub" id="ts-sub" hidden></div></nav>';
+    '</div><div class="ts-sub" id="ts-sub" hidden></div></nav>';
 }
 function updateTabs(p0){
   const k = ROUTE_GROUP[p0 || 'home'] || '', strip = $('#tabstrip'); if (!strip) return;
   $$('.ts', strip).forEach(a => { if (a.dataset.k === k) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
-  const sub = $('#ts-sub'), g = siteGroups().find(x => x.k === k), items = g ? g.items : k === 'more' ? SITE_MORE : [];
+  const sub = $('#ts-sub'), g = slimGroups().find(x => x.k === k), items = g ? g.items : [];
   const here = location.hash.replace(/[?&]go=[^&]*/, '');
   if (!items.length) { sub.hidden = false; sub.innerHTML = fyTabsHTML(); return; }
   sub.hidden = false;
   sub.innerHTML = items.map(it => '<a class="tss"' + (it[2] === here || (it[2] === '#/prayer' && (here === '#/prayer' || here === '#/prayer?')) ? ' aria-current="page"' : '') + ' href="' + it[2] + '"' + (it[3] ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it[0]) + (it[3] ? icon('ext') : '') + '</a>').join('');
 }
 function drawerHTML(){
-  const G = siteGroups(), li = it => '<li><a href="' + it[2] + '"' + (it[3] ? ' target="_blank" rel="noopener"' : '') + '><b>' + esc(it[0]) + (it[3] ? icon('ext') : '') + '</b><small>' + esc(it[1]) + '</small></a></li>';
+  const G = slimGroups(), li = it => '<li><a href="' + it[2] + '"' + (it[3] ? ' target="_blank" rel="noopener"' : '') + '><b>' + esc(it[0]) + (it[3] ? icon('ext') : '') + '</b><small>' + esc(it[1]) + '</small></a></li>';
   return '<div class="drawer-scrim" data-mclose></div><aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu"><div class="dr-top"><b>Menu</b><button type="button" class="dr-x" data-mclose data-ovf="drawer" aria-label="Close the menu">×</button></div>' +
     '<p class="dr-next">Next: <b data-next-name></b> <b data-next-time></b> <span data-next-in></span></p><div data-fy="drawer">' + forYouHTML('drawer') + '</div><div class="dr-list">' +
     G.map(g => '<details class="dr-g" data-g="' + g.k + '"><summary><span class="dr-ic">' + icon(g.ic) + '</span><span><b>' + g.t + '</b><small>' + g.d + '</small></span></summary><ul>' + g.items.map(li).join('') + '</ul></details>').join('') + '</div>' +
     '<div class="dr-act"><a class="btn" href="#/give">Donate</a><a class="btn btn-line" href="tel:' + C.tel + '">' + icon('phone') + ' Call</a><a class="btn btn-line" href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + ' Directions</a></div>' +
-    '<p class="dr-more">' + moreLinks() + '</p></aside>';
+    '</aside>';
 }
 function searchHTML(){
   return '<div class="sx-scrim" data-mclose></div><div class="searchmenu" id="searchmenu" role="dialog" aria-modal="true" aria-label="Search the site"><div class="sx-box"><div class="sx-in">' + icon('search') + '<input id="sx-q" type="search" autocomplete="off" placeholder="Search pages, classes, Ramadan…" aria-label="Search pages and classes" aria-controls="sx-list"><button type="button" class="sx-x" data-mclose aria-label="Close the search">Esc</button></div><div id="sx-list" class="sx-list" role="listbox" aria-label="Results"></div></div></div>';
@@ -4174,7 +4252,7 @@ function auditLinks(){
   const notListed = need.filter(k => !set.has(k)), dead = [...set].filter(k => k !== 'home' && PAGE_KEYS.indexOf(k) < 0);
   const has = (root, k) => !!(root && root.querySelector('a[href^="#/' + k + '"]'));
   const spots = [['the day menu', $('#mpanel')], ['the drawer', $('#drawer')], ['the grouped menu', $('#nav2')]];
-  const gaps = []; spots.forEach(sp => need.forEach(k => { if (!has(sp[1], k)) gaps.push(k + ' is not in ' + sp[0]); }));
+  const gaps = []; spots.forEach(sp => ['prayer', 'classes', 'visit', 'give', 'sitemap'].forEach(k => { if (!has(sp[1], k)) gaps.push(k + ' is not in ' + sp[0]); }));
   if (!has($('#footer'), 'sitemap')) gaps.push('All pages is not in the footer');
   const badClass = []; siteGroups().forEach(g => g.items.forEach(it => { const m = /^#\/classes\/([\w-]+)/.exec(it[2]); if (m && !BYID[m[1]]) badClass.push(m[1]); }));
   return {pages:need.length, notListed, dead, gaps, badClass};
@@ -4188,7 +4266,7 @@ function pageSitemap(){
     '<div class="sp-g"><div class="sp-cards">' + card(['Home', 'Today’s prayer times, classes and news', '#/', false, 'arrow']) + '</div></div>' +
     G.map(g => '<section class="sp-g" id="' + g.k + '"><h2>' + icon(g.ic) + '<span>' + g.t + '</span></h2><p class="muted">' + g.d + '</p><div class="sp-cards">' + g.items.map(card).join('') + '</div></section>').join('') +
     '<section class="sp-g" id="more"><h2>' + icon('menu') + '<span>About this concept</span></h2><p class="muted">Pages for the people reviewing the redesign.</p><div class="sp-cards">' + SITE_MORE.map(card).join('') + '</div></section>' +
-    '<div class="rv"><div class="card" style="padding:14px 16px"><b>Link check</b> <span class="muted">· ' + (ok ? 'All ' + a.pages + ' pages are on the list, and each one is linked from the day menu, the drawer and the grouped menu. The footer carries the main links and All pages. No dead links.' : 'Needs attention: ' + [a.notListed.length ? 'not on the list: ' + a.notListed.join(', ') : '', a.dead.length ? 'links to missing pages: ' + a.dead.join(', ') : '', a.badClass.length ? 'unknown classes: ' + a.badClass.join(', ') : '', a.gaps.slice(0, 8).join('; ')].filter(Boolean).join(' | ')) + '</span></div></div></div></section>';
+    '<div class="rv"><div class="card" style="padding:14px 16px"><b>Link check</b> <span class="muted">· ' + (ok ? 'All ' + a.pages + ' pages are on the list, and the menus show the main places and link to All pages, where the rest are. The footer does the same. No dead links.' : 'Needs attention: ' + [a.notListed.length ? 'not on the list: ' + a.notListed.join(', ') : '', a.dead.length ? 'links to missing pages: ' + a.dead.join(', ') : '', a.badClass.length ? 'unknown classes: ' + a.badClass.join(', ') : '', a.gaps.slice(0, 8).join('; ')].filter(Boolean).join(' | ')) + '</span></div></div></div></section>';
 }
 
 /* ---------- Start here: four paths, and a menu that leads each visitor ---------- */
@@ -4281,8 +4359,8 @@ function helpFormHTML(){
 function pageHelp(){
   const svc = HELP.services.map(x => '<div class="card pad"><h3>' + esc(x.t) + '</h3><p class="muted">' + esc(x.d) + '</p>' + (x.href ? '<a class="more" href="' + x.href + '">' + esc(x.link || 'Open') + ' ' + icon('arrow') + '</a>' : '') + (x.flag ? '<p class="rv">' + esc(x.flag) + '</p>' : '') + '</div>').join('');
   return '<section class="page-head' + pageHeadStyle('lantern') + '"><div class="container"><p class="eyebrow">Support and services</p><h1>You are not alone</h1><p class="lead">' + esc(HELP.lead) + '</p><div class="dlg-act"><a class="btn" href="#/help?go=ask">Ask for help</a><a class="btn btn-line" href="tel:' + C.tel + '">' + icon('phone') + ' Call the office</a></div></div></section>' +
-    '<section class="sec" style="padding-top:12px"><div class="container"><div class="sec-h"><div><p class="eyebrow">What we can help with</p><h2>Support from the community</h2></div></div><div class="hp-grid">' + svc + '</div></div></section>' +
-    '<section class="sec sec-tint" id="ask"><div class="container two nm-ask"><div><p class="eyebrow">Ask for help</p><h2>Tell us what is going on</h2><p class="muted" style="margin:10px 0 16px">A brother or sister will get back to you. If you would rather talk, call the office, ' + esc(C.hours) + '.</p>' + helpFormHTML() + '</div>' +
+    '<section class="sec" data-tab="services" style="padding-top:12px"><div class="container"><div class="sec-h"><div><p class="eyebrow">What we can help with</p><h2>Support from the community</h2></div></div><div class="hp-grid">' + svc + '</div></div></section>' +
+    '<section class="sec sec-tint" id="ask" data-tab="ask"><div class="container two nm-ask"><div><p class="eyebrow">Ask for help</p><h2>Tell us what is going on</h2><p class="muted" style="margin:10px 0 16px">A brother or sister will get back to you. If you would rather talk, call the office, ' + esc(C.hours) + '.</p>' + helpFormHTML() + '</div>' +
     '<div><div class="callout">' + esc(HELP.crisis) + '</div></div></div></section>' +
     '<section class="sec"><div class="container"><div class="rv"><div class="card" style="padding:14px 16px"><b>To confirm with the centre</b><ul class="rv-list">' + HELP.review.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div></div><p class="muted">New to Islam? <a href="#/new">Start here</a>. Looking for classes? <a href="#/find">Find a class</a>.</p></div></section>';
 }
@@ -4290,9 +4368,9 @@ function pageHelp(){
 function pageExplore(){
   const ways = EXPL.ways.map(w => { const l = audLink(['', '', w.href]); return '<a class="card pad ex-way" href="' + l.href + '"' + l.attrs + '><span class="ex-ic">' + icon(w.ic) + '</span><h3>' + esc(w.t) + (l.ext ? icon('ext') : '') + '</h3><p class="muted">' + esc(w.d) + '</p></a>'; }).join('');
   return '<section class="page-head' + pageHeadStyle('dome') + '"><div class="container"><p class="eyebrow">Learn about Islam</p><h1>Curious? You are welcome.</h1><p class="lead">' + esc(EXPL.lead) + '</p><div class="dlg-act"><a class="btn" href="#/plan?who=neighbour">Plan a visit</a><a class="btn btn-ghost-l" href="#/explore?go=ask">Ask a question</a></div></div></section>' +
-    '<section class="sec"><div class="container"><div class="sec-h"><div><p class="eyebrow">Ways to learn</p><h2>Pick what suits you</h2></div></div><div class="ex-ways">' + ways + '</div></div></section>' +
-    '<section class="sec sec-tint"><div class="container"><div class="sec-h"><div><p class="eyebrow">The basics</p><h2>Short answers</h2></div></div><div class="faq">' + EXPL.basics.map(x => '<details><summary>' + esc(x[0]) + '</summary><p>' + esc(x[1]) + '</p></details>').join('') + '</div></div></section>' +
-    '<section class="sec" id="ask"><div class="container two nm-ask"><div><p class="eyebrow">Ask a question</p><h2>Ask anything</h2><p class="muted" style="margin:10px 0 16px">No question is too basic. A volunteer will write back.</p><form class="wf" data-form="ask" novalidate><label>Your question<textarea name="notes"></textarea></label><div class="row2"><label>Your name <small>(optional)</small><input name="name" autocomplete="name"></label><label>Email or phone<input name="contact" autocomplete="off"></label></div><div class="dlg-act" style="margin-top:0"><button class="btn" type="submit">Send the question</button></div><p class="wf-done" role="status" aria-live="polite"></p></form></div>' +
+    '<section class="sec" data-tab="ways"><div class="container"><div class="sec-h"><div><p class="eyebrow">Ways to learn</p><h2>Pick what suits you</h2></div></div><div class="ex-ways">' + ways + '</div></div></section>' +
+    '<section class="sec sec-tint" data-tab="faq"><div class="container"><div class="sec-h"><div><p class="eyebrow">The basics</p><h2>Short answers</h2></div></div><div class="faq">' + EXPL.basics.map(x => '<details><summary>' + esc(x[0]) + '</summary><p>' + esc(x[1]) + '</p></details>').join('') + '</div></div></section>' +
+    '<section class="sec" id="ask" data-tab="ask"><div class="container two nm-ask"><div><p class="eyebrow">Ask a question</p><h2>Ask anything</h2><p class="muted" style="margin:10px 0 16px">No question is too basic. A volunteer will write back.</p><form class="wf" data-form="ask" novalidate><label>Your question<textarea name="notes"></textarea></label><div class="row2"><label>Your name <small>(optional)</small><input name="name" autocomplete="name"></label><label>Email or phone<input name="contact" autocomplete="off"></label></div><div class="dlg-act" style="margin-top:0"><button class="btn" type="submit">Send the question</button></div><p class="wf-done" role="status" aria-live="polite"></p></form></div>' +
     '<div class="card pad"><h3>Prefer to meet?</h3><p class="muted">Come in, ask at the desk, or plan a visit. The office is open ' + esc(C.hours) + '.</p><div class="dlg-act"><a class="btn btn-sm" href="#/plan?who=neighbour">Plan a visit</a><a class="btn btn-sm btn-line" href="tel:' + C.tel + '">' + icon('phone') + ' ' + C.phone + '</a></div></div></div></section>' +
     '<section class="sec sec-tint"><div class="container"><div class="rv"><div class="card" style="padding:14px 16px"><b>To confirm with the centre</b><ul class="rv-list">' + EXPL.review.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div></div><p class="muted">Already Muslim and new to the masjid? <a href="#/new">Start here</a>.</p></div></section>';
 }
@@ -4377,7 +4455,7 @@ function simApply(){
   NOW.date = n.date; NOW.dow = n.dow; NOW.mins = n.mins;
   const dayChanged = n.date !== simDate;
   simDate = n.date;
-  if (dayChanged) { homeDay = NOW.dow; const y = window.scrollY; renderedKey = ''; route(); window.scrollTo(0, y); scBuild(); }
+  if (dayChanged) { homeDay = NOW.dow; const y = window.scrollY; renderedKey = ''; routeNow(); window.scrollTo(0, y); scBuild(); }
   updateNext(); updateLive(); applySky();
   const b = scEl('sc-open');
   if (b) { b.classList.toggle('sim', !!SIM); b.setAttribute('aria-label', SIM ? 'Sun clock, pretend time ' + DS[n.dow] + ' ' + fmt(n.mins) : 'Sun clock'); scEl('sc-open-t').textContent = SIM ? DS[n.dow] + ' ' + fmt(n.mins) + ' (pretend)' : 'Sun clock'; }
@@ -4473,7 +4551,7 @@ window.addEventListener('message', e => {
   if (e.origin !== 'https://www.instagram.com' || !igdlg.open) return;
   try { const m = typeof e.data === 'string' ? JSON.parse(e.data) : e.data; const h = m && m.type === 'MEASURE' && m.details && +m.details.height; if (h > 200) igf.style.height = Math.round(h) + 'px'; } catch (err) {}
 });
-let renderedKey = '', dlgPushed = false, firstLoad = true;
+let renderedKey = '', dlgPushed = false, firstLoad = true, inRoute = false;
 function parseHash(){
   const h = location.hash.replace(/^#\/?/, ''), i = h.indexOf('?');
   const path = i < 0 ? h : h.slice(0, i), qs = i < 0 ? '' : h.slice(i + 1), q = {};
@@ -4481,7 +4559,60 @@ function parseHash(){
   return {parts:path.split('/').filter(Boolean), q, qs};
 }
 const PAGE_TITLES = {start:'Start here', find:'Find a class', help:'Support and services', explore:'Learn about Islam', sitemap:'All pages', ramadan:'Ramadan', new:'New to Islam', plan:'Plan a visit', prayer:'Prayer times', classes:'Weekly class schedule', events:'Events and news', visit:'Visit and contact', notes:'What changed', ideas:'More ideas', tv:'Lobby screen', poster:'Poster', share:'Share picture', plansheet:'Weekly planner', phonepdf:'Weekly schedule for phones', menus:'Menu samples', gallery:'Gallery and past activities', give:'Support the masjid'};
+/* long pages are split into tabs: one part at a time instead of one very long scroll */
+const TAB_DEFS = {
+  ramadan: {root:'#ram-body', tabs:[['today', 'Tonight', 'moon'], ['timetable', 'Timetable', 'clock'], ['sponsor', 'Sponsor a night', 'dates'], ['taraweeh', 'Taraweeh', 'rec'], ['ten', 'Last ten nights', 'star'], ['faq', 'Questions', 'chat']]},
+  new: {root:'#app', tabs:[['start', 'Start here', 'sprout'], ['steps', 'First steps', 'book'], ['ask', 'Ask someone', 'chat'], ['faq', 'Questions', 'compass']]},
+  plan: {root:'#app', tabs:[['who', 'Who is coming', 'users'], ['when', 'Pick a day', 'cal'], ['getting', 'Getting here', 'door'], ['ask', 'Ask for a visit', 'mail']]},
+  give: {root:'#app', tabs:[['give', 'Give today', 'give'], ['how', 'How it works', 'mosque'], ['ways', 'Ways to give', 'handheart'], ['faq', 'Questions', 'chat']]},
+  help: {root:'#app', tabs:[['services', 'What we can help with', 'handheart'], ['ask', 'Ask for help', 'chat']]},
+  explore: {root:'#app', tabs:[['ways', 'Ways to learn', 'compass'], ['faq', 'Short answers', 'book'], ['ask', 'Ask anything', 'mail']]}
+};
+const tabSel = {};
+function activateTab(wrap, key){
+  if (!wrap) return;
+  $$('[data-tabbtn]', wrap).forEach(b => { const on = b.dataset.tabbtn === key; b.setAttribute('aria-selected', String(on)); b.tabIndex = on ? 0 : -1; });
+  $$('[data-tp]', wrap).forEach(pn => { const on = pn.dataset.tp === key; if (on && pn.hidden) { pn.hidden = false; softIn(pn); } else if (!on) pn.hidden = true; });
+  tabSel[wrap.dataset.tabs] = key;
+}
+function autoTabs(p0){
+  const d = TAB_DEFS[p0]; if (!d) return;
+  const root = document.querySelector(d.root); if (!root || root.querySelector(':scope > .tabs')) return;
+  const secs = [...root.children].filter(e => e.dataset && e.dataset.tab);
+  if (!secs.length) return;
+  const keys = d.tabs.map(t => t[0]).filter(k => secs.some(x => x.dataset.tab === k));
+  const wrap = document.createElement('div'); wrap.className = 'tabs'; wrap.dataset.tabs = p0;
+  wrap.innerHTML = '<div class="tabs-bar" role="tablist" aria-label="Parts of this page">' + d.tabs.filter(t => keys.indexOf(t[0]) >= 0).map(t => '<button type="button" role="tab" data-tabbtn="' + t[0] + '">' + icon(t[2]) + '<span>' + t[1] + '</span></button>').join('') + '</div><div class="tab-panels"></div>';
+  const host = wrap.querySelector('.tab-panels');
+  keys.forEach(k => { const pn = document.createElement('div'); pn.className = 'tab-panel'; pn.dataset.tp = k; pn.hidden = true; host.appendChild(pn); });
+  secs[0].before(wrap);
+  secs.forEach(x => host.querySelector('[data-tp="' + x.dataset.tab + '"]').appendChild(x));
+  activateTab(wrap, tabSel[p0] && keys.indexOf(tabSel[p0]) >= 0 ? tabSel[p0] : keys[0]);
+}
+function openTabFor(el){ const pn = el && el.closest && el.closest('[data-tp]'); if (pn && pn.hidden) activateTab(pn.closest('.tabs'), pn.dataset.tp); }
+document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-tabbtn]'); if (b) activateTab(b.closest('.tabs'), b.dataset.tabbtn); });
+/* soft fade-in for a part of a page that is swapped (schedule views, gallery views ...) */
+function softIn(el){
+  if (!el || inRoute || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  el.classList.remove('soft-in'); void el.offsetWidth; el.classList.add('soft-in');
+}
+/* going to another page: the old page cross-fades into the new one, instead of swapping at once */
+function routeKey(r){ const p0 = r.parts[0] || 'home'; return p0 + (p0 === 'classes' ? '' : '|' + r.parts.join('/')); }
 function route(){
+  const r = parseHash(), p0 = r.parts[0] || 'home', key = routeKey(r);
+  const still = (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) || BARE || EMBED || firstLoad || key === renderedKey || ['plansheet', 'phonepdf', 'poster', 'share', 'tv'].indexOf(p0) >= 0;
+  if (!still && typeof document.startViewTransition === 'function' && document.visibilityState === 'visible') {
+    try {
+      const vt = document.startViewTransition(() => routeNow('vt'));
+      ['ready', 'finished', 'updateCallbackDone'].forEach(k => { try { vt[k].catch(() => {}); } catch (e) { /* ignore */ } });
+      /* safety net: if the browser skipped the transition and the page was not drawn, draw it now */
+      setTimeout(() => { if (renderedKey !== routeKey(parseHash())) routeNow(''); }, 800);
+      return;
+    } catch (e) { /* fall through */ }
+  }
+  routeNow(still ? '' : 'css');
+}
+function routeNow(mode){
   const r = parseHash(), p0 = r.parts[0] || 'home';
   { const t0 = p0 === 'classes' && r.parts[1] && BYID[r.parts[1]] ? BYID[r.parts[1]].title : PAGE_TITLES[p0]; document.title = p0 === 'home' || !t0 ? 'Toronto Islamic Centre – redesign concept' : t0 + ' · Toronto Islamic Centre (concept)'; }
   const key = p0 + (p0 === 'classes' ? '' : '|' + r.parts.join('/'));
@@ -4494,6 +4625,8 @@ function route(){
   if (key !== renderedKey) {
     const pages = {home:pageHome, visit:pageVisit, classes:() => pageClasses(r), prayer:pagePrayer, events:pageEvents, notes:pageNotes, poster:pagePoster, share:pageShare, ideas:pageIdeas, tv:pageTV, plansheet:pagePlanSheet, phonepdf:pagePhonePdf, menus:pageMenus, gallery:() => pageGallery(r), give:pageGive, ramadan:() => pageRamadan(r), new:pageNew, plan:() => pagePlan(r), sitemap:pageSitemap, start:pageStart, find:pageFind, help:pageHelp, explore:pageExplore};
     PAGE_KEYS = Object.keys(pages);
+    inRoute = true;
+    delete tabSel[p0];
     app.innerHTML = (pages[p0] || pageHome)();
     renderedKey = key;
     if (p0 === 'classes') renderSched(r.parts[1] ? false : undefined);
@@ -4503,7 +4636,11 @@ function route(){
     markNav(p0);
     updateNext();
     updateLive();
+    autoTabs(p0);
+    { const ge = r.q.go && document.getElementById(r.q.go); if (ge) openTabFor(ge); }
     armMotion();
+    inRoute = false;
+    if (mode === 'css') { app.classList.remove('pg-in'); void app.offsetWidth; app.classList.add('pg-in'); }
   }
   else if (p0 === 'classes' && !r.parts[1]) {
     /* same page, but the address changed (back button or a link): follow it */
@@ -4521,7 +4658,7 @@ function route(){
     if (!dlg.open) { dlgPushed = !firstLoad; dlg.showModal(); }
     dlg.scrollTop = 0;
   } else if (dlg.open) { dlgPushed = false; dlg.close(); }
-  if (r.q.go) setTimeout(() => { const el = document.getElementById(r.q.go); if (el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 140);
+  if (r.q.go) setTimeout(() => { const el = document.getElementById(r.q.go); if (el) { openTabFor(el); el.scrollIntoView({behavior:'smooth', block:'start'}); } }, 140);
   firstLoad = false;
   updateTabs(p0);
 }
