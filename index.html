@@ -3732,7 +3732,7 @@ function pageHome(){
     '<section class="sec"><div class="container visit"><div><p class="eyebrow">Visit</p><h2 style="font-size:2rem;margin:6px 0 14px">Come and pray with us</h2><address>817 Yonge St<br>Toronto, ON M4W 2G9</address>' +
     '<ul class="list"><li>' + icon('clock') + '<span>Office: ' + C.hours + '</span></li><li>' + icon('phone') + '<a href="tel:' + C.tel + '">' + C.phone + '</a></li><li>' + icon('mail') + '<a href="mailto:' + C.email + '">' + C.email + '</a></li></ul>' +
     '<div class="visit-act"><a class="btn" href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + ' Get directions</a><a class="btn btn-line" href="#/plan">Plan a visit</a><a class="btn btn-dark" href="tel:' + C.tel + '">' + icon('phone') + ' Call the office</a></div>' +
-    '<p class="muted" style="margin-top:16px;max-width:30em">New here? Ask at the desk after any prayer. Classes at the masjid are free, and registration forms are handed out in the lobby and at the weekend school office. <a href="#/visit?go=new">More short answers</a>. Curious how it began? <a href="#/story">Read our story</a>.</p></div>' +
+    '<p class="muted" style="margin-top:16px;max-width:30em">New here? Ask at the desk after any prayer. Classes are free (the Weekend School has a fee), and registration forms are handed out in the lobby and at the weekend school office. <a href="#/visit?go=new">More short answers</a>. Curious how it began? <a href="#/story">Read our story</a>.</p></div>' +
     '<div class="vphoto" style="background-image:url(' + D.photos.visit + ')" role="img" aria-label="Yonge and Bloor, Toronto"><span>Yonge &amp; Bloor, Toronto</span></div></div></section>';
 }
 
@@ -3766,7 +3766,7 @@ function pageClasses(r){
   state.who = q.who || state.who || 'all';
   state.day = q.day != null ? +q.day : (state.day != null ? state.day : NOW.dow);
   const legend = D.topicOrder.map(k => '<span style="' + tcs(k) + ';color:var(--ink2)"><b>' + icon('t-' + k) + '</b>' + esc(TOP[k].name) + '</span>').join('');
-  return '<section class="page-head' + pageHeadStyle('mihrab') + '"><div class="container"><p class="eyebrow">817 Yonge St · every week</p><h1>Weekly class schedule</h1><p class="lead">All ' + CL.length + ' classes and programs in one place, and every class is free. Choose who it is for, tap a class for details, and add it to your calendar.</p></div></section>' +
+  return '<section class="page-head' + pageHeadStyle('mihrab') + '"><div class="container"><p class="eyebrow">817 Yonge St · every week</p><h1>Weekly class schedule</h1><p class="lead">All ' + CL.length + ' classes and programs in one place. Classes are free, except the Weekend School. Choose who it is for, tap a class for details, and add it to your calendar.</p></div></section>' +
     '<div class="toolbar"><div class="container toolbar-in" id="tb"></div></div>' +
     '<div class="container"><div class="legend" aria-hidden="true">' + legend + '</div></div>' +
     '<div class="container sched" id="sched"></div>' +
@@ -3812,7 +3812,7 @@ function dialogHTML(c){
     ytSectionHTML(c) + '<h3>Who it is for</h3><p>' + esc(audience(c)) + '</p>' +
     (extras.length ? '<h3>Good to know</h3><ul class="bul">' + extras.map(e => '<li>' + esc(e) + '</li>').join('') + '</ul>' : '') +
     '<h3>Where</h3><p>Toronto Islamic Centre, ' + esc(C.address) + ' · <a href="' + MAPS + '" target="_blank" rel="noopener">Directions</a></p>' +
-    '<h3>How to join</h3><p><b>Classes at the masjid are free.</b> Call the office on ' + C.phone + ' during opening hours, or ask at the desk after any prayer. Registration forms for classes are handed out in the lobby and at the weekend school office.</p>' +
+    '<h3>How to join</h3><p>' + (c.id === 'weekend-school' ? '<b>The Weekend School is not free.</b> Ask the office about the fee. ' : '<b>This class is free.</b> ') + 'Call the office on ' + C.phone + ' during opening hours, or ask at the desk after any prayer. Registration forms for classes are handed out in the lobby and at the weekend school office.</p>' +
     '<div class="dlg-act"><button class="btn" data-reg="' + c.id + '">' + icon('users') + ' Register interest</button><a class="btn btn-line" href="tel:' + C.tel + '">' + icon('phone') + ' Call the office</a></div>' +
     '<div class="dlg-act" style="margin-top:10px"><a class="btn btn-sm btn-line" href="' + mail + '">' + icon('mail') + ' Email a question</a><button class="btn btn-sm btn-line" data-wa="' + c.id + '">' + icon('chat') + ' Class WhatsApp group</button></div>' +
     '<div id="reg-box"></div>' +
@@ -3892,7 +3892,7 @@ function pagePlanSheet(){
   return (BARE ? '' : '<div class="pbar"><a class="btn btn-sm btn-line" href="#/classes?view=planner">← Back to the schedule</a><a class="btn btn-sm pl-dl" href="TIC-weekly-class-planner.pdf" download target="_blank" rel="noopener">' + icon('dl') + ' Download the PDF (landscape)</a><button class="btn btn-sm" id="do-print">' + icon('print') + ' Print or save as PDF</button><a class="btn btn-sm btn-line" href="#/poster">List version</a><a class="btn btn-sm btn-line" href="#/phonepdf">Phone PDF version</a></div><p class="pl-hint"><b>Turn your phone sideways</b> for a bigger view, and pinch to zoom in.</p>') +
     '<section class="psheet"><div class="ph"><img src="' + D.logos.color + '" alt="Toronto Islamic Centre"><h1>Weekly class planner</h1><p>817 Yonge St, Toronto<br>' + C.phone + ' · <a href="' + PDF_SITE + '" target="_blank" rel="noopener">torontoislamiccentre.com</a></p></div>' +
     (() => { const keep = state.hr; state.hr = 56; const h = plannerHTML('all', ORDER, false, true); state.hr = keep; return h; })() +
-    '<div class="plg" aria-hidden="true">' + legend + '</div><div class="pf"><span><b>Prayer-linked times.</b> Green dashed lines are the prayer iqamah times. “After Isha” and “Maghrib” classes start after that prayer. Week of ' + shortDate(WEEK_START) + ': Maghrib about ' + fmt(hm(iq.maghrib)) + ', Isha ' + fmt(hm(iq.isha)) + '. A faded bottom edge means the end time is not listed (one hour shown). Check announcements for changes.</span><span><b>To join a class:</b> call ' + C.phone + ' or ask at the desk after any prayer. Classes are free.<br><b>Add to your calendar:</b> on the website open Classes and tap “Add all to calendar”.</span></div></section>';
+    '<div class="plg" aria-hidden="true">' + legend + '</div><div class="pf"><span><b>Prayer-linked times.</b> Green dashed lines are the prayer iqamah times. “After Isha” and “Maghrib” classes start after that prayer. Week of ' + shortDate(WEEK_START) + ': Maghrib about ' + fmt(hm(iq.maghrib)) + ', Isha ' + fmt(hm(iq.isha)) + '. A faded bottom edge means the end time is not listed (one hour shown). Check announcements for changes.</span><span><b>To join a class:</b> call ' + C.phone + ' or ask at the desk after any prayer. Classes are free, except the Weekend School.<br><b>Add to your calendar:</b> on the website open Classes and tap “Add all to calendar”.</span></div></section>';
 }
 const compactTime = t => String(t).replace(/(\d+):00/g, '$1');
 function pagePoster(){
@@ -3905,7 +3905,7 @@ function pagePoster(){
   return (BARE ? '' : '<div class="pbar"><a class="btn btn-sm btn-line" href="#/classes">← Back to the schedule</a><button class="btn btn-sm" id="do-print">' + icon('print') + ' Print or save as PDF</button><a class="btn btn-sm btn-line" href="#/share">Phone picture version</a><a class="btn btn-sm btn-line" href="#/plansheet">Planner version</a><a class="btn btn-sm btn-line" href="#/phonepdf">Phone PDF version</a></div>') +
     '<section class="poster"><div class="ph"><img src="' + D.logos.color + '" alt="Toronto Islamic Centre"><h1>Weekly class schedule</h1><p>817 Yonge St, Toronto<br>' + C.phone + ' · torontoislamiccentre.com</p></div>' +
     '<div class="pg">' + cols + '</div>' +
-    '<div class="plg" aria-hidden="true">' + D.topicOrder.map(k => '<span><i style="' + tcs(k) + '"></i>' + esc(TOP[k].name) + '</span>').join('') + '</div><div class="pf"><span><b>Prayer-linked times.</b> “After Isha” and “Maghrib” classes start after that prayer. Week of ' + shortDate(WEEK_START) + ': Maghrib about ' + fmt(hm(iq.maghrib)) + ', Isha ' + fmt(hm(iq.isha)) + '. Check announcements for changes.</span><span><b>To join a class:</b> call ' + C.phone + ' or ask at the desk after any prayer. Classes are free.</span></div></section>';
+    '<div class="plg" aria-hidden="true">' + D.topicOrder.map(k => '<span><i style="' + tcs(k) + '"></i>' + esc(TOP[k].name) + '</span>').join('') + '</div><div class="pf"><span><b>Prayer-linked times.</b> “After Isha” and “Maghrib” classes start after that prayer. Week of ' + shortDate(WEEK_START) + ': Maghrib about ' + fmt(hm(iq.maghrib)) + ', Isha ' + fmt(hm(iq.isha)) + '. Check announcements for changes.</span><span><b>To join a class:</b> call ' + C.phone + ' or ask at the desk after any prayer. Classes are free, except the Weekend School.</span></div></section>';
 }
 function pageShare(){
   const days = ORDER.map(d => {
@@ -3915,7 +3915,7 @@ function pageShare(){
   }).join('');
   const iq = iqDow(1);
   return (BARE ? '' : '<div class="pbar"><a class="btn btn-sm btn-line" href="#/poster">← Back to the printable poster</a></div>') + '<section class="share"><div class="sh-head"><img src="' + D.logos.white + '" alt="Toronto Islamic Centre"><h1>Weekly class schedule</h1><p>817 Yonge St, Toronto · classes repeat every week</p></div>' + days +
-    '<div class="sh-foot"><p><b>After Isha / Maghrib</b> means after that prayer. This week: Maghrib about ' + fmt(hm(iq.maghrib)) + ', Isha ' + fmt(hm(iq.isha)) + '.</p><p style="margin-top:14px"><b>To join a class:</b> call ' + C.phone + ' or ask at the desk after any prayer. Classes are free.<br>torontoislamiccentre.com</p></div></section>';
+    '<div class="sh-foot"><p><b>After Isha / Maghrib</b> means after that prayer. This week: Maghrib about ' + fmt(hm(iq.maghrib)) + ', Isha ' + fmt(hm(iq.isha)) + '.</p><p style="margin-top:14px"><b>To join a class:</b> call ' + C.phone + ' or ask at the desk after any prayer. Classes are free, except the Weekend School.<br>torontoislamiccentre.com</p></div></section>';
 }
 
 /* ---------- phone PDF: ONE compact page (390 pt wide). Every class opens the website; the calendar button adds it to Google Calendar ---------- */
@@ -3961,7 +3961,7 @@ function pagePhonePdf(){
     '<p class="po-how"><span>Tap a <b>class</b> to open the website</span><span>Tap ' + PDF_CAL + ' to add it to your <b>calendar</b></span></p>' +
     '<div class="po-list">' + list + '</div>' +
     '<div class="po-end"><section class="po-box"><h3>Add to your calendar</h3><p>Tap ' + PDF_CAL + ' on any class to add it to Google Calendar. It repeats every week. Apple or Outlook calendar? On the website, open Classes and tap “Add all to calendar”.</p>' + ics + '</section>' +
-    '<section class="po-box"><h3>Join a class</h3><p>Classes are free. Call ' + C.phone + ' or ask at the desk after any prayer.</p><div class="po-acts"><a href="tel:' + C.tel + '">Call ' + C.phone + '</a><a href="mailto:' + C.email + '">Email us</a></div></section>' +
+    '<section class="po-box"><h3>Join a class</h3><p>Classes are free, except the Weekend School. Call ' + C.phone + ' or ask at the desk after any prayer.</p><div class="po-acts"><a href="tel:' + C.tel + '">Call ' + C.phone + '</a><a href="mailto:' + C.email + '">Email us</a></div></section>' +
     '<p class="po-small"><b>Prayer-linked times.</b> “After Isha” and “Maghrib” classes start after that prayer, so the clock time moves through the year. Week of ' + shortDate(WEEK_START) + ': Maghrib about ' + fmt(hm(iq.maghrib)) + ', Isha ' + fmt(hm(iq.isha)) + '. For this week’s exact times, open the website.</p>' +
     '<div class="pp-leg" aria-hidden="true">' + legend + '</div><p class="po-small">' + esc(C.address) + '</p></div>' +
     '<footer class="po-bot"><a class="po-go" href="' + PDF_SITE + '" target="_blank" rel="noopener">Open ' + PDF_SITE.replace(/^https?:\/\//, '') + PDF_ARROW + '</a></footer></section></div>';
@@ -4335,6 +4335,16 @@ const markHTML = () => D.markSvg.replace('class="mark"', 'class="mark" data-r');
 function logoGo(el){ if (REDUCED || el.classList.contains('go')) return; el.classList.add('go'); setTimeout(() => el.classList.remove('go'), 1800); }
 document.addEventListener('mouseover', e => { const a = e.target.closest && e.target.closest('.logo'); if (a) logoGo(a); });
 document.addEventListener('focusin', e => { const a = e.target.closest && e.target.closest('.logo'); if (a) logoGo(a); });
+/* the logo always takes you to the top of the home page. From another page the link goes home (the router starts at the top); on the home page itself the address does not change, so nothing would happen: scroll up by hand, clean the address and close any open menu or class card */
+document.addEventListener('click', e => {
+  const l = e.target.closest && e.target.closest('a.logo');
+  if (!l || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  if ((parseHash().parts[0] || 'home') !== 'home') return;
+  e.preventDefault();
+  document.body.classList.remove('menu-open'); const bb = $('#burger'); if (bb) bb.setAttribute('aria-expanded', 'false'); setOv(''); ppHide(true);
+  if (location.hash && location.hash !== '#/' && location.hash !== '#') { try { history.replaceState(null, '', location.pathname + location.search + '#/'); } catch (x) { location.hash = '#/'; } }
+  window.scrollTo({top:0, left:0, behavior: REDUCED ? 'auto' : 'smooth'});
+});
 let rvObs = null;
 function armMotion(){
   if (EMBED || BARE || REDUCED || !('IntersectionObserver' in window)) return;
@@ -5402,7 +5412,7 @@ document.addEventListener('submit', e => {
     subject = 'Volunteer: ' + g('name'); lines = ['I would like to help with: ' + fd.getAll('role').join(', '), 'I am usually free: ' + (fd.getAll('free').join(', ') || '-'), 'Name: ' + g('name'), 'Contact: ' + g('contact')];
   }
   else { subject = 'Visit request' + (g('org') ? ': ' + g('org') : ''); lines = ['Name: ' + (g('name') || '-'), 'Contact: ' + g('contact'), 'Group or organisation: ' + (g('org') || '-'), 'People: ' + (g('size') || '-'), 'Days in mind: ' + (g('when') || '-'), 'I would like: ' + (fd.getAll('wants').join(', ') || '-'), 'Anything we should know: ' + (g('notes') || '-')]; }
-  if (done) done.innerHTML = '<span>Your email app should open with the message ready to send. On the real site this goes to a private inbox instead.</span><span class="wf-copy"><textarea readonly rows="4" aria-label="The message">' + esc(subject + '\n\n' + lines.join('\n')) + '</textarea><button type="button" class="btn btn-sm btn-line" data-copy>Copy the message</button></span>';
+  if (done) done.innerHTML = '<span>Your email app should open with the message ready to send. On the real site it goes straight to the centre’s email.</span><span class="wf-copy"><textarea readonly rows="4" aria-label="The message">' + esc(subject + '\n\n' + lines.join('\n')) + '</textarea><button type="button" class="btn btn-sm btn-line" data-copy>Copy the message</button></span>';
   openMail('mailto:' + C.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n')));
 });
 
@@ -5636,10 +5646,10 @@ function renderFind(){ const q = $('#fd-q'), o = $('#fd-out'); if (!q || !o) ret
 function pageFind(){
   return '<section class="page-head' + pageHeadStyle('learn') + '"><div class="container"><p class="eyebrow">Classes</p><h1>Find the right class</h1><p class="lead">' + esc(FINDQ.lead) + '</p></div></section>' +
     '<section class="sec" style="padding-top:12px"><div class="container"><div id="fd-q">' + findBodyHTML() + '</div><div id="fd-out">' + findOutHTML() + '</div><div class="dlg-act"><a class="btn btn-line" href="#/classes">See the whole schedule ' + icon('arrow') + '</a><a class="btn btn-line" href="#/classes?view=planner&who=all">Weekly planner</a></div>' +
-    '<p class="muted" style="margin-top:16px">Every class is free to join. Nothing fits? <a href="#/ask?mode=program">Tell us what you would like to see</a>.</p>' +
+    '<p class="muted" style="margin-top:16px">Classes are free, except the Weekend School. Nothing fits? <a href="#/ask?mode=program">Tell us what you would like to see</a>.</p>' +
     '<div class="rv"><div class="card" style="margin-top:14px;padding:14px 16px"><b>To confirm with the centre</b><ul class="rv-list">' + FINDQ.review.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div></div></div></section>';
 }
-/* ---------- Ask or suggest, and Volunteer: two short forms. Like the other forms they open an email to the office (on the real site they would go to a private inbox) ---------- */
+/* ---------- Ask or suggest, and Volunteer: two short forms. Like the other forms they open an email to the office (on the real site they go straight to the centre’s email) ---------- */
 function openMail(url){ window.__mailUrl = url; if (!window.__noMail) window.location.href = url; }
 const ASK_TOPICS = ['Qur’an and Tajweed', 'Arabic', 'Islamic studies', 'New Muslim support', 'Kids and youth', 'Sisters’ programs', 'Brothers’ programs', 'Marriage and family', 'Mental health', 'Fitness and sports', 'Workshops and talks', 'Something else'];
 const ASK_FOR = ['Brothers', 'Sisters', 'Kids', 'Teens', 'Everyone'], ASK_WHEN = ['Weekday evenings', 'Weekday daytime', 'Weekends', 'After Isha', 'In Ramadan'], ASK_ABOUT = ['Classes', 'Prayer times', 'Ramadan', 'Giving', 'Visiting', 'Something else'];
@@ -5665,9 +5675,9 @@ function pageAsk(r){
   const mode = r && r.q && r.q.mode === 'question' ? 'question' : 'program';
   return '<section class="page-head' + pageHeadStyle('learn') + '"><div class="container"><p class="eyebrow">We are listening</p><h1>Ask or suggest</h1><p class="lead">Tell us which program or class you would like to see, or ask a question. It takes about a minute.</p></div></section>' +
     '<section class="sec" style="padding-top:20px"><div class="container ask-wrap"><div>' + askFormHTML(mode) + '</div>' +
-    '<aside class="card pad ask-side"><h3>Good to know</h3><ul class="bul"><li><b>Classes at the masjid are free.</b> Registering costs nothing.</li><li>You do not need to give your name or number unless you would like a reply.</li></ul>' +
+    '<aside class="card pad ask-side"><h3>Good to know</h3><ul class="bul"><li><b>Classes are free</b>, except the Weekend School.</li><li>You do not need to give your name or number unless you would like a reply.</li></ul>' +
     '<p class="muted" style="margin-top:12px">Rather talk to someone? The office is open ' + esc(C.hours) + '.</p><a class="btn btn-sm btn-line" href="tel:' + C.tel + '">' + icon('phone') + ' ' + C.phone + '</a>' +
-    '<p class="demo-note">In this mock-up the form opens an email to the office. On the real site it would go to a private inbox.</p></aside></div></section>';
+    '<p class="demo-note">In this mock-up the form opens an email to the office. On the real site it goes straight to the centre’s email.</p></aside></div></section>';
 }
 function volFormHTML(){
   return '<form class="wf vol-form" data-form="volunteer" novalidate>' +
@@ -5683,7 +5693,7 @@ function pageVolunteer(){
     '<aside class="card pad ask-side"><h3>What to expect</h3><ul class="bul"><li>The office calls or writes within a few days.</li><li>You choose how much time to give, from one evening a month to every week.</li><li>Ramadan is the busiest month: kitchen, iftar and parking.</li></ul>' +
     '<p class="muted" style="margin-top:12px">Rather talk to someone? The office is open ' + esc(C.hours) + '.</p><a class="btn btn-sm btn-line" href="tel:' + C.tel + '">' + icon('phone') + ' ' + C.phone + '</a>' +
     '<p class="muted" style="margin-top:12px;font-size:14px">More about the roles: <a href="' + LIVE + '/volunteer" target="_blank" rel="noopener">the centre’s volunteer page ' + icon('ext') + '</a></p>' +
-    '<p class="demo-note">In this mock-up the form opens an email to the office. On the real site it would go to the volunteer team.</p></aside></div></section>';
+    '<p class="demo-note">In this mock-up the form opens an email to the office. On the real site it goes straight to the centre’s email.</p></aside></div></section>';
 }
 function sayBandHTML(){
   return '<section class="sec sec-tint say-band"><div class="container say-in"><div><p class="eyebrow">Have your say</p><h2>What would you like to see at the masjid?</h2><p class="muted">Suggest a program, ask a question, or tell us where you can help. It takes about a minute.</p></div>' +
@@ -5766,8 +5776,8 @@ function pageVisit(){
   const J = D.jumuah;
   const qa = [
     ['Do I need to register to pray?', 'No. Everyone is welcome at the five daily prayers and at Jumu’ah.'],
-    ['How do I join a class?', 'Classes at the masjid are free. Ask at the desk after any prayer, or call the office. Registration forms are handed out in the lobby and at the weekend school office.'],
-    ['Do classes cost anything?', 'No. Classes at the masjid are free, and registering costs nothing.'],
+    ['How do I join a class?', 'Classes are free, except the Weekend School, which has a fee. Ask at the desk after any prayer, or call the office. Registration forms are handed out in the lobby and at the weekend school office.'],
+    ['Do classes cost anything?', 'No, classes at the masjid are free. The Weekend School for children has a fee: ask the office.'],
     ['When is Jumu’ah?', J.map(j => j.name + ': khutbah ' + j.khutbah + ', iqamah ' + j.iqamah).join('. ') + '.'],
     ['Can I watch from home?', 'Yes. The khutbah and many classes are streamed live and kept on the centre’s YouTube channel.'],
     ['Where can I study or work quietly?', 'The TIC Study Space is open every day, with a separate study space for sisters.']
@@ -5785,7 +5795,7 @@ function pageVisit(){
     '<section class="sec" id="around"><div class="container"><div class="sec-h"><div><p class="eyebrow">Around the masjid</p><h2>More than prayer and classes</h2></div></div><div class="around">' +
     '<div class="card pad"><span class="tag tag-ig">' + icon('ig') + 'From Instagram</span><h3>TIC Study Space</h3><p class="muted">Read a book, launch your next project, or get your work done in the quiet of the masjid. Open every day, with a separate study space for sisters.</p><div class="dlg-act">' + ig('ig-study', 'Watch the video') + '</div></div>' +
     '<div class="card pad"><span class="tag tag-ig">' + icon('ig') + 'From Instagram</span><h3>Brothers: Friday Night Social</h3><p class="muted">Fridays after Isha, until 11:30 pm. Games and time together at the masjid.</p><div class="dlg-act">' + ig('ig-social', 'See the flyer') + '</div></div>' +
-    '<div class="card pad"><span class="tag">Sundays</span><h3>Weekend School</h3><p class="muted">A school for children at the masjid, 10 am to 2 pm, with Ustadah Sana. Ask the office about registration.</p><div class="dlg-act"><a class="btn btn-sm btn-line" href="#/classes/weekend-school">Details ' + icon('arrow') + '</a></div></div>' +
+    '<div class="card pad"><span class="tag">Sundays</span><h3>Weekend School</h3><p class="muted">A school for children at the masjid, 10 am to 2 pm, with Ustadah Sana. It has a fee: ask the office about registration.</p><div class="dlg-act"><a class="btn btn-sm btn-line" href="#/classes/weekend-school">Details ' + icon('arrow') + '</a></div></div>' +
     '</div><div class="rv"><div class="card" style="margin-top:14px;padding:14px 16px"><b>Items to confirm with the centre</b> <span class="muted">· the Study Space hours and where it is, who the Friday Night Social is for, and whether both should be on the website. Both come from the centre’s Instagram posts of 17 November 2026.</span></div></div></div></section>';
 }
 
@@ -6211,7 +6221,7 @@ document.addEventListener('click', e => {
     const box = $('#reg-box'); if (!box) return;
     if (box.innerHTML) { box.innerHTML = ''; return; }
     const c = BYID[t.dataset.reg];
-    box.innerHTML = '<form class="reg" id="reg-form"><h4>Register interest in ' + esc(c.title) + '</h4><p class="muted" style="font-size:14px"><b>Classes at the masjid are free</b>, so there is nothing to pay. The office and the teacher would get this the same day. Demo only: nothing is sent.</p><label for="rg-n">Your name</label><input id="rg-n" required autocomplete="off"><label for="rg-c">Phone or email</label><input id="rg-c" required autocomplete="off"><label for="rg-m">Anything we should know? (for example a child’s age)</label><textarea id="rg-m"></textarea><div class="dlg-act"><button class="btn btn-sm" type="submit">Send (demo)</button><button class="btn btn-sm btn-line" type="button" data-reg="' + c.id + '">Cancel</button></div></form>';
+    box.innerHTML = '<form class="reg" id="reg-form"><h4>Register interest in ' + esc(c.title) + '</h4><p class="muted" style="font-size:14px">' + (c.id === 'weekend-school' ? '<b>The Weekend School has a fee</b>, so the office will tell you the amount. ' : '<b>This class is free</b>, so there is nothing to pay. ') + 'The office and the teacher would get this the same day. Demo only: nothing is sent.</p><label for="rg-n">Your name</label><input id="rg-n" required autocomplete="off"><label for="rg-c">Phone or email</label><input id="rg-c" required autocomplete="off"><label for="rg-m">Anything we should know? (for example a child’s age)</label><textarea id="rg-m"></textarea><div class="dlg-act"><button class="btn btn-sm" type="submit">Send (demo)</button><button class="btn btn-sm btn-line" type="button" data-reg="' + c.id + '">Cancel</button></div></form>';
     $('#rg-n').focus(); return;
   }
   if (t.dataset.wa) { toast('Demo: the class WhatsApp group link would open here.'); return; }
