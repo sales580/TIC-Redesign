@@ -2335,6 +2335,42 @@ html .fl-grid .sf:hover img,html .fl-grid .sf:focus-visible img{transform:transl
   html .row-act{display:none}
   html .flyers{grid-template-columns:1fr 1fr;gap:18px 12px}
 }
+
+/* ---- 19 Nov (4): the video page is the episode, then other classes under their flyers ---- */
+.wt-stage{max-width:1180px;margin-inline:auto}
+.wt-full{margin:0 0 14px;color:#9fb393;font-size:13.5px}
+.wt-eps-sec{margin-top:28px}
+.wt-eps-sec h2,.wt-int h2{margin:0 0 12px;font:600 1.35rem var(--serif);color:#fff}
+.wt-epl{display:grid;gap:8px}
+.wt-ep{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:14px;align-items:center;padding:8px;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:inherit;text-decoration:none;transition:background-color .2s ease,border-color .2s ease}
+.wt-ep:hover{background:rgba(255,255,255,.09)}
+.wt-ep.is-now{background:rgba(92,171,59,.16);border-color:rgba(124,211,90,.6)}
+.wt-now{align-self:center;padding:3px 10px;border-radius:99px;background:#7bc04f;color:#0b1d12;font:700 11.5px var(--sans);letter-spacing:.04em;text-transform:uppercase;font-style:normal;white-space:nowrap}
+.wt-int{max-width:1180px;margin:42px auto 0}
+.wt-fcs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 18px}
+.wt-fc{display:flex;flex-direction:column;gap:6px;min-width:0}
+.wt-fl{display:block}
+.wt-fl img{width:100%;aspect-ratio:640/828;object-fit:contain;border-radius:12px;background:#10261a;border:1px solid rgba(255,255,255,.14);box-shadow:0 14px 30px rgba(0,0,0,.35);transition:transform .25s ease;display:block}
+.wt-fl:hover img{transform:translateY(-4px)}
+.wt-fc h3{margin:8px 0 0;font:600 1.05rem/1.25 var(--serif)}
+.wt-fc h3 a{color:#fff;text-decoration:none}
+.wt-fc h3 a:hover{text-decoration:underline}
+.wt-days{margin:0;color:#b0c2a5;font-size:13px;line-height:1.4}
+.wt-eps{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:6px}
+.wt-eps a{display:block;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:inherit;text-decoration:none;transition:background-color .2s ease}
+.wt-eps a:hover{background:rgba(255,255,255,.14)}
+.wt-eps b{display:block;font:600 .95rem/1.25 var(--sans);color:#fff}
+.wt-eps small{display:block;color:#b0c2a5;font-size:12.5px}
+.wt-more1{display:inline-flex;align-items:center;gap:6px;margin-top:4px;color:#b7e39a;font-size:14px;text-decoration:none}
+.wt-more1 .ic{width:14px;height:14px}
+.wt-int .wt-more{margin-top:22px}
+@media (max-width:900px){.wt-fcs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){
+  .wt:not(.wt-lib) .wt-stage > :not(.wt-player),.wt:not(.wt-lib) .wt-int{padding-inline:16px}
+  .wt-ep{grid-template-columns:116px minmax(0,1fr)}
+  .wt-ep .wt-now{grid-column:1 / -1;justify-self:start}
+  .wt-eps-sec h2,.wt-int h2{font-size:1.2rem}
+}
 html .ig-sec.sec-dark .ig-box{padding:18px 18px 4px;border-radius:24px;background:rgba(7,32,16,.6);border:1px solid rgba(255,255,255,.22);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12),0 22px 44px rgba(6,28,14,.28);transition:background-color .7s ease}
 html .ig-sec.sec-dark[data-acct="unfiltered"] .ig-box{background:rgba(4,38,44,.62)}
 @media (max-width:640px){html .ig-sec.sec-dark .ig-box{padding:14px 12px 2px;border-radius:20px}}
@@ -3863,19 +3899,16 @@ function ytJumuahHTML(){
 const vidsOf = k => YTC[k].videos.concat(YTC[k].earlier || []);
 const vidClass = id => Object.keys(YTC).find(k => vidsOf(k).some(v => v.id === id)) || '';
 const wtItem = (v, label) => '<a class="wt-item" href="#/watch/' + v.id + '">' + ytThumbHTML(v) + '<span class="wt-tx"><b' + (v.rtl ? ' lang="ar" dir="rtl"' : '') + '>' + esc(v.t) + '</b><small>' + esc(label || v.sub) + (v.date ? ' · ' + ytDate(v) : '') + '</small></span></a>';
-function watchSideHTML(id, cid){
-  const c = cid ? BYID[cid] : null, jv = YTD.jumuah.videos;
-  const same = cid ? vidsOf(cid).filter(x => x.id !== id) : jv.filter(x => x.id !== id);
-  const rank = (a, b) => ((c && b.topic === c.topic) - (c && a.topic === c.topic)) || ((c && b.who === c.who) - (c && a.who === c.who)) || a.title.localeCompare(b.title);
-  const others = Object.keys(YTC).filter(k => k !== cid && YTC[k].videos.length && BYID[k]).map(k => BYID[k]).sort(rank).map(x => wtItem(YTC[x.id].videos[0], x.title));
-  if (cid && jv.length) others.push(wtItem(jv[0], 'Jumu’ah khutbah'));
-  const like = CL.filter(x => x.id !== cid).sort(rank).slice(0, 4);
+function watchClassesHTML(cid){
+  const c = cid ? BYID[cid] : null;
+  const rank = (a, b) => ((c && b.topic === c.topic) - (c && a.topic === c.topic)) || ((c && b.who === c.who) - (c && a.who === c.who)) || ((YTC[b.id] ? 1 : 0) - (YTC[a.id] ? 1 : 0)) || a.title.localeCompare(b.title);
+  const list = CL.filter(x => x.id !== cid).sort(rank).slice(0, 8);
   const days = x => x.sessions.map(q => DS[q.day]).filter((d, i, a) => a.indexOf(d) === i).join(' · ');
-  return '<aside class="wt-side">' +
-    (same.length ? '<h2>' + (cid ? 'More from this class' : 'More khutbahs') + '</h2><div class="wt-list">' + same.slice(0, 8).map(x => wtItem(x)).join('') + '</div>' : '') +
-    (others.length ? '<h2>More to watch</h2><div class="wt-list">' + others.slice(0, 6).join('') + '</div>' : '') +
-    '<h2>Classes like this</h2><div class="wt-cls">' + like.map(x => '<a href="#/classes/' + x.id + '"><img src="' + (D.thumbs[x.poster] || '') + '" alt="Flyer for ' + esc(x.title) + '" loading="lazy"><b>' + esc(x.title) + '</b><small>' + esc(days(x)) + '</small></a>').join('') + '</div>' +
-    '<p class="wt-more"><a href="#/classes">See the weekly schedule ' + icon('arrow') + '</a><a href="' + YTD.channel.streams + '" target="_blank" rel="noopener">All live streams ' + icon('ext') + '</a></p></aside>';
+  return '<section class="wt-int"><h2>You may be interested in these classes</h2><div class="wt-fcs">' + list.map(x => {
+    const vs = YTC[x.id] ? vidsOf(x.id).slice(0, 2) : [];
+    return '<article class="wt-fc"><a class="wt-fl" href="#/classes/' + x.id + '"><img src="' + (D.thumbs[x.poster] || '') + '" alt="Flyer for ' + esc(x.title) + '" loading="lazy"></a><h3><a href="#/classes/' + x.id + '">' + esc(x.title) + '</a></h3><p class="wt-days">' + esc(days(x)) + (x.teacher ? ' · ' + esc(x.teacher) : '') + '</p>' +
+      (vs.length ? '<ul class="wt-eps">' + vs.map(q => '<li><a href="#/watch/' + q.id + '"><b>' + esc(q.t) + '</b><small>' + (q.date ? esc(ytDate(q)) : '') + (q.min ? ' · ' + fmtMin(q.min) : '') + '</small></a></li>').join('') + '</ul>' : '<a class="wt-more1" href="#/classes/' + x.id + '">Class details ' + icon('arrow') + '</a>') + '</article>';
+  }).join('') + '</div><p class="wt-more"><a href="#/classes">See the weekly schedule ' + icon('arrow') + '</a><a href="#/watch">All recordings ' + icon('arrow') + '</a></p></section>';
 }
 function watchLibraryHTML(){
   const card = (v, label) => '<a class="wt-card" href="#/watch/' + v.id + '">' + ytThumbHTML(v) + '<b' + (v.rtl ? ' lang="ar" dir="rtl"' : '') + '>' + esc(v.t) + '</b><small>' + esc(label) + (v.date ? ' · ' + ytDate(v) : '') + '</small></a>';
@@ -3893,17 +3926,15 @@ function pageWatch(r){
   const cid = vidClass(id), c = cid ? BYID[cid] : null, isJ = !c && YTD.jumuah.videos.some(x => x.id === id), yt = (cid && YTC[cid]) || {};
   const crumbs = '<div class="wt-top"><button type="button" class="wt-back" data-wback>' + icon('arrow') + ' Back</button><nav class="wt-crumb" aria-label="Where you are"><a href="#/watch">Watch</a>' + (c ? '<span>›</span><a href="#/classes/' + c.id + '">' + esc(c.title) + '</a>' : (isJ ? '<span>›</span><span>Jumu’ah khutbahs</span>' : '')) + '</nav></div>';
   const meta = [ytDate(v), v.min ? fmtMin(v.min) : '', c ? c.teacher : '', c ? audience(c) : ''].filter(Boolean).map(esc).join(' · ');
-  const about = c ? '<h2>About this class</h2><p>' + esc(c.title) + (c.arabic ? ' · <span lang="ar" dir="rtl">' + esc(c.arabic) + '</span>' : '') + (c.siteText ? '. ' + esc(c.siteText) : '') + '.</p><p class="wt-full">' + esc(v.title || '') + '</p>'
-    : (isJ ? '<h2>Jumu’ah khutbah</h2><p>Two sittings every Friday, at 12:30 pm and 1:30 pm. The khutbah is streamed live and kept on the centre’s YouTube channel.</p><p class="wt-full">' + esc(v.title || '') + '</p>' : '');
-  return '<section class="wt"><div class="container">' + crumbs + '<div class="wt-grid"><div class="wt-main">' +
+  const list = cid ? vidsOf(cid) : (isJ ? YTD.jumuah.videos : []);
+  const eps = list.length > 1 ? '<section class="wt-eps-sec"><h2>' + (c ? 'Episodes of ' + esc(c.title) : 'Jumu’ah khutbahs') + '</h2><div class="wt-epl">' + list.slice(0, 10).map(x => '<a class="wt-ep' + (x.id === id ? ' is-now' : '') + '" href="#/watch/' + x.id + '"' + (x.id === id ? ' aria-current="true"' : '') + '>' + ytThumbHTML(x) + '<span class="wt-tx"><b' + (x.rtl ? ' lang="ar" dir="rtl"' : '') + '>' + esc(x.t) + '</b><small>' + esc(x.sub) + (x.date ? ' · ' + esc(ytDate(x)) : '') + '</small></span>' + (x.id === id ? '<em class="wt-now">Now playing</em>' : '') + '</a>').join('') + '</div></section>' : '';
+  return '<section class="wt"><div class="container"><div class="wt-stage">' + crumbs +
     '<div class="wt-player" id="wt-player"><iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" title="' + esc(v.t + ', ' + v.sub) + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>' +
-    '<h1 class="wt-title"' + (v.rtl ? ' lang="ar" dir="rtl"' : '') + '>' + esc(v.t) + '<small>' + esc(v.sub) + '</small></h1><p class="wt-meta">' + meta + '</p>' +
+    '<h1 class="wt-title"' + (v.rtl ? ' lang="ar" dir="rtl"' : '') + '>' + esc(v.t) + '<small>' + esc(v.sub) + '</small></h1><p class="wt-meta">' + meta + '</p>' + (v.title ? '<p class="wt-full">' + esc(v.title) + '</p>' : '') +
     '<div class="wt-actions"><button type="button" class="btn btn-sm" data-wfs>Full screen</button>' + (c ? '<a class="btn btn-sm btn-ghost-l" href="#/classes/' + c.id + '">Class details ' + icon('arrow') + '</a>' : '') +
     '<a class="btn btn-sm btn-ghost-l" href="https://www.youtube.com/watch?v=' + id + '" target="_blank" rel="noopener">Open on YouTube ' + icon('ext') + '</a>' +
     (yt.playlist ? '<a class="btn btn-sm btn-ghost-l" href="' + ytList(yt.playlist) + '" target="_blank" rel="noopener">' + esc(yt.playlistName || 'All recordings') + ' ' + icon('ext') + '</a>' : '') +
-    '<button type="button" class="btn btn-sm btn-ghost-l" data-wshare="' + esc(v.t) + '">Share</button></div>' +
-    '<div class="wt-chan"><span class="wt-chan-ic">' + D.markSvg + '</span><div><b>Toronto Islamic Centre</b><small>@TICmasjid on YouTube</small></div><a class="btn btn-sm" href="' + YTD.channel.home + '" target="_blank" rel="noopener">Subscribe ' + icon('ext') + '</a></div>' +
-    (about ? '<div class="wt-about">' + about + '</div>' : '') + '</div>' + watchSideHTML(id, cid) + '</div></div></section>';
+    '<button type="button" class="btn btn-sm btn-ghost-l" data-wshare="' + esc(v.t) + '">Share</button></div>' + eps + '</div>' + watchClassesHTML(cid) + '</div></section>';
 }
 document.addEventListener('click', e => {
   if (!e.target.closest) return;
