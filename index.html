@@ -2050,11 +2050,165 @@ html[data-menu="day"] .pp.has-cls:not(.next) .pp-sc{text-decoration:underline do
 html .ftr-brand{display:flex;flex-direction:column;align-items:flex-start}
 html .ftr-brand .ftr-logo{display:inline-block;margin:0 0 16px}
 html .ftr-brand > p{margin:0;max-width:19em;font-size:16.5px;line-height:1.55;color:#e6efdd}
-html .ftr-brand .ftr-act{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:340px;margin-top:22px}
-html .ftr-brand .ftr-act .btn{grid-column:1 / -1;min-height:48px;justify-content:center}
+html .ftr-brand .ftr-act{display:flex;align-items:center;gap:14px;flex-wrap:wrap;width:100%;max-width:none;margin-top:22px}
+html .ftr-brand .ftr-act .btn{min-height:48px;padding-inline:30px;justify-content:center}
+html .ftr-soc2{display:flex;gap:10px}
+html .ftr-soc2 a{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:rgba(255,255,255,.07);color:#f4f8f0;transition:background-color .2s ease,border-color .2s ease,transform .18s ease}
+html .ftr-soc2 a:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.6);transform:translateY(-2px)}
+html .ftr-soc2 .ic{width:28px;height:28px;color:#b7e39a}
+@media (min-width:901px){
+  html .ftr-grid.ftr-slim{grid-template-columns:1.05fr 1.25fr 1.3fr .75fr;gap:30px 52px}
+  html .ftr .ftr-explore .ftr-two{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+  html .ftr .ftr-explore .ftr-more{grid-column:1 / -1}
+  html .ftr-visit .ftr-list .ftr-line{font-size:15.5px;white-space:nowrap}
+}
+@media (max-width:760px){
+  html .ftr-brand .ftr-act{flex-wrap:nowrap}
+  html .ftr-brand .ftr-act .btn{flex:1;padding-inline:12px}
+}
 html .ftr-pill{display:flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:0 12px;border:1.5px solid rgba(255,255,255,.3);border-radius:10px;background:rgba(255,255,255,.07);color:#f4f8f0;font-weight:500;font-size:15.5px;text-decoration:none;transition:background-color .2s ease,border-color .2s ease}
 html .ftr-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55);text-decoration:none}
 html .ftr-pill .ic{width:22px;height:22px;flex:none;color:#b7e39a}
+
+/* ---- 19 Nov (2): the class pop-up closes at once, a dark box around the Instagram posts ---- */
+#pp-pop::after{content:'';position:absolute;left:0;right:0;top:-14px;height:14px}
+
+/* ---- 19 Nov (2): announcements card, classes inside the Prayer page rows ---- */
+.ann h3{margin:2px 0 8px}
+.ann-list{display:grid;gap:8px;margin:10px 0 14px;padding:0;list-style:none}
+.ann-row{display:flex;align-items:center;gap:12px;width:100%;padding:10px 12px;border-radius:14px;background:var(--g50);border:1px solid var(--line);color:inherit;text-decoration:none;text-align:left;cursor:pointer;font:inherit;transition:background-color .2s ease,border-color .2s ease,transform .18s ease}
+.ann-row:hover{border-color:var(--mid);transform:translateY(-1px)}
+.ann-ic{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:var(--surface);color:var(--deep-ink)}
+.ann-ic .ic{width:22px;height:22px}
+.ann-row b{display:block;font-weight:600;font-size:15px;line-height:1.25}
+.ann-row small{display:block;color:var(--ink3);font-size:13px;line-height:1.35}
+.ann-row > .ic{margin-left:auto;flex:none;width:16px;height:16px;color:var(--mid)}
+.app-box{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;background:var(--deep);color:#fff}
+.app-ic{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.14);color:#e4f5d8}
+.app-ic .ic{width:24px;height:24px}
+.app-box b{display:block;font-weight:600}
+.app-box small{display:block;color:#cfe3c1;font-size:13px;line-height:1.35}
+.app-box .btn{margin-left:auto;flex:none}
+@media (max-width:520px){.app-box{flex-wrap:wrap}.app-box .btn{width:100%}}
+.pt li{flex-wrap:wrap}
+.pt-cls{flex:0 0 100%;display:grid;gap:6px;margin:6px 0 2px}
+.pt-cls p{margin:0;font:600 12px var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--mid)}
+.pt-cls a{display:flex;align-items:center;gap:10px;padding:6px 10px 6px 6px;border-radius:12px;background:var(--surface);border:1px solid var(--line);color:inherit;text-decoration:none;font-weight:400;transition:border-color .2s ease,transform .18s ease}
+.pt-cls a:hover{border-color:var(--mid);transform:translateY(-1px)}
+.pt-cls img{flex:none;width:34px;height:44px;object-fit:cover;object-position:top;border-radius:5px;border:1px solid var(--line)}
+.pt-cls b{display:block;font-weight:600;font-size:14.5px;line-height:1.25}
+.pt-cls small{display:block;margin:0;color:var(--ink3);font-size:12.5px;line-height:1.3}
+.pt-cls a > .ic{margin-left:auto;flex:none;width:15px;height:15px;color:var(--mid)}
+@keyframes hlPulse{0%,100%{box-shadow:0 0 0 0 rgba(92,171,59,0)}25%{box-shadow:0 0 0 6px rgba(92,171,59,.4)}}
+.pt li.hl{animation:hlPulse 1.4s ease 2}
+
+/* ---- 19 Nov (2): whole flyers in a grid, a calmer All pages, the Visit page map and pictures ---- */
+html .fl-grid .strip-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:24px 18px;overflow:visible;scroll-snap-type:none;padding:8px 2px 4px}
+html .fl-grid .sf{width:auto;flex:initial;scroll-snap-align:none}
+html .fl-grid .sf img{width:100%;height:auto;aspect-ratio:640/828;object-fit:contain;background:var(--surface);border-radius:12px;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease}
+html .fl-grid .sf:hover img,html .fl-grid .sf:focus-visible img{transform:translateY(-4px);box-shadow:0 14px 30px rgba(15,42,25,.22)}
+@media (max-width:640px){html .fl-grid .strip-row{grid-template-columns:1fr 1fr;gap:20px 14px}}
+.sm-search{position:relative;max-width:640px;margin:0 0 22px}
+.sm-search .ic{position:absolute;left:16px;top:16px;width:24px;height:24px;color:var(--mid);pointer-events:none}
+.sm-search input{width:100%;height:56px;padding:0 18px 0 52px;border-radius:16px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:500 17px var(--sans)}
+.sm-search input:focus{outline:3px solid rgba(92,171,59,.45);border-color:var(--mid)}
+.sm-quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin-bottom:20px}
+.sm-q{display:flex;flex-direction:column;gap:2px;padding:16px;border-radius:16px;background:var(--deep);color:#fff;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+.sm-q:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.sm-qi{display:grid;place-items:center;width:44px;height:44px;margin-bottom:8px;border-radius:13px;background:rgba(255,255,255,.14);color:#e4f5d8}
+.sm-qi .ic{width:26px;height:26px}
+.sm-q b{font:600 1.1rem var(--serif)}
+.sm-q small{color:#cfe3c1;font-size:13px}
+.sm-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.sm-chip{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 14px 0 10px;border-radius:99px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-weight:600;font-size:14.5px;text-decoration:none;transition:border-color .2s ease,background-color .2s ease}
+.sm-chip:hover{border-color:var(--mid);background:var(--g50)}
+.sm-chip .ic{width:22px;height:22px;color:var(--mid)}
+.sm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;align-items:start}
+.sm-g{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 16px 8px}
+.sm-g header{display:flex;gap:12px;align-items:center;margin-bottom:6px}
+.sm-gi{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--g50);color:var(--deep-ink)}
+.sm-gi .ic{width:28px;height:28px}
+.sm-g h2{margin:0;font-size:1.25rem;line-height:1.2}
+.sm-g header p{margin:1px 0 0;color:var(--ink3);font-size:13.5px;line-height:1.3}
+.sm-g ul{list-style:none;margin:0;padding:0}
+.sm-g li a{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:46px;padding:0 4px;border-top:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:16.5px}
+.sm-g li a:hover{color:var(--mid)}
+.sm-g li .ic{flex:none;width:16px;height:16px;color:var(--mid)}
+.sm-none{margin:24px 0;color:var(--ink2);font-size:17px}
+@media (max-width:640px){.sm-quick{grid-template-columns:1fr 1fr;gap:10px}.sm-q{padding:14px}.sm-q b{font-size:1.02rem}}
+.vmap{position:relative;min-height:380px;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--g50)}
+.vmap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vmap-open{position:absolute;left:12px;bottom:12px;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+@media (max-width:760px){.vmap{min-height:300px}}
+.vp-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:12px}
+.vp{position:relative;display:block;padding:0;border:0;border-radius:18px;overflow:hidden;cursor:zoom-in;background:#0b1d12}
+.vp:nth-child(1){grid-column:span 2;grid-row:span 2}
+.vp:nth-child(4){grid-column:span 2}
+.vp img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.vp:hover img,.vp:focus-visible img{transform:scale(1.07)}
+.vp span{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;background:linear-gradient(transparent,rgba(8,26,15,.86));color:#fff;font:600 15px/1.3 var(--sans);text-align:left}
+.vp-note{margin-top:14px;font-size:13px;max-width:60em}
+@media (max-width:760px){.vp-grid{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.vp:nth-child(1){grid-column:span 2;grid-row:span 1}.vp:nth-child(4){grid-column:span 2}}
+.lbx{width:min(1100px,calc(100vw - 20px));max-width:none;max-height:calc(100dvh - 20px);margin:auto;padding:0;border:0;border-radius:18px;background:#0b1d12;color:#fff;overflow:hidden}
+.lbx::backdrop{background:rgba(6,20,11,.84)}
+.lbx figure{margin:0;display:flex;flex-direction:column}
+.lbx img{width:100%;max-height:calc(100dvh - 100px);object-fit:contain;background:#050f08;display:block}
+.lbx figcaption{padding:12px 18px 16px;font:500 15px var(--sans)}
+.lbx-x{position:absolute;top:10px;right:10px;z-index:2;width:42px;height:42px;border-radius:50%;border:0;background:rgba(0,0,0,.55);color:#fff;font-size:26px;line-height:1;cursor:pointer}
+@supports (transition-behavior:allow-discrete){
+  html dialog.lbx{opacity:0;transform:translateY(24px) scale(.97);transition:opacity .3s ease,transform .42s cubic-bezier(.2,.8,.2,1),overlay .42s allow-discrete,display .42s allow-discrete}
+  html dialog.lbx[open]{opacity:1;transform:none}
+  html dialog.lbx::backdrop{opacity:0;transition:opacity .38s ease,overlay .42s allow-discrete,display .42s allow-discrete}
+  html dialog.lbx[open]::backdrop{opacity:1}
+  @starting-style{
+    html dialog.lbx[open]{opacity:0;transform:translateY(24px) scale(.97)}
+    html dialog.lbx[open]::backdrop{opacity:0}
+  }
+}
+
+/* ---- 19 Nov (2): flip cards, livelier cards, smoother tabs ---- */
+.xc-hint{margin:-6px 0 14px;font-size:14.5px}
+.xcards{--star-w:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='96' height='96' viewBox='-511.9 -511.9 1023.8 1023.8'%3E%3Cdefs%3E%3Cg id='m'%3E%3Cpath fill='none' stroke='%23fff' stroke-opacity='0.5' stroke-width='9' stroke-linejoin='round' d='M451.8 -0.0 319.4 -132.3 319.4 -319.4 132.3 -319.4 0.0 -451.8 -132.3 -319.4 -319.4 -319.4 -319.4 -132.3 -451.8 -0.0 -319.4 132.3 -319.4 319.4 -132.3 319.4 0.0 451.8 132.3 319.4 319.4 319.4 319.4 132.3 451.8 -0.0Z'/%3E%3Cg fill='%23fff' fill-opacity='0.2'%3E%3Cpath d='M511.9 -60.1 619.3 -167.6 619.3 -319.4 404.5 -319.4 404.5 -167.6Z'/%3E%3Cpath d='M511.9 60.1 619.3 167.6 619.3 319.4 404.5 319.4 404.5 167.6Z'/%3E%3Cpath d='M-60.1 -511.9 -167.6 -619.3 -319.4 -619.3 -319.4 -404.5 -167.6 -404.5Z'/%3E%3Cpath d='M60.1 -511.9 167.6 -619.3 319.4 -619.3 319.4 -404.5 167.6 -404.5Z'/%3E%3C/g%3E%3Cpath fill='%23fff' fill-opacity='0.13' d='M404.5 404.5 619.3 404.5 619.3 619.3 404.5 619.3Z'/%3E%3C/g%3E%3C/defs%3E%3Cuse xlink:href='%23m' x='-1023.8' y='-1023.8'/%3E%3Cuse xlink:href='%23m' x='-1023.8' y='0.0'/%3E%3Cuse xlink:href='%23m' x='-1023.8' y='1023.8'/%3E%3Cuse xlink:href='%23m' x='0.0' y='-1023.8'/%3E%3Cuse xlink:href='%23m' x='0.0' y='0.0'/%3E%3Cuse xlink:href='%23m' x='0.0' y='1023.8'/%3E%3Cuse xlink:href='%23m' x='1023.8' y='-1023.8'/%3E%3Cuse xlink:href='%23m' x='1023.8' y='0.0'/%3E%3Cuse xlink:href='%23m' x='1023.8' y='1023.8'/%3E%3C/svg%3E");display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;perspective:1400px}
+.xcard{position:relative;display:block;height:300px;padding:0;border:0;background:none;text-align:left;cursor:pointer;font:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
+.xc-in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.2,.8,.2,1)}
+.xc-f,.xc-b{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:20px 20px 22px;border-radius:22px;overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.xc-f{background:linear-gradient(155deg,var(--x1),var(--x2));color:#fff;box-shadow:0 16px 34px rgba(12,38,20,.28)}
+.xc-f::before{content:'';position:absolute;inset:0;background:var(--star-w) 0 0/90px 90px;opacity:.55;pointer-events:none}
+.xc-num{position:absolute;right:12px;bottom:-26px;font:700 9.5rem/1 var(--serif);color:rgba(255,255,255,.14);pointer-events:none}
+.xc-art{position:relative;display:grid;place-items:center;width:84px;height:84px;margin:0 0 auto;border-radius:26px;background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.38);animation:xcFloat 4.5s ease-in-out infinite}
+.xc-art .ic{width:54px;height:54px;color:#fff;--ic-tn:rgba(255,255,255,.2);--ic-t2:rgba(255,255,255,.36);--ic-ac:#ffe08a}
+.xc-f b{position:relative;display:block;margin-top:18px;font:600 1.4rem/1.15 var(--serif)}
+.xc-f small{position:relative;display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:13px;opacity:.88}
+.xc-f small .ic{width:15px;height:15px}
+.xc-b{transform:rotateY(180deg);justify-content:flex-start;gap:10px;background:var(--surface);color:var(--ink);border:1.5px solid var(--line);box-shadow:0 16px 34px rgba(12,38,20,.18);overflow:auto}
+.xc-b b{font:600 1.35rem/1.2 var(--serif);color:var(--deep-ink)}
+.xc-b > span{font-size:1rem;line-height:1.55;color:var(--ink2)}
+.xcard[aria-pressed="true"] .xc-in,.xcard:focus-visible .xc-in{transform:rotateY(180deg)}
+@media (hover:hover){.xcard:hover .xc-in{transform:rotateY(180deg)}}
+@keyframes xcFloat{50%{transform:translateY(-6px)}}
+@media (max-width:640px){
+  .xcards{grid-template-columns:1fr;gap:14px}
+  .xcard{height:230px}
+  .xc-art{width:64px;height:64px;border-radius:20px}
+  .xc-art .ic{width:42px;height:42px}
+  .xc-num{font-size:7.5rem}
+  .xc-f b{font-size:1.25rem;margin-top:12px}
+}
+.hp-grid .card,.ex-way,.nm-paths > *{transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,border-color .3s ease}
+.hp-grid .card:hover,.ex-way:hover,.nm-paths > *:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(15,42,25,.16);border-color:var(--mid)}
+.ex-way .ex-ic{display:inline-grid;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.ex-way:hover .ex-ic{transform:rotate(-8deg) scale(1.12)}
+.dtab{transition:background-color .35s ease,border-color .35s ease,color .35s ease,box-shadow .35s ease,transform .2s ease}
+.dtab small,.dtab .dn{transition:background-color .35s ease,color .35s ease}
+.dtab:active{transform:scale(.96)}
+.dtab[aria-selected="true"]{box-shadow:0 8px 18px rgba(31,68,41,.26)}
+.sw-out{opacity:0!important;transform:translateY(6px);transition:opacity .15s ease,transform .15s ease}
+.sw-in{animation:swIn .42s cubic-bezier(.2,.8,.2,1) both}
+@keyframes swIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.sw-in .day-cards > *,.sw-in .pl-day > *{animation:swIn .46s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0) * 55ms)}
+html .ig-sec.sec-dark .ig-box{padding:18px 18px 4px;border-radius:24px;background:rgba(7,32,16,.6);border:1px solid rgba(255,255,255,.22);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12),0 22px 44px rgba(6,28,14,.28);transition:background-color .7s ease}
+html .ig-sec.sec-dark[data-acct="unfiltered"] .ig-box{background:rgba(4,38,44,.62)}
+@media (max-width:640px){html .ig-sec.sec-dark .ig-box{padding:14px 12px 2px;border-radius:20px}}
 
 /* ---- 19 Nov: a calmer footer, everything visible on a phone ---- */
 .ftr-quick{display:none}
@@ -2472,6 +2626,7 @@ body[data-page="prayer"] .gv-strip,body[data-page="classes"] .gv-strip,body[data
 </section>
 <dialog id="dlg" class="dlg" aria-labelledby="dlg-t"><div id="dlg-body"></div></dialog>
 <dialog id="igdlg" class="igdlg" aria-labelledby="igdlg-t"><div class="igdlg-top"><div><b id="igdlg-t"></b><span id="igdlg-s"></span></div><button class="igdlg-x" data-igclose aria-label="Close">×</button></div><div class="igdlg-frame"><p class="igdlg-load">Loading from Instagram…</p><iframe id="igdlg-f" title="Instagram post" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="igdlg-foot"><span id="igdlg-n">Plays from Instagram, only after you tap.</span><a class="btn btn-sm btn-line" id="igdlg-a" href="#" target="_blank" rel="noopener">Open on Instagram</a></div></dialog>
+<dialog id="lbx" class="lbx" aria-label="Picture"><button type="button" class="lbx-x" data-lbx-close aria-label="Close">×</button><figure><img alt=""><figcaption></figcaption></figure></dialog>
 <dialog id="gdlg" class="gdlg" aria-labelledby="gdlg-t"><button type="button" class="gdlg-x" data-gclose aria-label="Close">×</button><div id="gdlg-body"></div></dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -2627,6 +2782,7 @@ const ICONS = {
   search:'<path class="tn" d="M7.5 21a13.5 13.5 0 1 0 27 0a13.5 13.5 0 1 0 -27 0z"/><path d="M7.5 21a13.5 13.5 0 1 0 27 0a13.5 13.5 0 1 0 -27 0z"/><path class="hv" d="M32 32L41.5 41.5"/><path class="ac" d="M21 15.8L22.52 17.32L24.68 17.32L24.68 19.48L26.2 21L24.68 22.52L24.68 24.68L22.52 24.68L21 26.2L19.48 24.68L17.32 24.68L17.32 22.52L15.8 21L17.32 19.48L17.32 17.32L19.48 17.32Z"/><path class="dt g" d="M11.91 17.33A9.8 9.8 0 0 1 17.97 11.68"/><path class="dt" d="M11.1 21a9.9 9.9 0 1 0 19.8 0a9.9 9.9 0 1 0 -19.8 0z"/>',
   rec:'<path class="tn" d="M6 35.5V17A37.5 37.5 0 0 1 24 8A37.5 37.5 0 0 1 42 17V35.5z"/><path d="M6 35.5V17A37.5 37.5 0 0 1 24 8A37.5 37.5 0 0 1 42 17V35.5zM24 35.5V41M15.5 41H32.5"/><path class="ac" d="M20.2 16.2 L31.6 23.2 L20.2 30.2Z"/><path class="ao" d="M20.2 16.2 L31.6 23.2 L20.2 30.2Z"/><path class="dt" d="M10.76 32.7V19A26.99 26.99 0 0 1 24 11.86A26.99 26.99 0 0 1 37.24 19V32.7z"/><path class="dt dots" d="M11 33.2L37 33.2"/>',
   play:'<path class="fl" d="M16 9.5 L39 24 L16 38.5Z"/><path d="M16 9.5 L39 24 L16 38.5Z"/><path class="dt" d="M14 5.73 L42.98 24 L14 42.27Z"/>',
+  tiktok:'<path class="tn" d="M16.5 6H31.5A10.5 10.5 0 0 1 42 16.5V31.5A10.5 10.5 0 0 1 31.5 42H16.5A10.5 10.5 0 0 1 6 31.5V16.5A10.5 10.5 0 0 1 16.5 6z"/><path d="M16.5 6H31.5A10.5 10.5 0 0 1 42 16.5V31.5A10.5 10.5 0 0 1 31.5 42H16.5A10.5 10.5 0 0 1 6 31.5V16.5A10.5 10.5 0 0 1 16.5 6zM26.5 13.5V29.5M16.5 30.2a5 5 0 1 0 10 0a5 5 0 1 0 -10 0M26.5 13.5c.5 3.9 3.1 6.5 7 6.9"/><path class="ac" d="M16.5 30.2a5 5 0 1 0 10 0a5 5 0 1 0 -10 0z"/>',
   ig:'<path class="tn" d="M16.5 6H31.5A10.5 10.5 0 0 1 42 16.5V31.5A10.5 10.5 0 0 1 31.5 42H16.5A10.5 10.5 0 0 1 6 31.5V16.5A10.5 10.5 0 0 1 16.5 6z"/><path d="M16.5 6H31.5A10.5 10.5 0 0 1 42 16.5V31.5A10.5 10.5 0 0 1 31.5 42H16.5A10.5 10.5 0 0 1 6 31.5V16.5A10.5 10.5 0 0 1 16.5 6zM15.2 24a8.8 8.8 0 1 0 17.6 0a8.8 8.8 0 1 0 -17.6 0z"/><path class="fl" d="M31.9 13.8a2.3 2.3 0 1 0 4.6 0a2.3 2.3 0 1 0 -4.6 0z"/><path class="ac" d="M24 20.2 L25.11 21.31 L26.69 21.31 L26.69 22.89 L27.8 24 L26.69 25.11 L26.69 26.69 L25.11 26.69 L24 27.8 L22.89 26.69 L21.31 26.69 L21.31 25.11 L20.2 24 L21.31 22.89 L21.31 21.31 L22.89 21.31Z"/><path class="dt" d="M18.4 24a5.6 5.6 0 1 0 11.2 0a5.6 5.6 0 1 0 -11.2 0z"/>',
   't-quran':'<path class="tn" d="M24 10.5C19.5 7.5 13 7 7 8.5V27.5C13 26.5 19.5 27 24 30.5ZM24 10.5C28.5 7.5 35 7 41 8.5V27.5C35 26.5 28.5 27 24 30.5Z"/><path class="t2" d="M9.6 13.4 L11.4 11.6 L18.6 11.6 L20.4 13.4 L18.6 15.2 L11.4 15.2ZM38.4 13.4 L36.6 11.6 L29.4 11.6 L27.6 13.4 L29.4 15.2 L36.6 15.2Z"/><path d="M24 10.5C19.5 7.5 13 7 7 8.5V27.5C13 26.5 19.5 27 24 30.5ZM24 10.5C28.5 7.5 35 7 41 8.5V27.5C35 26.5 28.5 27 24 30.5Z"/><path class="hv" d="M13 28.6L35 41.2M35 28.6L13 41.2"/><path class="gd" d="M21.8 34.9a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0z"/><path class="ac" d="M24 17.6 L25 18.6 L26.4 18.6 L26.4 20 L27.4 21 L26.4 22 L26.4 23.4 L25 23.4 L24 24.4 L23 23.4 L21.6 23.4 L21.6 22 L20.6 21 L21.6 20 L21.6 18.6 L23 18.6Z"/><path class="dt" d="M9.6 18.6L19.6 18.6M38.4 18.6L28.4 18.6M9.6 21.8L19.6 21.8M38.4 21.8L28.4 21.8M9.6 25L19.6 25M38.4 25L28.4 25"/>',
   't-studies':'<path class="tn" d="M6.5 42V22.5L9.5 19.5H38.5L41.5 22.5V42Z"/><path class="t2" d="M14.8 19.5V19.5A9.61 9.61 0 0 1 24 9.9A9.61 9.61 0 0 1 33.2 19.5V19.5z"/><path d="M6.5 42V22.5L9.5 19.5H38.5L41.5 22.5V42ZM14.8 19.5V19.5A9.61 9.61 0 0 1 24 9.9A9.61 9.61 0 0 1 33.2 19.5V19.5zM24 9.9V9"/><path class="t2" d="M18.6 42V31.5A7.77 7.77 0 0 1 24 24.1A7.77 7.77 0 0 1 29.4 31.5V42z"/><path d="M18.6 42V31.5A7.77 7.77 0 0 1 24 24.1A7.77 7.77 0 0 1 29.4 31.5V42z"/><path class="t2" d="M10.9 37V31.4A3.25 3.25 0 0 1 13.6 28.2A3.25 3.25 0 0 1 16.3 31.4V37zM31.7 37V31.4A3.25 3.25 0 0 1 34.4 28.2A3.25 3.25 0 0 1 37.1 31.4V37z"/><path d="M10.9 37V31.4A3.25 3.25 0 0 1 13.6 28.2A3.25 3.25 0 0 1 16.3 31.4V37zM31.7 37V31.4A3.25 3.25 0 0 1 34.4 28.2A3.25 3.25 0 0 1 37.1 31.4V37z"/><path class="gd" d="M26.26 7.7A2.4 2.4 0 1 1 24.23 4.51A1.9 1.9 0 1 0 26.26 7.7z"/><path class="ac" d="M24 12.2 L24.94 13.14 L26.26 13.14 L26.26 14.46 L27.2 15.4 L26.26 16.34 L26.26 17.66 L24.94 17.66 L24 18.6 L23.06 17.66 L21.74 17.66 L21.74 16.34 L20.8 15.4 L21.74 14.46 L21.74 13.14 L23.06 13.14Z"/><path class="dt" d="M16 19.5Q18.5 14 24 12.2M32 19.5Q29.5 14 24 12.2"/><path class="dt dots g" d="M9 28h0M14 28h0M34 28h0M39 28h0"/><path class="dt" d="M9.5 40.2L12.8 40.2M35.2 40.2L38.5 40.2"/>',
@@ -2860,9 +3016,10 @@ function renderChrome(){
 
 /* ---------- pages ---------- */
 let homeDay = NOW.dow;
-function homeDayHTML(){
+function homeDayHTML(){ return dayTabs(homeDay, 'all') + '<div class="dbody">' + homeDayBodyHTML() + '</div>'; }
+function homeDayBodyHTML(){
   const list = sessionsFor(homeDay, 'all');
-  return dayTabs(homeDay, 'all') + '<h3 class="sr">' + DAYS[homeDay] + '</h3>' + (list.length ? '<div class="day-cards" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">' + list.map(x => card(x)).join('') + '</div>' : '<p class="empty">No classes on ' + DAYS[homeDay] + 's.</p>') +
+  return '<h3 class="sr">' + DAYS[homeDay] + '</h3>' + (list.length ? '<div class="day-cards" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">' + list.map(x => card(x)).join('') + '</div>' : '<p class="empty">No classes on ' + DAYS[homeDay] + 's.</p>') +
     '<p class="muted" style="margin-top:14px;font-size:14px">' + dayCtx(homeDay) + '</p>';
 }
 const pageHeadStyle = k => ' ph-photo" style="background-image:url(' + D.photos[k] + ')';
@@ -2889,11 +3046,32 @@ function igSectionHTML(o){
   const A = IG.accounts;
   const tabs = Object.keys(A).map(k => '<button data-igtab="' + k + '" aria-pressed="' + (igTab === k) + '">' + esc(A[k].label) + ' <small>@' + A[k].handle + '</small></button>').join('');
   return '<section class="sec ' + (o.dark ? 'sec-dark' : 'sec-tint') + ' ig-sec" id="instagram" data-acct="' + igTab + '"><div class="container"><div class="sec-h"><div><p class="eyebrow">' + (o.eyebrow || 'On Instagram') + '</p><h2>' + (o.title || 'See the centre in action') + '</h2></div><div class="seg" role="group" aria-label="Choose an Instagram page">' + tabs + '</div></div>' +
-    '<div class="ig-bar"><p class="ig-line" id="ig-line">' + igLineHTML(igTab) + '</p><div class="ig-arrows"><button type="button" data-igscroll="-1" aria-label="Show earlier posts">' + icon('arrow') + '</button><button type="button" data-igscroll="1" aria-label="Show more posts">' + icon('arrow') + '</button></div></div>' +
-    '<div class="ig-grid" id="ig-grid">' + igGridHTML(igTab) + '</div>' +
+    '<div class="ig-box"><div class="ig-bar"><p class="ig-line" id="ig-line">' + igLineHTML(igTab) + '</p><div class="ig-arrows"><button type="button" data-igscroll="-1" aria-label="Show earlier posts">' + icon('arrow') + '</button><button type="button" data-igscroll="1" aria-label="Show more posts">' + icon('arrow') + '</button></div></div>' +
+    '<div class="ig-grid" id="ig-grid">' + igGridHTML(igTab) + '</div></div>' +
     '<p class="muted ig-note">Pictures and videos come from the centre’s own Instagram pages. Tap one to watch or read it here. It loads from Instagram only when you tap, so nothing is tracked while you browse.</p>' +
     '<div class="rv"><div class="card" style="margin-top:14px;padding:14px 16px"><b>Items to confirm with the centre</b> <span class="muted">· the centre’s OK to show each post on the website; the consent of anyone who appears, especially children and youth; and which of the two pages it wants shown. Posts shared with outside accounts were left out. The cover pictures here are screenshots, so the original files should replace them.</span></div></div></div></section>';
 }
+const APP_URL = 'https://ticmasjid.themasjidapp.org/download';
+/* the announcements card on the home page: real items from the site's own data */
+function annListHTML(){
+  const st = ramState(), dd = daysToDue(), items = [];
+  if (dd >= 0) items.push(['heart', GV.campaign.amount + ' falls due in December', dd + (dd === 1 ? ' day' : ' days') + ' left to help repay the building loan', '#/give']);
+  if (st.mode === 'before') items.push(['moon', 'Ramadan begins in ' + st.toStart + ' days', 'Expected ' + longDate(RM.start) + '. Sponsor an iftar night.', '#/ramadan']);
+  items.push(['cap', 'Boys’ Qur’an and Hifth classes', 'Saturdays, 10:30 am to 12:30 pm, ages 7 to 15', '', 'ig-hifth']);
+  items.push(['users', 'Brothers: Friday Night Social', 'Fridays after Isha, until 11:30 pm', '', 'ig-social']);
+  return '<ul class="ann-list">' + items.map(x => '<li>' + (x[3]
+    ? '<a class="ann-row" href="' + x[3] + '">'
+    : '<button type="button" class="ann-row" data-ig="' + x[4] + '">') + '<span class="ann-ic">' + icon(x[0]) + '</span><span><b>' + esc(x[1]) + '</b><small>' + esc(x[2]) + '</small></span>' + icon('arrow') + (x[3] ? '</a>' : '</button>') + '</li>').join('') + '</ul>';
+}
+/* flip cards: a bold front with a big icon, and the words on the back */
+const XC = [['#1f4429', '#37874c'], ['#0b5f68', '#1aa0aa'], ['#7a5a12', '#c79a2e'], ['#233c2b', '#4a7a57'], ['#2d6a3a', '#7bc04f']];
+function xcardsHTML(items, icons, cls){
+  return '<div class="xcards ' + (cls || '') + '">' + items.map((x, i) => {
+    const c = XC[i % XC.length];
+    return '<button type="button" class="xcard" aria-pressed="false" style="--x1:' + c[0] + ';--x2:' + c[1] + '"><span class="xc-in"><span class="xc-f"><span class="xc-num" aria-hidden="true">' + (i + 1) + '</span><span class="xc-art">' + icon(icons[i % icons.length]) + '</span><b>' + esc(x.t) + '</b><small>Tap to read ' + icon('arrow') + '</small></span><span class="xc-b"><b>' + esc(x.t) + '</b><span>' + esc(x.d) + '</span></span></span></button>';
+  }).join('') + '</div>';
+}
+document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('.xcard'); if (b) b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true')); });
 function pageHome(){
   const pl = prayerList(NOW.date);
   const L = D.loan;
@@ -2913,7 +3091,7 @@ function pageHome(){
     '<div class="find"><span>Find classes for</span><a class="chip" href="#/classes?who=sisters">Sisters</a><a class="chip" href="#/classes?who=brothers">Brothers</a><a class="chip" href="#/classes?who=u18">Kids &amp; youth (under 18)</a><a class="chip" href="#/classes?view=list">All classes by topic</a></div></div></section>' +
 
     '<section class="sec"><div class="container two"><div class="card pad"><div class="card-photo" style="background-image:url(' + D.photos.lantern + ')"></div><p class="eyebrow">Events &amp; news</p><h3>Coming up</h3><p class="muted">No events are listed right now. New ones appear here as soon as the office adds them.</p><a class="more" href="#/events">Events &amp; news ' + icon('arrow') + '</a></div>' +
-    '<div class="card pad ws"><img class="ws-img" src="' + D.posters.p04 + '" alt="Flyer for the Weekend School"><div><p class="eyebrow">Weekend School</p><h3>Sundays, 10 am to 2 pm</h3><p class="muted">A school for children at the masjid, with Ustadah Sana. Ask the office about registration.</p><a class="btn btn-sm btn-line" href="#/classes/weekend-school">Details ' + icon('arrow') + '</a></div></div></div></section>' +
+    '<div class="card pad ann"><p class="eyebrow">Announcements</p><h3>From the masjid</h3>' + annListHTML() + '<div class="app-box"><span class="app-ic">' + icon('phone') + '</span><div><b>Get the masjid app</b><small>Prayer times and announcements on your phone</small></div><a class="btn btn-sm" href="' + APP_URL + '" target="_blank" rel="noopener">Download ' + icon('ext') + '</a></div></div></div></section>' +
 
     lookBackHTML() +
 
@@ -2938,7 +3116,7 @@ function syncHash(){
 function flyerStrip(){
   const list = CL.slice().sort((a, b) => ORDER.indexOf(a.sessions[0].day) - ORDER.indexOf(b.sessions[0].day) || a.title.localeCompare(b.title));
   const days = c => c.sessions.map(s => DS[s.day]).filter((d, i, a) => a.indexOf(d) === i).join(' · ');
-  return '<div class="strip"><div class="strip-h"><h3>The flyers this season</h3><span class="muted" style="font-size:13.5px">Scroll sideways</span></div><div class="strip-row">' +
+  return '<div class="strip fl-grid"><div class="strip-h"><h3>The flyers this season</h3><span class="muted" style="font-size:13.5px">Tap a flyer for the details</span></div><div class="strip-row">' +
     list.map(c => '<a class="sf" href="#/classes/' + c.id + '"><img src="' + D.posters[c.poster] + '" alt="Flyer for ' + esc(c.title) + '" loading="lazy"><b>' + esc(c.title) + '</b><span>' + days(c) + '</span></a>').join('') + '</div></div>';
 }
 function pdfSectionHTML(){
@@ -2958,11 +3136,10 @@ function pageClasses(r){
   state.day = q.day != null ? +q.day : (state.day != null ? state.day : NOW.dow);
   const legend = D.topicOrder.map(k => '<span style="' + tcs(k) + ';color:var(--ink2)"><b>' + icon('t-' + k) + '</b>' + esc(TOP[k].name) + '</span>').join('');
   return '<section class="page-head' + pageHeadStyle('mihrab') + '"><div class="container"><p class="eyebrow">817 Yonge St · every week</p><h1>Weekly class schedule</h1><p class="lead">All ' + CL.length + ' classes and programs in one place. Choose who it is for, tap a class for details, and add it to your calendar.</p></div></section>' +
-    (EMBED ? '<div class="container">' + flyerStrip() + '</div>' : '') +
-    (EMBED ? '' : '<div class="container" style="padding-top:18px">' + flyerStrip() + '</div>') + '<div class="toolbar"><div class="container toolbar-in" id="tb"></div></div>' +
+    '<div class="toolbar"><div class="container toolbar-in" id="tb"></div></div>' +
     '<div class="container"><div class="legend" aria-hidden="true">' + legend + '</div></div>' +
     '<div class="container sched" id="sched"></div>' +
-    
+    '<div class="container" style="padding-top:34px">' + flyerStrip() + '</div>' +
     (EMBED ? '' : pdfSectionHTML() + ytShelfHTML()) + '<div class="container note"><div class="card"><span>' + icon('clock') + '</span><p>Classes repeat every week. Times that follow a prayer (such as <b>after Isha</b>) are shown with that prayer’s iqamah time for the week of ' + shortDate(WEEK_START) + '.' + (IN_RANGE ? '' : ' (Showing the latest published prayer times.)') + ' Always check an announcement for changes.</p></div></div>' +
     '<div class="container note rv"><div class="card"><span>' + icon('alert') + '</span><div><b>Items to confirm with the centre</b><ul class="flaglist" style="margin-top:6px">' + CL.filter(c => c.flags.length).map(c => '<li><b>' + esc(c.title) + '</b>' + c.flags.map(esc).join(' ') + '</li>').join('') + '</ul></div></div></div>';
 }
@@ -2983,7 +3160,7 @@ function renderBody(){
   else if (v === 'list') html = listView(who);
   else if (v === 'flyers') html = flyersView(who);
   else if (v === 'planner') html = plannerView(who);
-  else if (v === 'day') html = dayTabs(state.day, who) + daySection(state.day, who, true);
+  else if (v === 'day') html = dayTabs(state.day, who) + '<div class="dbody">' + daySection(state.day, who, true) + '</div>';
   else html = ORDER.map(d => daySection(d, who, false)).join('');
   $('#sched').classList.toggle('wide', v === 'planner' && innerWidth >= 900 && !(who === 'mine' && !MY.size));
   $('#sched').innerHTML = html;
@@ -3012,6 +3189,12 @@ function dialogHTML(c){
     '<div class="rv flagbox"><b>To confirm with the centre</b>' + (c.flags.length ? c.flags.map(f => '<p>' + esc(f) + '</p>').join('') : '<p>Nothing to confirm. Website and flyer agree.</p>') + '<p><i>Current website says:</i> ' + esc(c.siteText) + '</p></div></div>';
 }
 
+/* the classes that follow a prayer, shown inside that prayer's row on the Prayer page */
+function ptClsHTML(key){
+  const n = tNow(), list = sessionsFor(n.dow, 'all').filter(x => x.s.start.p === key);
+  if (!list.length) return '';
+  return '<div class="pt-cls"><p>' + list.length + (list.length === 1 ? ' class after' : ' classes after') + '</p>' + list.map(x => { const th = D.thumbs[x.c.poster]; return '<a href="#/classes/' + x.c.id + '">' + (th ? '<img src="' + th + '" alt="">' : '') + '<span><b>' + esc(x.c.title) + '</b><small>' + esc([audience(x.c), x.inf.main].filter(Boolean).join(' · ')) + '</small></span>' + icon('arrow') + '</a>'; }).join('') + '</div>';
+}
 function pagePrayer(){
   const pl = prayerList(NOW.date), days = [0,1,2,3,4,5,6].map(i => addDays(NOW.date, i));
   const rows = days.map((ds, i) => {
@@ -3024,7 +3207,7 @@ function pagePrayer(){
   const J = D.jumuah;
   return '<section class="page-head' + pageHeadStyle('dome') + '"><div class="container"><p class="eyebrow">817 Yonge St</p><h1>Prayer times</h1><p class="lead">Iqamah is when the congregation stands, not when the adhan is called.</p></div></section>' +
     '<section class="sec" style="padding-top:20px"><div class="container grid2"><div class="card pad"><p class="eyebrow">Today · ' + longDate(NOW.date) + '</p><div class="today-next" style="margin-top:8px"><span class="lbl">Next iqamah</span><strong class="big" data-next-name style="font:500 2.4rem/1 var(--serif)"></strong><span class="bigtime" data-next-time style="font:600 1.8rem/1 var(--sans);color:var(--mid)"></span><span class="muted" data-next-in></span></div>' +
-    '<ul class="pt">' + pl.map(p => '<li data-pt="' + p.key + '"><span>' + pg(p.key) + p.name + (p.adhan ? '<small>adhan ' + p.adhan + '</small>' : '') + '</span><time>' + p.text + '</time></li>').join('') + '</ul></div>' +
+    '<ul class="pt">' + pl.map(p => '<li data-pt="' + p.key + '" id="pt-' + p.key + '" data-hl><span>' + pg(p.key) + p.name + (p.adhan ? '<small>adhan ' + p.adhan + '</small>' : '') + '</span><time>' + p.text + '</time>' + ptClsHTML(p.key) + '</li>').join('') + '</ul></div>' +
     '<div class="card pad" id="jumuah"><p class="eyebrow">Every Friday</p><h2 style="font-size:1.7rem;margin:6px 0 4px">Jumu’ah</h2><p class="muted">Two jama’ahs, so everyone can attend.</p><div class="jum">' + J.map(j => '<div class="j"><b>' + j.name + '</b>Khutbah ' + j.khutbah + ' · Iqamah ' + j.iqamah + '<br><span class="muted">' + j.imam + '</span></div>').join('') + '</div>' + ytJumuahHTML() + '<p class="gv-inline"><b>Give after Jumu’ah.</b> ' + (daysToDue() >= 0 ? GV.campaign.amount + ' falls due in December on the masjid’s building loan. ' : 'The masjid is still repaying its building loan. ') + '<a href="#/give">Help repay it</a></p></div></div>' +
     '<div class="container" style="margin-top:20px"><div class="card pad"><div class="sec-h" style="margin-bottom:14px"><div><p class="eyebrow">Iqamah times</p><h2 style="font-size:1.6rem">The week ahead</h2></div></div>' +
     (changes.length ? '<div class="callout" style="margin-bottom:14px"><b>Changing this week:</b> ' + changes.join(' ') + '</div>' : '<p class="muted" style="margin-bottom:14px">No iqamah changes this week.</p>') +
@@ -3480,7 +3663,7 @@ document.addEventListener('mouseover', e => {
   pop.innerHTML = '<img src="' + D.posters[c.poster] + '" alt=""><div><b>' + esc(c.title) + '</b>' + esc(c.teacher) + '<br>' + esc(audience(c)) + '</div>';
   pop.style.display = 'block'; movePop(e);
 });
-document.addEventListener('mousemove', e => { if (pop.style.display === 'block') movePop(e); });
+document.addEventListener('mousemove', e => { if (pop.style.display !== 'block') return; if (e.target.closest && e.target.closest('.pb')) movePop(e); else pop.style.display = 'none'; });
 document.addEventListener('mouseout', e => {
   const a = e.target.closest && e.target.closest('.pb');
   if (a && !(e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('.pb'))) pop.style.display = 'none';
@@ -3507,7 +3690,7 @@ function armMotion(){
     el.classList.add('in'); setTimeout(() => el.classList.remove('rvl', 'in'), 1300);
   }), {rootMargin:'0px 0px -6% 0px', threshold:.05});
   $$('#app .mark[data-r]').forEach(m => rvObs.observe(m));
-  ['.feat', '.tiles', '.day-cards', '.two', '.loan', '.visit', '.idea-grid', '.ig-grid', '.picks'].forEach(sel => $$('#app ' + sel).forEach(box => {
+  ['.feat', '.tiles', '.day-cards', '.two', '.loan', '.visit', '.idea-grid', '.ig-grid', '.picks', '.xcards'].forEach(sel => $$('#app ' + sel).forEach(box => {
     Array.from(box.children).forEach((c, i) => { c.classList.add('rvl'); c.style.setProperty('--d', Math.min(i, 7) * 70 + 'ms'); rvObs.observe(c); });
   }));
   $$('#app .sec-h, #app .empty-card, #app .event, #app .strip').forEach(c => { c.classList.add('rvl'); rvObs.observe(c); });
@@ -3562,7 +3745,7 @@ function ytOpen(id){
   $('#igdlg-n').textContent = 'Plays from YouTube, only after you tap.';
   { const ls = $('.igdlg-load span'); if (ls) ls.textContent = 'Loading from YouTube…'; }
   igdlg.classList.add('wide'); igdlg.classList.remove('loaded'); igf.style.height = '';
-  igf.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+  igf.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1';
   igdlg.showModal();
 }
 
@@ -3898,7 +4081,7 @@ const moreLinks = cls => SITE_MORE.map(m => '<a' + (cls ? ' class="' + cls + '"'
 const mA = (m, cls, extra) => '<a class="' + cls + '"' + (extra || '') + ' href="' + m.href + '"' + (m.ext ? ' target="_blank" rel="noopener"' : '') + '>';
 const mSub = m => m.sub.map(s => '<a href="' + s[1] + '"' + (s[2] ? ' target="_blank" rel="noopener"' : '') + '>' + s[0] + '</a>').join('');
 function stripHTML(){
-  return '<div class="pstrip" id="pstrip" role="group" aria-label="Today’s iqamah times">' + PK.map(k => '<a class="pp" data-pp="' + k + '" href="#/prayer"><span class="pp-n"></span><b class="pp-t"></b><small class="pp-s"></small></a>').join('') + '</div>';
+  return '<div class="pstrip" id="pstrip" role="group" aria-label="Today’s iqamah times">' + PK.map(k => '<a class="pp" data-pp="' + k + '" href="#/prayer?go=pt-' + k + '"><span class="pp-n"></span><b class="pp-t"></b><small class="pp-s"></small></a>').join('') + '</div>';
 }
 function updateStrip(){
   const el = $('#pstrip'); if (!el) return;
@@ -3938,25 +4121,32 @@ function ppPlace(a){
   ppPop.style.setProperty('--cx', Math.round(r.left + r.width / 2 - left) + 'px');
 }
 function ppShow(a){
-  clearTimeout(ppTimer);
+  ppKeep();
   if (!a || !a.dataset.cls) return;
   if (ppCur !== a) { ppPop.innerHTML = ppPopHTML(a); ppCur = a; }
   ppPlace(a); ppPop.classList.add('on');
 }
+function ppKeep(){ clearTimeout(ppTimer); ppTimer = 0; }
 function ppHide(now){
-  clearTimeout(ppTimer);
-  const f = () => { ppPop.classList.remove('on'); ppCur = null; };
-  if (now) f(); else ppTimer = setTimeout(f, 200);
+  if (now) { ppKeep(); ppPop.classList.remove('on'); ppCur = null; return; }
+  if (ppTimer) return;
+  ppTimer = setTimeout(() => { ppTimer = 0; ppPop.classList.remove('on'); ppCur = null; }, 90);
 }
 document.addEventListener('mouseover', e => {
   if (ppTouch() || !e.target.closest) return;
   const a = e.target.closest('#pstrip .pp');
-  if (a && a.dataset.cls) ppShow(a); else if (e.target.closest('#pp-pop')) clearTimeout(ppTimer);
+  if (a && a.dataset.cls) ppShow(a); else if (e.target.closest('#pp-pop')) ppKeep();
 });
 document.addEventListener('mouseout', e => {
   if (ppTouch() || !e.target.closest) return;
   if (e.target.closest('#pstrip .pp, #pp-pop') && !(e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('#pstrip .pp, #pp-pop'))) ppHide();
 });
+/* a safety net: whenever the pointer is somewhere else, the card closes (also when the pointer leaves the window) */
+document.addEventListener('mousemove', e => {
+  if (!ppPop.classList.contains('on') || ppTouch() || !e.target.closest) return;
+  if (e.target.closest('#pstrip .pp, #pp-pop')) ppKeep(); else ppHide();
+});
+document.documentElement.addEventListener('mouseleave', () => ppHide(true));
 document.addEventListener('focusin', e => {
   if (!e.target.closest) return;
   const a = e.target.closest('#pstrip .pp');
@@ -4157,7 +4347,7 @@ const twKind = n => n.kind === 'tahajjud' ? 'Tahajjud' : (n.kind === 'khatm' ? '
 const twLabel = n => 'Night ' + n.n + (n.kind === 'tahajjud' ? ' · Tahajjud' : (n.kind === 'khatm' ? ' · Night of completion' : ''));
 function twStageHTML(){
   const Y = TW.years[twY], v = Y.nights[twN] || Y.nights[0];
-  if (twOn) return '<div class="tw-stage on"><iframe src="https://www.youtube-nocookie.com/embed/' + v.id + '?autoplay=1&rel=0" title="' + esc(twLabel(v)) + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>';
+  if (twOn) return '<div class="tw-stage on"><iframe src="https://www.youtube-nocookie.com/embed/' + v.id + '?autoplay=1&rel=0&enablejsapi=1" title="' + esc(twLabel(v)) + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>';
   return '<button type="button" class="tw-stage" data-twplay style="--ph:url(' + gImg(Y.photo) + ')" aria-label="Play ' + esc(twLabel(v)) + '"><span class="tw-btn">' + icon('play') + '</span><span class="tw-cap"><b>' + esc(twLabel(v)) + '</b><small>Ramadan ' + Y.y + ' · ' + Y.h + ' · ' + esc(v.len) + '</small></span></button>';
 }
 function twBoxHTML(){
@@ -4261,7 +4451,7 @@ function pageNew(){
   return '<section class="page-head' + pageHeadStyle('learn') + '"><div class="container"><p class="eyebrow">New to Islam?</p><h1>You are welcome here</h1><p class="lead">' + esc(NM.lead) + '</p><div class="dlg-act"><a class="btn" href="#/new?go=ask">Ask for a buddy</a><a class="btn btn-ghost-l" href="#/plan?who=new">Plan a first visit</a></div></div></section>' +
     '<section class="sec" data-tab="start"><div class="container"><div class="sec-h"><div><p class="eyebrow">Where are you?</p><h2>Start wherever you are</h2></div></div><div class="nm-paths">' + NM.paths.map(p => '<div class="card nm-p"><div class="nm-pic" style="background-image:url(' + gImg({shahada:'quran-light', did:'handshake', curious:'hall'}[p.id] || 'hall') + ')"></div><div class="pad"><h3>' + esc(p.t) + '</h3><p class="muted">' + esc(p.d) + '</p></div></div>').join('') + '</div><p class="muted nm-stat">' + esc(NM.stat) + '</p></div></section>' +
     '<section class="sec sec-tint" data-tab="start"><div class="container"><div class="nm-sh"><div><p class="eyebrow">The shahada</p><p class="ar" lang="ar" dir="rtl">' + sh.ar + '</p></div><div><p><i>' + esc(sh.tr) + '</i></p><p><b>' + esc(sh.en) + '</b></p><p>' + esc(sh.note) + '</p></div></div></div></section>' +
-    '<section class="sec" data-tab="steps"><div class="container"><div class="sec-h"><div><p class="eyebrow">Your first weeks</p><h2>Four small steps</h2></div></div><ol class="nm-steps">' + NM.steps.map(x => '<li><b>' + esc(x.t) + '</b><span class="muted">' + esc(x.d) + '</span></li>').join('') + '</ol></div></section>' +
+    '<section class="sec" data-tab="steps"><div class="container"><div class="sec-h"><div><p class="eyebrow">Your first weeks</p><h2>Four small steps</h2></div></div><p class="muted xc-hint">Tap or hover a card to read it.</p>' + xcardsHTML(NM.steps, ['rug', 'users', 'mosque', 'book'], 'x4') + '</div></section>' +
     '<section class="sec sec-tint" data-tab="steps"><div class="container"><div class="sec-h"><div><p class="eyebrow">Classes</p><h2>Good places to start</h2></div><a class="more" href="#/classes">All classes ' + icon('arrow') + '</a></div><div class="nm-classes">' + NM.classes.map(miniClass).join('') + '</div><p class="muted" style="margin-top:12px">Sisters: ask us which classes suit you, or <a href="#/classes?who=sisters">see the classes for sisters</a>.</p></div></section>' +
     '<section class="sec" id="ask" data-tab="ask"><div class="container two nm-ask"><div><p class="eyebrow">Ask for a buddy</p><h2>Someone to walk with you</h2><p class="muted" style="margin:10px 0 16px">Tell us a little. A brother or sister will get back to you.</p>' + nmFormHTML() + '</div>' +
     '<div class="card pad"><h3>' + esc(NM.support.t) + '</h3><p class="muted">' + esc(NM.support.d) + '</p><h3 style="margin-top:22px">Prefer to talk?</h3><p class="muted">Call the office, Monday to Friday, 1 to 9 pm.</p><div class="dlg-act"><a class="btn btn-sm" href="tel:' + C.tel + '">' + icon('phone') + ' ' + C.phone + '</a><a class="btn btn-sm btn-line" href="mailto:' + C.email + '">' + icon('mail') + ' Email</a></div></div></div></section>' +
@@ -4301,8 +4491,8 @@ function pagePlan(r){
   const oc = GALI.find(x => x.id === 'open-day-neighbours');
   return '<section class="page-head' + pageHeadStyle('visit') + '"><div class="container"><p class="eyebrow">817 Yonge St</p><h1>Plan a visit</h1><p class="lead">' + esc(PL.lead) + '</p></div></section>' +
     '<section class="sec" data-tab="who" style="padding-top:22px"><div class="container"><div class="sec-h"><div><p class="eyebrow">Step 1</p><h2>Who is coming?</h2></div></div><div class="pl-who" role="group" aria-label="Who is visiting">' + planWhoHTML() + '</div><div class="pl-panel" id="pl-panel">' + planPanelHTML() + '</div></div></section>' +
-    '<section class="sec sec-tint" data-tab="who"><div class="container"><div class="sec-h"><div><p class="eyebrow">Step 2</p><h2>What to expect</h2></div></div><div class="pl-expect">' + PL.expect.map((x, i) => '<div class="card pad"><span class="pl-n">' + (i + 1) + '</span><h3>' + esc(x.t) + '</h3><p class="muted">' + esc(x.d) + '</p></div>').join('') + '</div></div></section>' +
-    '<section class="sec" id="when" data-tab="when"><div class="container"><div class="sec-h"><div><p class="eyebrow">Step 3</p><h2>Pick a day and see what is on</h2></div></div><div id="pl-day">' + planDayTabsHTML() + planDayHTML() + '</div></div></section>' +
+    '<section class="sec sec-tint" data-tab="who"><div class="container"><div class="sec-h"><div><p class="eyebrow">Step 2</p><h2>What to expect</h2></div></div><p class="muted xc-hint">Tap or hover a card to read it.</p>' + xcardsHTML(PL.expect, ['door', 'star', 'users', 'rug', 'chat'], 'x5') + '</div></section>' +
+    '<section class="sec" id="when" data-tab="when"><div class="container"><div class="sec-h"><div><p class="eyebrow">Step 3</p><h2>Pick a day and see what is on</h2></div></div><div id="pl-day">' + planDayTabsHTML() + '<div class="dbody">' + planDayHTML() + '</div>' + '</div></div></section>' +
     '<section class="sec sec-tint" id="getting" data-tab="getting"><div class="container two"><div class="card pad"><p class="eyebrow">Getting here</p><h3>817 Yonge St, Toronto</h3><address style="font-style:normal;margin:6px 0 10px">817 Yonge St<br>Toronto, ON M4W 2G9</address><p class="muted">Open doors at Yonge and Bloor, in the heart of Toronto.</p><div class="dlg-act"><a class="btn" href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + ' Get directions</a><button type="button" class="btn btn-line" data-pcopy>Copy the address to send</button></div></div>' +
     '<div class="card pad"><p class="eyebrow">The office</p><h3>' + C.hours + '</h3><p class="muted">Ask for a tour, a quiet look around, or someone to answer your questions.</p><div class="dlg-act"><a class="btn btn-sm" href="tel:' + C.tel + '">' + icon('phone') + ' ' + C.phone + '</a><a class="btn btn-sm btn-line" href="mailto:' + C.email + '">' + icon('mail') + ' Email</a></div></div></div></section>' +
     '<section class="sec" id="request" data-tab="ask"><div class="container two nm-ask"><div><p class="eyebrow">Step 4</p><h2>Ask for a visit or a tour</h2><p class="muted" style="margin:10px 0 16px">Tell us who is coming and what you would like. We will get back to you.</p>' + planFormHTML() + '</div><div>' + (oc ? '<p class="eyebrow" style="margin-bottom:10px">Our last open day for neighbours</p>' + gSmall(oc) : '') + '</div></div></section>' +
@@ -4314,7 +4504,7 @@ function renderPlan(){
   softIn(p);
   safeReplace('#/plan?who=' + planState.who);
 }
-function renderPlanDay(){ const d = $('#pl-day'); if (d) { d.innerHTML = planDayTabsHTML() + planDayHTML(); softIn(d.querySelector('.pl-day')); } }
+function renderPlanDay(){ const d = $('#pl-day'); if (d) { d.innerHTML = planDayTabsHTML() + '<div class="dbody">' + planDayHTML() + '</div>'; softIn(d.querySelector('.pl-day')); } }
 /* the two request forms open the visitor's own email app with the message ready; nothing is sent from the page */
 document.addEventListener('submit', e => {
   const f = e.target.closest && e.target.closest('form[data-form]'); if (!f) return;
@@ -4415,7 +4605,7 @@ function footerHTML(){
   const explore = [['Prayer times', '#/prayer'], ['Classes', '#/classes'], ['Ramadan', '#/ramadan'], ['Events and news', '#/events'], ['Gallery', '#/gallery'], ['Visit and contact', '#/visit', false, true], ['Volunteer', LIVE + '/volunteer', true], ['Give', '#/give', false, true]];
   return '<div class="ftr-sky" style="background-image:url(' + D.igImg.banner + ')"></div><footer class="ftr" id="footer"><div class="zl zl-ftr" aria-hidden="true"></div><div class="container"><div class="ftr-grid ftr-slim">' +
     '<div class="ftr-brand"><a class="logo ftr-logo" href="#/" aria-label="Toronto Islamic Centre, home">' + D.logoSvg.white + '</a><p>A masjid built by the community, owned by the community.</p>' +
-    '<div class="ftr-act"><a class="btn" href="#/give">Donate</a><a class="ftr-pill" href="' + C.instagram + '" target="_blank" rel="noopener">' + icon('ig') + '<span>Instagram</span></a><a class="ftr-pill" href="' + C.youtube + '" target="_blank" rel="noopener">' + icon('rec') + '<span>YouTube</span></a></div></div>' +
+    '<div class="ftr-act"><a class="btn" href="#/give">Donate</a><span class="ftr-soc2"><a href="' + C.instagram + '" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">' + icon('ig') + '</a><a href="' + C.youtube + '" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">' + icon('youtube') + '</a><a href="' + C.tiktok + '" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">' + icon('tiktok') + '</a></span></div></div>' +
     '<div class="ftr-visit"><h4>Visit us</h4><address>817 Yonge St<br>Toronto, ON M4W 2G9</address>' +
     '<div class="ftr-quick"><a href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + '<span>Directions</span></a><a href="tel:' + C.tel + '">' + icon('phone') + '<span>Call</span></a><a href="mailto:' + C.email + '">' + icon('mail') + '<span>Email</span></a></div>' +
     '<ul class="ftr-list ftr-lines"><li><a class="ftr-line" href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + 'Get directions ' + icon('ext') + '</a></li>' +
@@ -4439,16 +4629,36 @@ function auditLinks(){
   return {pages:need.length, notListed, dead, gaps, badClass};
 }
 function pageSitemap(){
-  const G = siteGroups();
-  const card = it => '<a class="sp-card" href="' + it[2] + '"' + (it[3] ? ' target="_blank" rel="noopener"' : '') + '><span class="sp-ic">' + icon(it[4] || 'arrow') + '</span><span><b>' + esc(it[0]) + (it[3] ? ' ' + icon('ext') : '') + '</b><small>' + esc(it[1]) + '</small></span></a>';
+  const G = siteGroups(), ORD = ['prayer', 'classes', 'ramadan', 'events', 'visit', 'give', 'start', 'watch', 'gallery', 'volunteer', 'tools'];
+  const rank = k => { const x = ORD.indexOf(k); return x < 0 ? 99 : x; };
+  const groups = G.slice().sort((x, y) => rank(x.k) - rank(y.k));
   const a = auditLinks(), ok = !a.notListed.length && !a.dead.length && !a.gaps.length && !a.badClass.length;
-  return '<section class="page-head' + pageHeadStyle('dome') + '"><div class="container"><p class="eyebrow">Find anything</p><h1>All pages</h1><p class="lead">Every page of the site in one list. The menus, the footer and the search all read from this same list, so nothing is left out.</p></div></section>' +
-    '<section class="sec" style="padding-top:8px"><div class="container">' +
-    '<div class="sp-g"><div class="sp-cards">' + card(['Home', 'Today’s prayer times, classes and news', '#/', false, 'arrow']) + '</div></div>' +
-    G.map(g => '<section class="sp-g" id="' + g.k + '"><h2>' + icon(g.ic) + '<span>' + g.t + '</span></h2><p class="muted">' + g.d + '</p><div class="sp-cards">' + g.items.map(card).join('') + '</div></section>').join('') +
-    '<section class="sp-g" id="more"><h2>' + icon('menu') + '<span>About this concept</span></h2><p class="muted">Pages for the people reviewing the redesign.</p><div class="sp-cards">' + SITE_MORE.map(card).join('') + '</div></section>' +
+  const quick = [['Prayer times', 'Today’s iqamah', '#/prayer', 'clock'], ['Classes', 'The weekly schedule', '#/classes', 'cal'], ['Ramadan', 'Timetable and iftar', '#/ramadan', 'moon'], ['Events and news', 'What is on', '#/events', 'calplus'], ['Visit us', 'Directions and hours', '#/visit', 'pin'], ['Give', 'Help repay the loan', '#/give', 'heart']];
+  const grp = g => '<section class="sm-g" id="sg-' + g.k + '" data-q="' + esc((g.t + ' ' + g.d).toLowerCase()) + '"><header><span class="sm-gi">' + icon(g.ic) + '</span><div><h2>' + esc(g.t) + '</h2><p>' + esc(g.d) + '</p></div></header><ul>' + g.items.map(it => '<li data-q="' + esc((it[0] + ' ' + it[1]).toLowerCase()) + '"><a href="' + it[2] + '"' + (it[3] ? ' target="_blank" rel="noopener"' : '') + ' title="' + esc(it[1]) + '"><span>' + esc(it[0]) + '</span>' + icon(it[3] ? 'ext' : 'arrow') + '</a></li>').join('') + '</ul></section>';
+  const more = {k:'more', t:'About this concept', d:'For the people reviewing the redesign', ic:'menu', items:SITE_MORE};
+  return '<section class="page-head' + pageHeadStyle('dome') + '"><div class="container"><p class="eyebrow">Find anything</p><h1>All pages</h1><p class="lead">Every page of the site, grouped by what you want to do. Type to search, or pick a group.</p></div></section>' +
+    '<section class="sec" style="padding-top:20px"><div class="container">' +
+    '<div class="sm-search">' + icon('search') + '<input id="sm-q" type="search" placeholder="Search pages, e.g. “iftar”" autocomplete="off" aria-label="Search all pages"></div>' +
+    '<div class="sm-top" id="sm-top"><div class="sm-quick">' + quick.map(q => '<a class="sm-q" href="' + q[2] + '"><span class="sm-qi">' + icon(q[3]) + '</span><b>' + q[0] + '</b><small>' + q[1] + '</small></a>').join('') + '</div>' +
+    '<div class="sm-chips" aria-label="Jump to a group">' + groups.map(g => '<a class="sm-chip" href="#/sitemap" data-scroll="sg-' + g.k + '">' + icon(g.ic) + '<span>' + esc(g.t) + '</span></a>').join('') + '</div></div>' +
+    '<div class="sm-grid" id="sm-grid">' + groups.map(grp).join('') + grp(more) + '</div>' +
+    '<p class="sm-none" id="sm-none" hidden>No page matches that. Try a shorter word, such as “class”, “prayer” or “give”.</p>' +
     '<div class="rv"><div class="card" style="padding:14px 16px"><b>Link check</b> <span class="muted">· ' + (ok ? 'All ' + a.pages + ' pages are on the list, and the menus show the main places and link to All pages, where the rest are. The footer does the same. No dead links.' : 'Needs attention: ' + [a.notListed.length ? 'not on the list: ' + a.notListed.join(', ') : '', a.dead.length ? 'links to missing pages: ' + a.dead.join(', ') : '', a.badClass.length ? 'unknown classes: ' + a.badClass.join(', ') : '', a.gaps.slice(0, 8).join('; ')].filter(Boolean).join(' | ')) + '</span></div></div></div></section>';
 }
+
+
+/* the All pages search box filters the groups as you type */
+document.addEventListener('input', e => {
+  const inp = e.target; if (!inp || inp.id !== 'sm-q') return;
+  const q = inp.value.trim().toLowerCase(); let any = false;
+  $$('#sm-grid .sm-g').forEach(g => {
+    const gHit = !q || g.dataset.q.indexOf(q) >= 0; let vis = 0;
+    $$('li', g).forEach(li => { const hit = gHit || li.dataset.q.indexOf(q) >= 0; li.hidden = !hit; if (hit) vis++; });
+    g.hidden = !vis; if (vis) any = true;
+  });
+  const top = $('#sm-top'); if (top) top.hidden = !!q;
+  const none = $('#sm-none'); if (none) none.hidden = any || !q;
+});
 
 /* ---------- Start here: four paths, and a menu that leads each visitor ---------- */
 const AUDS = WEL.aud.items, FINDQ = WEL.find, HELP = WEL.help, EXPL = WEL.explore;
@@ -4557,6 +4767,21 @@ function pageExplore(){
 }
 
 /* ---------- the Visit page ---------- */
+const MAP_EMBED = 'https://maps.google.com/maps?q=Toronto+Islamic+Centre,+817+Yonge+St,+Toronto,+ON&z=16&output=embed';
+/* a few pictures of the masjid; tap one to see it larger */
+function visitPhotosHTML(){
+  const list = [[D.photos.hero, 'The main hall, ready for a community talk'], [D.photos.learn, 'A workshop in the main hall'], [D.photos.visit, 'Yonge and Bloor, where the masjid is'], [D.igImg.banner, 'The centre’s flag over the Toronto skyline']];
+  return '<section class="sec sec-tint" id="photos"><div class="container"><div class="sec-h"><div><p class="eyebrow">Take a look</p><h2>Inside the masjid</h2></div></div><div class="vp-grid">' +
+    list.map(v => '<button type="button" class="vp" data-lbx data-cap="' + esc(v[1]) + '"><img src="' + v[0] + '" alt="' + esc(v[1]) + '" loading="lazy"><span>' + esc(v[1]) + '</span></button>').join('') +
+    '</div><p class="muted vp-note">Tap a picture to see it larger. The hall pictures are the centre’s own, from its Instagram pages (© Toronto Islamic Centre, to be confirmed). The street photo is by Sikander (CC BY-SA 4.0). Pictures from Google Maps cannot be copied, so the centre can send its own.</p></div></section>';
+}
+const lbx = $('#lbx');
+document.addEventListener('click', e => {
+  if (!e.target.closest) return;
+  const b = e.target.closest('[data-lbx]');
+  if (b) { const im = b.querySelector('img'), big = lbx.querySelector('img'); big.src = im.src; big.alt = im.alt; lbx.querySelector('figcaption').textContent = b.dataset.cap || ''; if (!lbx.open) lbx.showModal(); return; }
+  if (e.target.closest('[data-lbx-close]') || e.target === lbx) lbx.close();
+});
 function pageVisit(){
   const J = D.jumuah;
   const qa = [
@@ -4572,7 +4797,7 @@ function pageVisit(){
     '<ul class="list"><li>' + icon('clock') + '<span>Office: ' + C.hours + '</span></li><li>' + icon('phone') + '<a href="tel:' + C.tel + '">' + C.phone + '</a></li><li>' + icon('mail') + '<a href="mailto:' + C.email + '">' + C.email + '</a></li></ul>' +
     '<div class="visit-act"><a class="btn" href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + ' Get directions</a><a class="btn btn-line" href="#/plan">Plan a visit</a><a class="btn btn-dark" href="tel:' + C.tel + '">' + icon('phone') + ' Call the office</a></div>' +
     '<p class="muted" style="margin-top:16px;max-width:30em">Prayer times are on the <a href="#/prayer">Prayer times</a> page, and every class is on the <a href="#/classes">weekly schedule</a>.</p></div>' +
-    '<div class="vphoto" style="background-image:url(' + D.igImg.banner + ');background-position:4% 50%" role="img" aria-label="The Toronto Islamic Centre flag flying over the Toronto skyline"><span>In the heart of Toronto</span></div></div></section>' +
+    '<div class="vmap"><iframe title="Map of the Toronto Islamic Centre, 817 Yonge St" src="' + MAP_EMBED + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><a class="vmap-open btn btn-sm" href="' + MAPS + '" target="_blank" rel="noopener">' + icon('pin') + ' Open in Google Maps</a></div></div></section>' + visitPhotosHTML() +
     '<section class="sec sec-tint" id="new"><div class="container"><div class="sec-h"><div><p class="eyebrow">New here?</p><h2>Short answers before you come</h2></div></div><div class="faq">' +
     qa.map(x => '<details><summary>' + x[0] + '</summary><p>' + x[1] + '</p></details>').join('') + '</div>' +
     '<div class="rv"><div class="card" style="margin-top:14px;padding:14px 16px"><b>To fill in with the centre</b> <span class="muted">· parking and the nearest transit, the entrances for brothers and sisters, wudu facilities, what to wear, coming with children, and step-free access. The site has no answers to these yet.</span></div></div></div></section>' +
@@ -4726,6 +4951,23 @@ function igOpen(id){
 }
 igf.addEventListener('load', () => { if (igf.getAttribute('src') !== 'about:blank') igdlg.classList.add('loaded'); });
 igdlg.addEventListener('close', () => { igf.src = 'about:blank'; igdlg.classList.remove('wide'); });
+/* ---------- a video stops when the visitor leaves it ---------- */
+function stopMediaIn(root){
+  if (root && root.querySelector('.tw-stage.on')) { twOn = false; const box = root.querySelector('#tw-box'); if (box) box.innerHTML = twBoxHTML(); }
+}
+function stopMedia(){
+  twOn = false;
+  if (igdlg.open) igdlg.close();
+}
+const ytCmd = (f, fn) => { try { f.contentWindow.postMessage(JSON.stringify({event:'command', func:fn, args:[]}), '*'); } catch (e) { /* ignore */ } };
+function pauseMedia(){
+  $$('.tw-stage.on iframe').forEach(f => ytCmd(f, 'pauseVideo'));
+  if (igdlg.open && /youtube/.test(igf.getAttribute('src') || '')) ytCmd(igf, 'pauseVideo');
+}
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') pauseMedia(); });
+window.addEventListener('pagehide', pauseMedia);
+window.addEventListener('hashchange', () => { if (igdlg.open) igdlg.close(); });
+
 igdlg.addEventListener('click', e => { if (e.target === igdlg) igdlg.close(); });
 /* Instagram's embed tells its parent how tall it wants to be */
 window.addEventListener('message', e => {
@@ -4750,11 +4992,31 @@ const TAB_DEFS = {
   explore: {root:'#app', tabs:[['ways', 'Ways to learn', 'compass'], ['faq', 'Short answers', 'book'], ['ask', 'Ask anything', 'mail']]}
 };
 const tabSel = {};
-function activateTab(wrap, key){
+function activateTab(wrap, key, instant){
   if (!wrap) return;
   $$('[data-tabbtn]', wrap).forEach(b => { const on = b.dataset.tabbtn === key; b.setAttribute('aria-selected', String(on)); b.tabIndex = on ? 0 : -1; });
-  $$('[data-tp]', wrap).forEach(pn => { const on = pn.dataset.tp === key; if (on && pn.hidden) { pn.hidden = false; softIn(pn); } else if (!on) pn.hidden = true; });
   tabSel[wrap.dataset.tabs] = key;
+  const host = wrap.querySelector('.tab-panels'), next = wrap.querySelector('[data-tp="' + key + '"]');
+  if (!next) return;
+  if (host) { clearTimeout(host._swT); clearTimeout(host._swT2); host.style.height = ''; host.style.overflow = ''; host.style.transition = ''; }
+  $$('[data-tp]', wrap).forEach(pn => pn.classList.remove('sw-out', 'sw-in'));
+  const cur = $$('[data-tp]', wrap).find(pn => !pn.hidden && pn !== next);
+  if (cur) stopMediaIn(cur);
+  if (instant || REDUCED || inRoute || !cur || !host) {
+    $$('[data-tp]', wrap).forEach(pn => { pn.hidden = pn !== next; });
+    if (cur && !instant && !inRoute) softIn(next);
+    return;
+  }
+  const h0 = host.offsetHeight;
+  host.style.transition = 'height .42s cubic-bezier(.2,.8,.2,1)'; host.style.height = h0 + 'px'; host.style.overflow = 'hidden';
+  cur.classList.add('sw-out');
+  host._swT = setTimeout(() => {
+    cur.hidden = true; cur.classList.remove('sw-out');
+    next.hidden = false; next.classList.add('sw-in');
+    host.style.height = 'auto'; const h1 = host.offsetHeight; host.style.height = h0 + 'px'; void host.offsetHeight;
+    requestAnimationFrame(() => { host.style.height = h1 + 'px'; });
+    host._swT2 = setTimeout(() => { host.style.height = ''; host.style.overflow = ''; host.style.transition = ''; next.classList.remove('sw-in'); }, 460);
+  }, 150);
 }
 function autoTabs(p0){
   const d = TAB_DEFS[p0]; if (!d) return;
@@ -4770,7 +5032,7 @@ function autoTabs(p0){
   secs.forEach(x => host.querySelector('[data-tp="' + x.dataset.tab + '"]').appendChild(x));
   activateTab(wrap, tabSel[p0] && keys.indexOf(tabSel[p0]) >= 0 ? tabSel[p0] : keys[0]);
 }
-function openTabFor(el){ const pn = el && el.closest && el.closest('[data-tp]'); if (pn && pn.hidden) activateTab(pn.closest('.tabs'), pn.dataset.tp); }
+function openTabFor(el){ const pn = el && el.closest && el.closest('[data-tp]'); if (pn && pn.hidden) activateTab(pn.closest('.tabs'), pn.dataset.tp, true); }
 document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-tabbtn]'); if (b) activateTab(b.closest('.tabs'), b.dataset.tabbtn); });
 /* soft fade-in for a part of a page that is swapped (schedule views, gallery views ...) */
 function softIn(el){
@@ -4788,6 +5050,24 @@ try {
     el.classList.add(tf && tf !== 'none' ? 'fade-in' : 'pop-in');
   })).observe(document.body, {attributes:true, attributeFilter:['hidden'], attributeOldValue:true, subtree:true});
 } catch (e) { /* an older browser: no animation */ }
+/* a smooth change of content: the old fades out, the height eases to the new height, the new rises in */
+function swapRender(el, fn){
+  if (!el || REDUCED || inRoute) { fn(); return; }
+  clearTimeout(el._swT); clearTimeout(el._swT2);
+  const h0 = el.offsetHeight;
+  el.style.transition = 'height .42s cubic-bezier(.2,.8,.2,1)'; el.style.height = h0 + 'px'; el.style.overflow = 'hidden';
+  el.classList.remove('sw-in'); el.classList.add('sw-out');
+  el._swT = setTimeout(() => {
+    fn();
+    $$('.day-cards > *, .pl-day > *', el).forEach((c, i) => c.style.setProperty('--i', Math.min(i, 8)));
+    el.classList.remove('sw-out'); el.classList.add('sw-in');
+    el.style.height = 'auto'; const h1 = el.offsetHeight; el.style.height = h0 + 'px'; void el.offsetHeight;
+    requestAnimationFrame(() => { el.style.height = h1 + 'px'; });
+    el._swT2 = setTimeout(() => { el.style.height = ''; el.style.overflow = ''; el.style.transition = ''; el.classList.remove('sw-in'); }, 460);
+  }, 150);
+}
+const swapBody = (el, html) => swapRender(el, () => { if (el) el.innerHTML = html; });
+function tabsInPlace(btn){ const bar = btn.closest('.dtabs'); if (bar) $$('.dtab', bar).forEach(b => b.setAttribute('aria-selected', String(b === btn))); }
 /* going to another page: the old page cross-fades into the new one, instead of swapping at once */
 function routeKey(r){ const p0 = r.parts[0] || 'home'; return p0 + (p0 === 'classes' ? '' : '|' + r.parts.join('/')); }
 function route(){
@@ -4819,6 +5099,7 @@ function routeNow(mode){
     PAGE_KEYS = Object.keys(pages);
     inRoute = true;
     delete tabSel[p0];
+    stopMedia();
     app.innerHTML = (pages[p0] || pageHome)();
     renderedKey = key;
     if (p0 === 'classes') renderSched(r.parts[1] ? false : undefined);
@@ -4850,7 +5131,7 @@ function routeNow(mode){
     if (!dlg.open) { dlgPushed = !firstLoad; dlg.showModal(); }
     dlg.scrollTop = 0;
   } else if (dlg.open) { dlgPushed = false; dlg.close(); }
-  if (r.q.go) setTimeout(() => { const el = document.getElementById(r.q.go); if (el) { openTabFor(el); el.scrollIntoView({behavior:'smooth', block:'start'}); } }, 140);
+  if (r.q.go) setTimeout(() => { const el = document.getElementById(r.q.go); if (el) { openTabFor(el); const hl = el.hasAttribute('data-hl'); el.scrollIntoView({behavior:'smooth', block: hl ? 'center' : 'start'}); if (hl) { el.classList.remove('hl'); void el.offsetWidth; el.classList.add('hl'); setTimeout(() => el.classList.remove('hl'), 2800); } } }, 140);
   firstLoad = false;
   updateTabs(p0);
 }
@@ -4892,7 +5173,7 @@ document.addEventListener('click', e => {
   if (t.dataset.ramcopy !== undefined) { const nt = $('#ram-note'); if (nt) ramCopy(nt.textContent, 'Note copied. Paste it on the donation page.'); return; }
   if (t.dataset.ramprint !== undefined) { window.print(); return; }
   if (t.dataset.pwho) { planState.who = t.dataset.pwho; renderPlan(); return; }
-  if (t.dataset.pday) { planState.day = +t.dataset.pday; renderPlanDay(); return; }
+  if (t.dataset.pday) { planState.day = +t.dataset.pday; if ($('#pl-day .dbody')) { tabsInPlace(t); swapBody($('#pl-day .dbody'), planDayHTML()); } else renderPlanDay(); return; }
   if (t.dataset.pcopy !== undefined) { ramCopy('Toronto Islamic Centre, 817 Yonge St, Toronto, ON M4W 2G9. Directions: ' + MAPS, 'Address copied. Paste it into a message.'); return; }
   if (t.dataset.gopen) { e.preventDefault(); gOpen(t.dataset.gopen); return; }
   if (t.dataset.gview) { gState.view = t.dataset.gview; renderGal(); return; }
@@ -4944,7 +5225,8 @@ document.addEventListener('click', e => {
   if (t.dataset.view) { state.view = t.dataset.view; renderSched(); return; }
   if (t.dataset.who) { state.who = t.dataset.who; renderSched(); return; }
   if (t.dataset.day != null) {
-    if (t.closest('#home-day')) { homeDay = +t.dataset.day; $('#home-day').innerHTML = homeDayHTML(); softIn($('#home-day .day-cards, #home-day .empty')); }
+    if (t.closest('#home-day')) { homeDay = +t.dataset.day; tabsInPlace(t); swapBody($('#home-day .dbody'), homeDayBodyHTML()); }
+    else if (state.view === 'day' && $('#sched .dbody')) { state.day = +t.dataset.day; tabsInPlace(t); swapRender($('#sched .dbody'), () => { $('#sched .dbody').innerHTML = daySection(state.day, state.who, true); updateLive(); }); syncHash(); }
     else { state.day = +t.dataset.day; renderSched(); }
   }
 });
