@@ -587,13 +587,24 @@ body[data-bare="1"] .psheet,body[data-bare="1"] .poster{margin:0;box-shadow:none
 @media (max-width:900px){.ask-wrap,.say-in{grid-template-columns:minmax(0,1fr)}.say-act{justify-content:flex-start}}
 @media (max-width:760px){.wf .wf-chip span{min-height:46px}.say-act .btn{flex:1 1 100%}}
 
+/* ---- 19 Nov (21): the class badge stays on the next prayer (under the countdown); a quiet note when a prayer time changes within 3 days ---- */
+.pp-chg{display:none;margin-top:1px;font-size:9.5px;line-height:1.2;font-weight:500;color:#8a5a00;white-space:nowrap}
+.pp.has-chg .pp-chg{display:block}
+.pp.past.has-chg{opacity:.85}
+html[data-theme="dark"] .pp-chg{color:#f0c070}
+.pp.next .pp-chg{color:#ffd98a}
+.pp.next .pp-s{display:flex;flex-direction:column;align-items:center;gap:2px}
+.pp.next .pp-sc{display:inline-block;padding:1px 6px;border-radius:99px;background:rgba(255,255,255,.16);color:#e4f5d8;font-weight:600;font-size:9.5px;line-height:1.4;white-space:nowrap}
+.pp.next .pp-sc.many .pp-af{display:none}
+.pt li small.pt-chg{display:block;margin:2px 0 0;color:var(--amber);font-size:12.5px;font-weight:500}
+
 
 /* ---------- phone PDF: one compact page (390 pt wide). Every class opens the website; the calendar button adds it to Google Calendar ---------- */
 @page phone{size:520px 1300px;margin:0}
 body[data-page="phonepdf"] .chrome,body[data-page="phonepdf"] .fab{display:none}
 body[data-page="phonepdf"]{background:#d9d4c6}
-.pp{page:phone;--ink:#15180f;--ink2:#454b3d;--ink3:#646b5a;--surface:#fff;--cream:#f7f3ea;--cream2:#efe7d6;--line:#e2dac8;--deep:#1f4429;--deep-ink:#1f4429;--mid:#2f6b3f;--brand:#5cab3b;--on-brand:#15180f;--g50:#e4f0dc;--gender-bg:#e8eef2;--gender-fg:#2e4350;--amber50:#fff2d6;--amber:#8a5a00;font-family:var(--sans);color:var(--ink)}
-.pp a{color:inherit;text-decoration:none}
+#pp-flow{page:phone;--ink:#15180f;--ink2:#454b3d;--ink3:#646b5a;--surface:#fff;--cream:#f7f3ea;--cream2:#efe7d6;--line:#e2dac8;--deep:#1f4429;--deep-ink:#1f4429;--mid:#2f6b3f;--brand:#5cab3b;--on-brand:#15180f;--g50:#e4f0dc;--gender-bg:#e8eef2;--gender-fg:#2e4350;--amber50:#fff2d6;--amber:#8a5a00;font-family:var(--sans);color:var(--ink)}
+#pp-flow a{color:inherit;text-decoration:none}
 .pp-one{position:relative;width:390pt;margin:14px auto;background:var(--cream);box-shadow:var(--shadow);overflow:hidden}
 body[data-bare="1"] .pp-one{margin:0;box-shadow:none}
 .pp-ar{display:inline-block;width:10pt;height:10pt;flex:none}
@@ -2081,17 +2092,22 @@ html[data-menu="day"] .pp.has-cls:not(.next) .pp-sc{text-decoration:underline do
 .ppp-all{display:inline-flex;align-items:center;gap:6px;margin:2px 6px 4px;font-size:13.5px;font-weight:600;color:var(--mid);text-decoration:none}
 .ppp-all .ic{width:14px;height:14px}
 .ppp-all:hover{text-decoration:underline}
+.ppp-more{display:none;align-items:center;gap:6px;margin-top:8px;padding:6px 12px;border-radius:99px;background:var(--brand);color:var(--on-brand);font:600 13.5px var(--sans)}
+.ppp-more .ic{width:14px;height:14px}
+#pp-pop.pp-up::before{top:auto;bottom:-7px;transform:rotate(225deg)}
+#pp-pop.pp-up::after{top:auto;bottom:-14px}
 @media (max-width:760px){
   html[data-menu="day"] .pp.has-cls:not(.next) .pp-s{display:flex;align-items:center;justify-content:center;min-height:15px}
   html[data-menu="day"] .pp.has-cls:not(.next) .pp-sc{display:inline-block;padding:1px 5px;border-radius:99px;background:var(--g50);color:var(--mid);font-weight:600;font-size:9px;line-height:1.4;text-decoration:none;white-space:nowrap}
   html[data-menu="day"] .pp.has-cls:not(.next) .pp-sc.many .pp-af{display:none}
-  #pp-pop{width:min(256px,calc(100vw - 16px));padding:8px}
-  #pp-pop .ppp-h,#pp-pop .ppp-all{display:none}
-  .ppp-c{grid-template-columns:36px 1fr;gap:10px;padding:6px}
-  .ppp-c img{width:36px;height:auto;border-radius:5px}
-  .ppp-c small,.ppp-c i,.ppp-t{display:none}
-  .ppp-c b{font-size:14px;line-height:1.25}
-  .ppp-c em{font-size:12.5px}
+  #pp-pop{width:min(340px,calc(100vw - 16px));padding:10px 10px 8px}
+  .ppp-c{grid-template-columns:72px 1fr;gap:12px;padding:8px;align-items:start}
+  .ppp-c img{width:72px;height:auto;border-radius:6px}
+  .ppp-c i{display:none}
+  .ppp-c b{font-size:15.5px;line-height:1.25}
+  .ppp-more{display:inline-flex}
+  .ppp-t{display:block;margin-top:1px;font-weight:500}
+  .ppp-dot{display:none}
 }
 html .ftr-brand{display:flex;flex-direction:column;align-items:flex-start}
 html .ftr-brand .ftr-logo{display:inline-block;margin:0 0 16px}
@@ -3471,6 +3487,19 @@ function nextPrayer(){
   const t = prayerList(addDays(n.date, 1))[0];
   return Object.assign({}, t, {inMin:(1440 - n.mins) + t.min, tomorrow:true});
 }
+/* a prayer whose iqamah time changes within the next 3 days (Maghrib moves a minute or two every day, so it is left out; Friday's Dhuhr slot is Jumu'ah) */
+function timeChanges(){
+  const n = tNow(), now = iqFor(n.date), out = {};
+  ['fajr', 'zuhr', 'asr', 'isha'].forEach(k => {
+    for (let i = 1; i <= 3; i++) {
+      const d = addDays(n.date, i); if (k === 'zuhr' && (dowOf(d) === 5 || dowOf(n.date) === 5)) continue;
+      const q = iqFor(d);
+      if (q[k] !== now[k]) { const to = fmt(hm(q[k])); out[k] = {to:to, toS:to.replace(/ (am|pm)$/, ''), dow:dowOf(d), date:d, inDays:i}; break; }
+    }
+  });
+  return out;
+}
+const ptChgHTML = k => { const c = timeChanges()[k]; return c ? '<small class="pt-chg">moves to ' + c.to + ' on ' + DAYS[c.dow] + '</small>' : ''; };
 const fmtIn = m => m < 60 ? 'in ' + m + ' min' : 'in ' + Math.floor(m/60) + ' h' + (m % 60 ? ' ' + String(m % 60).padStart(2,'0') + ' min' : '');
 function updateNext(){
   const n = nextPrayer();
@@ -3679,7 +3708,7 @@ function pageHome(){
     '<h1>A masjid built by the community, owned by the community</h1><p class="hero-sub">Five daily prayers, Qur’an classes, youth programs and open doors at Yonge &amp; Bloor.</p>' +
     '<div class="hero-cta"><a class="btn btn-lg" href="#/classes">See this week’s classes ' + icon('arrow') + '</a><a class="btn btn-lg btn-ghost-l hero-watch" href="#/watch">' + icon('play') + ' Watch</a></div></div>' +
     '<aside class="today-card" aria-label="Today at the masjid"><p class="eyebrow">Today · ' + longDate(NOW.date) + '</p><div class="today-next"><span class="lbl">Next iqamah</span><strong class="big" data-next-name></strong><span class="bigtime" data-next-time></span><span class="muted" data-next-in></span></div>' +
-    '<ul class="pt">' + pl.map(p => '<li data-pt="' + p.key + '"><span>' + pg(p.key) + p.name + (p.adhan ? '<small>adhan ' + p.adhan + '</small>' : '') + '</span><time>' + p.text + '</time></li>').join('') + '</ul>' +
+    '<ul class="pt">' + pl.map(p => '<li data-pt="' + p.key + '"><span>' + pg(p.key) + p.name + (p.adhan ? '<small>adhan ' + p.adhan + '</small>' : '') + ptChgHTML(p.key) + '</span><time>' + p.text + '</time></li>').join('') + '</ul>' +
     '<p class="now-line" data-now-line></p>' +
     '<a class="more" href="#/prayer">Week ahead &amp; Jumu’ah ' + icon('arrow') + '</a></aside></div><div class="zl" aria-hidden="true"></div></section>' +
 
@@ -3810,7 +3839,7 @@ function pagePrayer(){
   const J = D.jumuah;
   return '<section class="page-head' + pageHeadStyle('dome') + '"><div class="container"><p class="eyebrow">817 Yonge St</p><h1>Prayer times</h1><p class="lead">Iqamah is when the congregation stands, not when the adhan is called.</p></div></section>' +
     '<section class="sec" style="padding-top:20px"><div class="container grid2"><div class="card pad"><p class="eyebrow">Today · ' + longDate(NOW.date) + '</p><div class="today-next" style="margin-top:8px"><span class="lbl">Next iqamah</span><strong class="big" data-next-name style="font:500 2.4rem/1 var(--serif)"></strong><span class="bigtime" data-next-time style="font:600 1.8rem/1 var(--sans);color:var(--mid)"></span><span class="muted" data-next-in></span></div>' +
-    '<ul class="pt">' + pl.map(p => '<li data-pt="' + p.key + '" id="pt-' + p.key + '" data-hl><span>' + pg(p.key) + p.name + (p.adhan ? '<small>adhan ' + p.adhan + '</small>' : '') + '</span><time>' + p.text + '</time>' + ptClsHTML(p.key) + '</li>').join('') + '</ul></div>' +
+    '<ul class="pt">' + pl.map(p => '<li data-pt="' + p.key + '" id="pt-' + p.key + '" data-hl><span>' + pg(p.key) + p.name + (p.adhan ? '<small>adhan ' + p.adhan + '</small>' : '') + ptChgHTML(p.key) + '</span><time>' + p.text + '</time>' + ptClsHTML(p.key) + '</li>').join('') + '</ul></div>' +
     '<div class="card pad" id="jumuah"><p class="eyebrow">Every Friday</p><h2 style="font-size:1.7rem;margin:6px 0 4px">Jumu’ah</h2><p class="muted">Two jama’ahs, so everyone can attend.</p><div class="jum">' + J.map(j => '<div class="j"><b>' + j.name + '</b>Khutbah ' + j.khutbah + ' · Iqamah ' + j.iqamah + '<br><span class="muted">' + j.imam + '</span></div>').join('') + '</div>' + ytJumuahHTML() + '<p class="gv-inline"><b>Give after Jumu’ah.</b> ' + (daysToDue() >= 0 ? GV.campaign.amount + ' falls due in December on the masjid’s building loan. ' : 'The masjid is still repaying its building loan. ') + '<a href="#/give">Help repay it</a></p></div></div>' +
     '<div class="container" style="margin-top:20px"><div class="card pad"><div class="sec-h" style="margin-bottom:14px"><div><p class="eyebrow">Iqamah times</p><h2 style="font-size:1.6rem">The week ahead</h2></div></div>' +
     (changes.length ? '<div class="callout" style="margin-bottom:14px"><b>Changing this week:</b> ' + changes.join(' ') + '</div>' : '<p class="muted" style="margin-bottom:14px">No iqamah changes this week.</p>') +
@@ -4141,7 +4170,9 @@ function placeNow(n){
 const clsLink = c => '<a href="#/classes/' + c.id + '">' + esc(c.title) + '</a>';
 const onYT = c => !!(YTC[c.id] && YTC[c.id].videos.length);
 const endOf = x => x.inf.endMin != null && x.inf.endMin > x.inf.startMin ? x.inf.endMin : x.inf.startMin + 60;
+let nowInfo = {kind:'', rows:[]};
 function nowLine(n){
+  nowInfo = {kind:'', rows:[]};
   if (n.dow === 5 && n.mins >= 11*60 + 30 && n.mins < 14*60 + 30) {
     const lk = '<a href="' + YTD.channel.live + '" target="_blank" rel="noopener">Watch live</a>';
     if (n.mins < 12*60 + 30) return '<b>Jumu’ah today:</b> khutbah at 12:30 pm and 1:30 pm · ' + lk;
@@ -4153,9 +4184,9 @@ function nowLine(n){
   const go = '<span class="now-go" aria-hidden="true">' + icon('arrow') + '</span>';
   if (cur.length) { const body = '<b>Happening now:</b> ' + cur.map(x => clsLink(x.c)).join(', ') + ' · until ' + fmt(endOf(cur[0])) +
     (cur.some(x => onYT(x.c)) ? '<a class="now-yt" href="' + YTD.channel.live + '" target="_blank" rel="noopener">' + icon('rec') + 'Watch live</a>' : '');
-    return cur.length === 1 ? '<span class="now-t">' + body + '</span>' + go : body; }
+    nowInfo = {kind:'now', rows:cur}; return '<span class="now-t">' + body + '</span>' + go; }
   const nxt = list.find(x => x.inf.startMin > n.mins);
-  if (nxt) return '<span class="now-t"><b>Next class today:</b> ' + clsLink(nxt.c) + ' · ' + esc(nxt.inf.main) + '</span>' + go;
+  if (nxt) { nowInfo = {kind:'next', rows:[nxt]}; return '<span class="now-t"><b>Next class today:</b> ' + clsLink(nxt.c) + ' · ' + esc(nxt.inf.main) + '</span>' + go; }
   return list.length ? 'No more classes today.' : 'No classes today.';
 }
 function updateLive(){
@@ -4169,11 +4200,12 @@ function updateLive(){
     const slot = el.querySelector('.live-slot'); if (slot) slot.innerHTML = liveBadge(l);
   });
   placeNow(n);
-  const nl = $('[data-now-line]'); if (nl) { nl.innerHTML = nowLine(n); nl.classList.toggle('is-link', !!nl.querySelector('.now-go')); }
+  const nl = $('[data-now-line]');
+  if (nl) { nl.innerHTML = nowLine(n); nl.classList.toggle('is-link', !!nl.querySelector('.now-go')); nl.dataset.cls = nowInfo.rows.map(x => x.c.id).join(','); nl.dataset.kind = nowInfo.kind; }
 }
 document.addEventListener('click', e => {
   const nl = e.target.closest && e.target.closest('.now-line.is-link');
-  if (!nl || e.target.closest('a')) return;
+  if (!nl || e.target.closest('a') || (nl.dataset.cls || '').split(',').length !== 1) return;
   const a = nl.querySelector('a[href^="#/classes/"]'); if (a) location.hash = a.getAttribute('href');
 });
 const whenShort = c => c.sessions.map(s => DS[s.day] + ' ' + sessInfo(s, iqDow(s.day)).main).join(' · ');
@@ -4880,43 +4912,63 @@ const moreLinks = cls => SITE_MORE.map(m => '<a' + (cls ? ' class="' + cls + '"'
 const mA = (m, cls, extra) => '<a class="' + cls + '"' + (extra || '') + ' href="' + m.href + '"' + (m.ext ? ' target="_blank" rel="noopener"' : '') + '>';
 const mSub = m => m.sub.map(s => '<a href="' + s[1] + '"' + (s[2] ? ' target="_blank" rel="noopener"' : '') + '>' + s[0] + '</a>').join('');
 function stripHTML(){
-  return '<div class="pstrip" id="pstrip" role="group" aria-label="Today’s iqamah times">' + PK.map(k => '<a class="pp" data-pp="' + k + '" role="button" tabindex="0"><span class="pp-n"></span><b class="pp-t"></b><small class="pp-s"></small></a>').join('') + '</div>';
+  return '<div class="pstrip" id="pstrip" role="group" aria-label="Today’s iqamah times">' + PK.map(k => '<a class="pp" data-pp="' + k + '" role="button" tabindex="0"><span class="pp-n"></span><b class="pp-t"></b><small class="pp-s"></small><small class="pp-chg"></small></a>').join('') + '</div>';
 }
 function updateStrip(){
   const el = $('#pstrip'); if (!el) return;
-  const n = tNow(), list = prayerList(n.date), nx = nextPrayer(), sess = sessionsFor(n.dow, 'all');
+  const n = tNow(), list = prayerList(n.date), nx = nextPrayer(), sess = sessionsFor(n.dow, 'all'), chg = timeChanges();
   list.forEach(p => {
     const a = el.querySelector('[data-pp="' + p.key + '"]'); if (!a) return;
-    const isNext = nx.key === p.key, past = !isNext && (nx.tomorrow || p.min <= n.mins);
+    const isNext = nx.key === p.key, past = !isNext && (nx.tomorrow || p.min <= n.mins), tmr = isNext && nx.tomorrow;
     const cl = sess.filter(x => x.s.start.p === p.key), cnt = cl.length;
     a.querySelector('.pp-n').textContent = p.name;
-    a.querySelector('.pp-t').textContent = p.name === 'Jumu’ah' ? '12:30 · 1:30' : p.text.replace(/ (am|pm)$/, '');
+    a.querySelector('.pp-t').textContent = p.name === 'Jumu’ah' ? '12:30 · 1:30' : (tmr ? nx : p).text.replace(/ (am|pm)$/, '');
     const sEl = a.querySelector('.pp-s');
-    const sKey = isNext ? 'n' + (nx.tomorrow ? 'T' : fmtIn(nx.inMin)) : cnt ? 'c' + cnt + cl[0].c.id : '';
+    /* the class badge stays visible on the next prayer too: the countdown first, the badge under it */
+    const pill = cnt && !tmr ? '<span class="pp-sc' + (cnt > 1 ? ' many' : '') + '">' + cnt + (cnt === 1 ? ' class' : ' classes') + '<span class="pp-af"> after</span></span>' : '';
+    const sKey = (isNext ? 'n' + (tmr ? 'T' : fmtIn(nx.inMin)) : '') + (pill ? 'c' + cnt + cl[0].c.id : '');
     if (sEl.dataset.k !== sKey) {
       sEl.dataset.k = sKey;
-      sEl.innerHTML = isNext ? esc(nx.tomorrow ? 'tomorrow' : fmtIn(nx.inMin)) : cnt ? '<span class="pp-sc' + (cnt > 1 ? ' many' : '') + '">' + cnt + (cnt === 1 ? ' class' : ' classes') + '<span class="pp-af"> after</span></span>' : '';
+      sEl.innerHTML = (isNext ? '<span class="pp-cd">' + esc(tmr ? 'tomorrow' : fmtIn(nx.inMin)) + '</span>' : '') + pill;
     }
+    /* a quiet note when this prayer's time changes in the next 3 days (not when the time shown is already tomorrow's) */
+    const ch = !tmr && chg[p.key], cEl = a.querySelector('.pp-chg');
+    cEl.textContent = ch ? '→ ' + ch.toS + ' ' + DS[ch.dow] : '';
+    a.classList.toggle('has-chg', !!ch);
     a.dataset.cls = cl.map(x => x.c.id).join(',');
     a.classList.toggle('has-cls', cnt > 0);
     a.classList.toggle('next', isNext); a.classList.toggle('past', past);
-    a.setAttribute('aria-label', p.name + ' ' + p.text + (isNext ? ', next' : '') + (cnt ? ', ' + cnt + (cnt === 1 ? ' class after' : ' classes after') : ''));
+    a.setAttribute('aria-label', p.name + ' ' + (tmr ? nx : p).text + (isNext ? ', next' : '') + (cnt ? ', ' + cnt + (cnt === 1 ? ' class after' : ' classes after') : '') + (ch ? ', changes to ' + ch.to + ' on ' + DAYS[ch.dow] : ''));
   });
+  if (typeof setHdrH === 'function') setHdrH();   /* the next prayer's box can be a line taller when it has a class badge */
 }
 /* ---------- the class that follows a prayer: a small pop-up on hover (computer) or tap (phone) ---------- */
 const ppPop = document.createElement('div'); ppPop.id = 'pp-pop'; ppPop.setAttribute('role', 'group'); ppPop.setAttribute('aria-label', 'Class after this prayer'); document.body.appendChild(ppPop);
 let ppTimer = 0, ppCur = null;
 const ppTouch = () => matchMedia('(hover: none)').matches || innerWidth <= 760;
+/* one row of the class pop-down: the flyer, the class, who and when, and "More info" (on a phone the whole row is the link to the class page) */
+function ppRowHTML(x){
+  const c = x.c, th = D.thumbs[c.poster], po = D.posters[c.poster];
+  const img = th ? '<img src="' + th + '"' + (po && po !== th && String(po).indexOf('data:') !== 0 ? ' srcset="' + th + ' 170w, ' + po + ' 640w" sizes="(max-width:760px) 72px, 54px"' : '') + ' alt="Flyer for ' + esc(c.title) + '">' : '';
+  return '<a class="ppp-c" href="#/classes/' + c.id + '">' + img + '<span><b>' + esc(c.title) + '</b><small>' + esc([audience(c), c.teacher].filter(Boolean).join(' · ')) + '</small><em>' + esc(x.inf.main) + (x.inf.short && x.inf.short !== x.inf.main ? '<span class="ppp-t"><span class="ppp-dot"> · </span>' + esc(x.inf.short) + '</span>' : '') + '</em><span class="ppp-more">More info ' + icon('arrow') + '</span></span><i>' + icon('arrow') + '</i></a>';
+}
+/* the pop-down for the "Next class today" / "Happening now" line in the Today card */
+function ppNowHTML(){
+  return '<p class="ppp-h"><b>' + (nowInfo.kind === 'now' ? 'Happening now' : 'Next class today') + '</b></p><div class="ppp-list">' + nowInfo.rows.map(ppRowHTML).join('') + '</div>';
+}
 function ppPopHTML(a){
+  if (a.dataset.kind) return ppNowHTML();
   const key = a.dataset.pp, ids = (a.dataset.cls || '').split(',').filter(Boolean), n = tNow();
   const pr = prayerList(n.date).find(q => q.key === key), list = sessionsFor(n.dow, 'all').filter(x => x.s.start.p === key && ids.indexOf(x.c.id) >= 0);
-  const rows = list.map(x => { const c = x.c, th = D.thumbs[c.poster]; return '<a class="ppp-c" href="#/classes/' + c.id + '">' + (th ? '<img src="' + th + '" alt="Flyer for ' + esc(c.title) + '">' : '') + '<span><b>' + esc(c.title) + '</b><small>' + esc([audience(c), c.teacher].filter(Boolean).join(' · ')) + '</small><em>' + esc(x.inf.main) + (x.inf.short && x.inf.short !== x.inf.main ? '<span class="ppp-t"> · ' + esc(x.inf.short) + '</span>' : '') + '</em></span><i>' + icon('arrow') + '</i></a>'; }).join('');
+  const rows = list.map(ppRowHTML).join('');
   return '<p class="ppp-h">After <b>' + esc(pr ? pr.name : '') + '</b>' + (pr ? ' · ' + esc(pr.text) : '') + '</p><div class="ppp-list">' + rows + '</div><a class="ppp-all" href="#/prayer">All prayer times ' + icon('arrow') + '</a>';
 }
 function ppPlace(a){
-  const r = a.getBoundingClientRect(), vw = document.documentElement.clientWidth, pw = ppPop.offsetWidth;
+  const r = a.getBoundingClientRect(), vw = document.documentElement.clientWidth, vh = window.innerHeight, pw = ppPop.offsetWidth, ph = ppPop.offsetHeight;
   const left = Math.max(8, Math.min(r.left + r.width / 2 - pw / 2, vw - pw - 8));
-  ppPop.style.left = left + 'px'; ppPop.style.top = Math.round(r.bottom + 8) + 'px';
+  const below = r.bottom + 8, above = r.top - ph - 8, flip = below + ph > vh - 8 && above >= 8;
+  ppPop.classList.toggle('pp-up', flip);
+  ppPop.style.left = left + 'px'; ppPop.style.top = Math.round(flip ? above : below) + 'px';
   ppPop.style.setProperty('--cx', Math.round(r.left + r.width / 2 - left) + 'px');
 }
 function ppShow(a){
@@ -4952,7 +5004,7 @@ document.addEventListener('mousemove', e => {
 });
 document.documentElement.addEventListener('mouseleave', () => ppHide(true));
 document.addEventListener('focusin', e => {
-  if (!e.target.closest) return;
+  if (!e.target.closest || ppTouch()) return;
   const a = e.target.closest('#pstrip .pp');
   if (a && a.dataset.cls) ppShow(a); else if (!e.target.closest('#pp-pop')) ppHide(true);
 });
@@ -4966,6 +5018,12 @@ document.addEventListener('click', e => {
       /* on a phone the first tap opens the small card under the prayer; a tap on the class in the card opens the class (a second tap on the prayer closes the card) */
       if (ppCur === a && ppPop.classList.contains('on')) ppHide(true); else ppShow(a);
     }
+    return;
+  }
+  const tl = e.target.closest('.now-line.is-link');
+  if (tl && tl.dataset.cls && ppTouch() && !e.target.closest('a.now-yt')) {
+    e.preventDefault(); e.stopPropagation();
+    if (ppCur === tl && ppPop.classList.contains('on')) ppHide(true); else ppShow(tl);
     return;
   }
   if (!e.target.closest('#pp-pop') || e.target.closest('#pp-pop a')) ppHide(true);
