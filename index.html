@@ -2020,7 +2020,7 @@ details[open] > :not(summary){animation:softIn .36s ease backwards}
 /* ---- 19 Nov: class pop-up on the header prayer times; tidy footer brand block ---- */
 .pp-th{display:none}
 html[data-menu="day"] .pp.has-cls:not(.next) .pp-sc{text-decoration:underline dotted;text-underline-offset:2px}
-#pp-pop{position:fixed;z-index:97;left:0;top:0;width:min(372px,calc(100vw - 16px));padding:12px 12px 8px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 50px rgba(15,42,25,.28);opacity:0;transform:translateY(6px);visibility:hidden;pointer-events:none;transition:opacity .2s ease,transform .26s cubic-bezier(.2,.8,.2,1),visibility 0s linear .26s}
+#pp-pop{position:fixed;z-index:97;left:0;top:0;width:min(372px,calc(100vw - 16px));padding:12px 12px 8px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 50px rgba(15,42,25,.28);opacity:0;transform:translateY(6px);visibility:hidden;pointer-events:none;transition:opacity .1s ease,transform .1s ease,visibility 0s linear .1s}
 #pp-pop.on{opacity:1;transform:none;visibility:visible;pointer-events:auto;transition:opacity .2s ease,transform .26s cubic-bezier(.2,.8,.2,1),visibility 0s}
 #pp-pop::before{content:'';position:absolute;top:-7px;left:var(--cx,50%);width:12px;height:12px;margin-left:-6px;background:var(--surface);border-left:1px solid var(--line);border-top:1px solid var(--line);transform:rotate(45deg)}
 .ppp-h{margin:0 4px 8px;font:600 12px var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--ink3)}
@@ -2206,6 +2206,135 @@ html .fl-grid .sf:hover img,html .fl-grid .sf:focus-visible img{transform:transl
 .sw-in{animation:swIn .42s cubic-bezier(.2,.8,.2,1) both}
 @keyframes swIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .sw-in .day-cards > *,.sw-in .pl-day > *{animation:swIn .46s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0) * 55ms)}
+
+/* ---- 19 Nov (3): the video page ---- */
+.wt{min-height:70vh;padding:18px 0 60px;background:#0b1d12;color:#f4f8f0}
+.wt .container{max-width:1500px}
+.wt-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.wt-back{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 16px 0 12px;border-radius:99px;border:1.5px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font:600 14.5px var(--sans);cursor:pointer;transition:background-color .2s ease,border-color .2s ease}
+.wt-back:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.6)}
+.wt-back .ic{width:18px;height:18px;transform:rotate(180deg);color:#b7e39a}
+.wt-crumb{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:14.5px;color:#b0c2a5}
+.wt-crumb a{color:#e6efdd}
+.wt-grid{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:30px;align-items:start}
+.wt-player{position:relative;aspect-ratio:16/9;width:100%;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 26px 60px rgba(0,0,0,.5)}
+.wt-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.wt-title{margin:20px 0 6px;font:600 1.75rem/1.25 var(--serif);color:#fff}
+.wt-title small{display:block;margin-top:4px;font:500 1.05rem var(--sans);color:#b7e39a}
+.wt-meta{margin:0 0 16px;color:#b0c2a5;font-size:15px}
+.wt-meta a{color:#e6efdd}
+.wt-actions{display:flex;gap:10px;flex-wrap:wrap}
+.wt-chan{display:flex;align-items:center;gap:12px;margin-top:20px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+.wt-chan-ic{display:grid;place-items:center;flex:none;width:46px;height:46px;border-radius:50%;background:#e4f5d8}
+.wt-chan-ic svg{width:30px;height:30px}
+.wt-chan b{display:block}
+.wt-chan small{color:#b0c2a5}
+.wt-chan .btn{margin-left:auto;flex:none}
+.wt-about{margin-top:16px;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);line-height:1.6;color:#dbe7d2}
+.wt-about h2{margin:0 0 6px;font:700 13px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#b7e39a}
+.wt-about p{margin:0 0 8px}
+.wt-full{color:#9fb393;font-size:13.5px}
+.wt-side h2{margin:0 0 10px;font:700 13px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#b7e39a}
+.wt-list{display:grid;gap:8px;margin-bottom:26px}
+.wt-item{display:grid;grid-template-columns:168px 1fr;gap:12px;align-items:start;padding:6px;border-radius:14px;color:inherit;text-decoration:none;transition:background-color .2s ease,transform .2s ease}
+.wt-item:hover{background:rgba(255,255,255,.09);transform:translateX(3px)}
+.wt-tx b{display:block;font:600 1rem/1.3 var(--serif);color:#fff}
+.wt-tx small{display:block;margin-top:3px;color:#b0c2a5;font-size:13px;line-height:1.35}
+.wt-cls{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.wt-cls a{display:block;color:inherit;text-decoration:none}
+.wt-cls img{width:100%;aspect-ratio:640/828;object-fit:contain;border-radius:12px;background:#10261a;border:1px solid rgba(255,255,255,.14);transition:transform .25s ease}
+.wt-cls a:hover img{transform:translateY(-4px)}
+.wt-cls b{display:block;margin-top:8px;font:600 .95rem/1.25 var(--serif);color:#fff}
+.wt-cls small{display:block;color:#b0c2a5;font-size:12.5px}
+.wt-more{display:flex;gap:18px;flex-wrap:wrap;margin:0;font-size:14.5px}
+.wt-more a{color:#e6efdd}
+.wt-sec{margin-bottom:30px}
+.wt-sec-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px}
+.wt-sec-h h2{margin:0;font:600 1.35rem var(--serif);color:#fff}
+.wt-sec-h a{color:#b7e39a;font-size:14.5px;text-decoration:none}
+.wt-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.wt-card{display:block;color:inherit;text-decoration:none}
+.wt-card .yt-th{margin-bottom:8px}
+.wt-card b{display:block;font:600 1rem/1.3 var(--serif);color:#fff}
+.wt-card small{display:block;margin-top:3px;color:#b0c2a5;font-size:13px}
+@media (max-width:1100px){.wt-grid{grid-template-columns:1fr}.wt-side{margin-top:10px}}
+@media (max-width:640px){
+  .wt{padding-top:10px}
+  .wt:not(.wt-lib) .container{padding-inline:0}
+  .wt:not(.wt-lib) .wt-top,.wt:not(.wt-lib) .wt-main > :not(.wt-player),.wt:not(.wt-lib) .wt-side{padding-inline:16px}
+  .wt-player{border-radius:0}
+  .wt-item{grid-template-columns:132px 1fr}
+  .wt-title{font-size:1.4rem}
+}
+
+/* ---- 19 Nov (3): the Classes page on a phone: a slim filter bar and short rows that are quick to scan ---- */
+.cc-meta{display:contents}
+@media (max-width:760px){
+  html .page-head h1{font-size:1.9rem}
+  html .toolbar-in{display:grid;gap:8px;padding-block:10px}
+  html .toolbar .seg{display:grid;grid-template-columns:repeat(4,1fr);width:100%;max-width:none;padding:3px}
+  html .toolbar .seg button[data-view="planner"]{display:none}
+  html .toolbar .seg button[data-view="day"]{order:-1}
+  html .toolbar .seg button{padding:9px 2px;font-size:13.5px;text-align:center;white-space:nowrap}
+  html .toolbar .chips{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding:2px 16px 4px;scrollbar-width:none}
+  html .toolbar .chips::-webkit-scrollbar{display:none}
+  html .toolbar .chip{flex:none;min-height:38px;padding:4px 12px;font-size:14px}
+  html .toolbar .tb-act{display:none}
+  html #sched .dtabs{position:sticky;top:var(--hdh,112px);z-index:30;margin:0 -16px 10px;padding:8px 16px;background:var(--cream);box-shadow:0 10px 14px -12px rgba(15,42,25,.35)}
+  html .day{grid-template-columns:1fr;gap:8px;padding:16px 0}
+  html .day-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
+  html .day-h h3{font-size:1.3rem}
+  html .day-date{margin:0}
+  html .day-ctx{margin:0;font-size:12.5px}
+  html .tl{gap:8px}
+  html .tl-p{padding:0 4px;font-size:13px;gap:10px}
+  html .tl-p b{min-width:64px}
+  html .tl .cc{margin-left:19px}
+  html .day-cards{grid-template-columns:1fr;gap:8px}
+  html .cc,html .cc.has-img{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"live live" "time img" "title img" "meta img";column-gap:12px;row-gap:2px;align-items:center;padding:11px 12px 11px 13px;border-left-width:4px;border-radius:12px}
+  html .cc .live-slot{grid-area:live}
+  html .cc .cc-time{grid-area:time;display:flex;align-items:baseline;flex-wrap:wrap;gap:0 8px;font-size:13.5px;color:var(--mid)}
+  html .cc .cc-time small{display:inline;margin:0;font-size:12px}
+  html .cc .cc-topic{display:none}
+  html .cc .cc-title{grid-area:title;font-size:1.12rem;line-height:1.2}
+  html .cc .cc-meta{grid-area:meta;display:flex;flex-wrap:wrap;align-items:center;gap:3px 8px;margin-top:2px}
+  html .cc .cc-teacher{margin:0;font-size:13.5px;color:var(--ink2)}
+  html .cc .tags{margin:0;gap:4px}
+  html .cc .tags .tag{padding:1px 8px;font-size:12px}
+  html .cc .tags .tag:not(.tag-brothers):not(.tag-sisters):not(.tag-open):not(.tag-kids){display:none}
+  html .cc.has-img > .cc-img{grid-area:img;width:44px;height:57px;border-radius:6px;align-self:center}
+  html .fl-grid .strip-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;gap:14px;margin-inline:-16px;padding:8px 16px 12px;scrollbar-width:none}
+  html .fl-grid .strip-row::-webkit-scrollbar{display:none}
+  html .fl-grid .sf{flex:0 0 150px;width:150px;scroll-snap-align:start}
+  html .dl-sec{padding-block:28px}
+  html .dl-grid{gap:10px}
+  html .dl-card{display:grid;grid-template-columns:84px 1fr;align-items:stretch;border-radius:16px;box-shadow:none}
+  html .dl-card .dl-pic{aspect-ratio:auto;border-bottom:0;border-right:1px solid var(--line)}
+  html .dl-card .dl-pic img{height:100%}
+  html .dl-b{padding:12px 14px;gap:6px}
+  html .dl-b h3{font-size:1.08rem}
+  html .dl-b p{font-size:13.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  html .dl-b .btn{min-height:40px;padding:8px 10px;font-size:13.5px;gap:6px;justify-content:center}
+  html .dl-note{font-size:13px}
+
+  html .grp{margin-top:20px}
+  html .grp-h{font-size:1.25rem;margin-bottom:8px}
+  html .rows{gap:8px}
+  html .row{grid-template-columns:minmax(0,1fr);gap:4px;padding:10px 12px 10px 13px;border-left-width:4px}
+  html .row-main{gap:10px;align-items:center}
+  html .row-main .ar{display:none}
+  html .row-main h4{font-size:1.1rem;line-height:1.2}
+  html .row-main .muted{margin:0;font-size:13.5px}
+  html .row-img{width:44px;height:57px}
+  html .row .tags{margin:0;gap:4px}
+  html .row .tags .tag{padding:1px 8px;font-size:12px}
+  html .row .tags .tag:not(.tag-brothers):not(.tag-sisters):not(.tag-open):not(.tag-kids){display:none}
+  html .row-when{display:flex;flex-wrap:wrap;gap:1px 12px;margin:0;padding:0;list-style:none}
+  html .row-when li{font-size:13px;line-height:1.45}
+  html .row-when b{min-width:0}
+  html .row-act{display:none}
+  html .flyers{grid-template-columns:1fr 1fr;gap:18px 12px}
+}
 html .ig-sec.sec-dark .ig-box{padding:18px 18px 4px;border-radius:24px;background:rgba(7,32,16,.6);border:1px solid rgba(255,255,255,.22);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12),0 22px 44px rgba(6,28,14,.28);transition:background-color .7s ease}
 html .ig-sec.sec-dark[data-acct="unfiltered"] .ig-box{background:rgba(4,38,44,.62)}
 @media (max-width:640px){html .ig-sec.sec-dark .ig-box{padding:14px 12px 2px;border-radius:20px}}
@@ -2934,7 +3063,7 @@ function card(x, sim){
     '<div class="cc-time">' + esc(inf.main) + (inf.sub ? '<small>' + esc(inf.sub) + '</small>' : '') + '</div>' +
     '<div class="cc-topic">' + icon('t-' + c.topic) + esc(t.name) + (s.label ? ' · ' + esc(s.label) : '') + '</div>' +
     '<h4 class="cc-title">' + esc(c.title) + (MY.has(c.id) ? '<span class="starred" title="In My classes">' + icon('star') + '</span>' : '') + (c.flags.length ? '<span class="rv rv-dot" title="Needs confirming">' + icon('alert') + '</span>' : '') + '</h4>' +
-    '<p class="cc-teacher">' + esc(c.teacher) + '</p><div class="tags">' + tagsFor(c) + '</div>' + (TH ? '<img class="cc-img" src="' + TH + '" alt="" loading="lazy">' : '') + '</a>';
+    '<div class="cc-meta"><p class="cc-teacher">' + esc(c.teacher) + '</p><div class="tags">' + tagsFor(c) + '</div></div>' + (TH ? '<img class="cc-img" src="' + TH + '" alt="" loading="lazy">' : '') + '</a>';
 }
 function dayCtx(d){
   const iq = iqDow(d);
@@ -3132,6 +3261,7 @@ function pdfSectionHTML(){
 function pageClasses(r){
   const q = r.q;
   state.view = q.view || state.view || (innerWidth < 900 ? 'day' : 'planner');
+  if (innerWidth < 760 && state.view === 'planner') state.view = 'week';
   state.who = q.who || state.who || 'all';
   state.day = q.day != null ? +q.day : (state.day != null ? state.day : NOW.dow);
   const legend = D.topicOrder.map(k => '<span style="' + tcs(k) + ';color:var(--ink2)"><b>' + icon('t-' + k) + '</b>' + esc(TOP[k].name) + '</span>').join('');
@@ -3707,7 +3837,7 @@ const ytSearch = q => YTD.channel.home + '/search?query=' + encodeURIComponent(q
 const ytDate = v => v.date ? DS[dowOf(v.date)] + ' ' + shortDate(v.date) : '';
 const fmtMin = m => m >= 60 ? Math.floor(m / 60) + ' h' + (m % 60 ? ' ' + (m % 60) + ' min' : '') : m + ' min';
 const ytThumbHTML = v => '<span class="yt-th"><img src="' + ytThumb(v.id) + '" alt="" loading="lazy" width="320" height="180"><span class="yt-play"><i></i>' + icon('play') + '</span>' + (v.min ? '<em>' + fmtMin(v.min) + '</em>' : '') + '</span>';
-const ytRow = v => '<button type="button" class="yt-row" data-yt="' + v.id + '" aria-label="Watch: ' + esc(v.t + ', ' + v.sub) + ' (opens a pop-up)">' + ytThumbHTML(v) +
+const ytRow = v => '<button type="button" class="yt-row" data-yt="' + v.id + '" aria-label="Watch: ' + esc(v.t + ', ' + v.sub) + ' (opens the video page)">' + ytThumbHTML(v) +
   '<span class="yt-tx"><b' + (v.rtl ? ' lang="ar" dir="rtl"' : '') + '>' + esc(v.t) + '</b><small>' + esc(v.sub) + (v.date ? ' · ' + ytDate(v) : '') + '</small></span></button>';
 function ytLiveNow(c){
   const n = tNow();
@@ -3729,6 +3859,59 @@ function ytJumuahHTML(){
     (last ? '<button type="button" class="btn btn-sm btn-line" data-yt="' + last.id + '">' + icon('play') + ' Last Friday’s khutbah</button>' : '') +
     '<a class="btn btn-sm btn-line" href="' + ytList(J.playlist) + '" target="_blank" rel="noopener">' + esc(J.playlistName) + ' ' + icon('ext') + '</a></div></div>';
 }
+/* ---------- the video page: a big player with suggestions, like YouTube ---------- */
+const vidsOf = k => YTC[k].videos.concat(YTC[k].earlier || []);
+const vidClass = id => Object.keys(YTC).find(k => vidsOf(k).some(v => v.id === id)) || '';
+const wtItem = (v, label) => '<a class="wt-item" href="#/watch/' + v.id + '">' + ytThumbHTML(v) + '<span class="wt-tx"><b' + (v.rtl ? ' lang="ar" dir="rtl"' : '') + '>' + esc(v.t) + '</b><small>' + esc(label || v.sub) + (v.date ? ' · ' + ytDate(v) : '') + '</small></span></a>';
+function watchSideHTML(id, cid){
+  const c = cid ? BYID[cid] : null, jv = YTD.jumuah.videos;
+  const same = cid ? vidsOf(cid).filter(x => x.id !== id) : jv.filter(x => x.id !== id);
+  const rank = (a, b) => ((c && b.topic === c.topic) - (c && a.topic === c.topic)) || ((c && b.who === c.who) - (c && a.who === c.who)) || a.title.localeCompare(b.title);
+  const others = Object.keys(YTC).filter(k => k !== cid && YTC[k].videos.length && BYID[k]).map(k => BYID[k]).sort(rank).map(x => wtItem(YTC[x.id].videos[0], x.title));
+  if (cid && jv.length) others.push(wtItem(jv[0], 'Jumu’ah khutbah'));
+  const like = CL.filter(x => x.id !== cid).sort(rank).slice(0, 4);
+  const days = x => x.sessions.map(q => DS[q.day]).filter((d, i, a) => a.indexOf(d) === i).join(' · ');
+  return '<aside class="wt-side">' +
+    (same.length ? '<h2>' + (cid ? 'More from this class' : 'More khutbahs') + '</h2><div class="wt-list">' + same.slice(0, 8).map(x => wtItem(x)).join('') + '</div>' : '') +
+    (others.length ? '<h2>More to watch</h2><div class="wt-list">' + others.slice(0, 6).join('') + '</div>' : '') +
+    '<h2>Classes like this</h2><div class="wt-cls">' + like.map(x => '<a href="#/classes/' + x.id + '"><img src="' + (D.thumbs[x.poster] || '') + '" alt="Flyer for ' + esc(x.title) + '" loading="lazy"><b>' + esc(x.title) + '</b><small>' + esc(days(x)) + '</small></a>').join('') + '</div>' +
+    '<p class="wt-more"><a href="#/classes">See the weekly schedule ' + icon('arrow') + '</a><a href="' + YTD.channel.streams + '" target="_blank" rel="noopener">All live streams ' + icon('ext') + '</a></p></aside>';
+}
+function watchLibraryHTML(){
+  const card = (v, label) => '<a class="wt-card" href="#/watch/' + v.id + '">' + ytThumbHTML(v) + '<b' + (v.rtl ? ' lang="ar" dir="rtl"' : '') + '>' + esc(v.t) + '</b><small>' + esc(label) + (v.date ? ' · ' + ytDate(v) : '') + '</small></a>';
+  const rows = Object.keys(YTC).filter(k => BYID[k] && YTC[k].videos.length).map(k => '<section class="wt-sec"><div class="wt-sec-h"><h2>' + esc(BYID[k].title) + '</h2><a href="#/classes/' + k + '">Class details ' + icon('arrow') + '</a></div><div class="wt-cards">' + vidsOf(k).slice(0, 6).map(v => card(v, BYID[k].title)).join('') + '</div></section>').join('');
+  const jv = YTD.jumuah.videos;
+  return '<section class="wt wt-lib"><div class="container"><div class="wt-top"><button type="button" class="wt-back" data-wback>' + icon('arrow') + ' Back</button></div><h1 class="wt-title">Watch<small>Recordings of the centre’s classes and khutbahs, kept on YouTube</small></h1>' +
+    '<div class="wt-actions" style="margin:14px 0 28px"><a class="btn btn-sm" href="' + YTD.channel.live + '" target="_blank" rel="noopener">' + icon('rec') + ' Watch live ' + icon('ext') + '</a><a class="btn btn-sm btn-ghost-l" href="' + YTD.channel.streams + '" target="_blank" rel="noopener">All live streams ' + icon('ext') + '</a></div>' +
+    rows + (jv.length ? '<section class="wt-sec"><div class="wt-sec-h"><h2>Jumu’ah khutbahs</h2></div><div class="wt-cards">' + jv.slice(0, 6).map(v => card(v, 'Jumu’ah khutbah')).join('') + '</div></section>' : '') + '</div></section>';
+}
+function pageWatch(r){
+  const id = r.parts[1];
+  if (!id) return watchLibraryHTML();
+  const v = YTV[id];
+  if (!v) return '<section class="wt"><div class="container"><div class="wt-top"><button type="button" class="wt-back" data-wback>' + icon('arrow') + ' Back</button></div><h1 class="wt-title">We could not find that video</h1><p class="wt-meta">It may have been removed. <a href="#/watch">See all recordings</a>.</p></div></section>';
+  const cid = vidClass(id), c = cid ? BYID[cid] : null, isJ = !c && YTD.jumuah.videos.some(x => x.id === id), yt = (cid && YTC[cid]) || {};
+  const crumbs = '<div class="wt-top"><button type="button" class="wt-back" data-wback>' + icon('arrow') + ' Back</button><nav class="wt-crumb" aria-label="Where you are"><a href="#/watch">Watch</a>' + (c ? '<span>›</span><a href="#/classes/' + c.id + '">' + esc(c.title) + '</a>' : (isJ ? '<span>›</span><span>Jumu’ah khutbahs</span>' : '')) + '</nav></div>';
+  const meta = [ytDate(v), v.min ? fmtMin(v.min) : '', c ? c.teacher : '', c ? audience(c) : ''].filter(Boolean).map(esc).join(' · ');
+  const about = c ? '<h2>About this class</h2><p>' + esc(c.title) + (c.arabic ? ' · <span lang="ar" dir="rtl">' + esc(c.arabic) + '</span>' : '') + (c.siteText ? '. ' + esc(c.siteText) : '') + '.</p><p class="wt-full">' + esc(v.title || '') + '</p>'
+    : (isJ ? '<h2>Jumu’ah khutbah</h2><p>Two sittings every Friday, at 12:30 pm and 1:30 pm. The khutbah is streamed live and kept on the centre’s YouTube channel.</p><p class="wt-full">' + esc(v.title || '') + '</p>' : '');
+  return '<section class="wt"><div class="container">' + crumbs + '<div class="wt-grid"><div class="wt-main">' +
+    '<div class="wt-player" id="wt-player"><iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" title="' + esc(v.t + ', ' + v.sub) + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>' +
+    '<h1 class="wt-title"' + (v.rtl ? ' lang="ar" dir="rtl"' : '') + '>' + esc(v.t) + '<small>' + esc(v.sub) + '</small></h1><p class="wt-meta">' + meta + '</p>' +
+    '<div class="wt-actions"><button type="button" class="btn btn-sm" data-wfs>Full screen</button>' + (c ? '<a class="btn btn-sm btn-ghost-l" href="#/classes/' + c.id + '">Class details ' + icon('arrow') + '</a>' : '') +
+    '<a class="btn btn-sm btn-ghost-l" href="https://www.youtube.com/watch?v=' + id + '" target="_blank" rel="noopener">Open on YouTube ' + icon('ext') + '</a>' +
+    (yt.playlist ? '<a class="btn btn-sm btn-ghost-l" href="' + ytList(yt.playlist) + '" target="_blank" rel="noopener">' + esc(yt.playlistName || 'All recordings') + ' ' + icon('ext') + '</a>' : '') +
+    '<button type="button" class="btn btn-sm btn-ghost-l" data-wshare="' + esc(v.t) + '">Share</button></div>' +
+    '<div class="wt-chan"><span class="wt-chan-ic">' + D.markSvg + '</span><div><b>Toronto Islamic Centre</b><small>@TICmasjid on YouTube</small></div><a class="btn btn-sm" href="' + YTD.channel.home + '" target="_blank" rel="noopener">Subscribe ' + icon('ext') + '</a></div>' +
+    (about ? '<div class="wt-about">' + about + '</div>' : '') + '</div>' + watchSideHTML(id, cid) + '</div></div></section>';
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest) return;
+  if (e.target.closest('[data-wback]')) { if (history.length > 1) history.back(); else location.hash = '#/classes'; return; }
+  if (e.target.closest('[data-wfs]')) { const el = $('#wt-player'), fn = el && (el.requestFullscreen || el.webkitRequestFullscreen); if (fn) fn.call(el); return; }
+  const sh = e.target.closest('[data-wshare]');
+  if (sh) { const u = location.href; if (navigator.share) navigator.share({title:sh.dataset.wshare, url:u}).catch(() => {}); else if (navigator.clipboard) navigator.clipboard.writeText(u).then(() => toast('Link copied.')).catch(() => toast('Copy the link from the address bar.')); }
+});
 function ytShelfHTML(){
   const cur = Object.keys(YTC).filter(id => BYID[id] && YTC[id].videos.length).map(id => { const v = YTC[id].videos[0];
     return '<button type="button" class="ys" data-yt="' + v.id + '">' + ytThumbHTML(v) + '<span class="yt-tx"><b>' + esc(BYID[id].title) + '</b><small>Latest: ' + esc(v.t) + (v.date ? ' · ' + ytDate(v) : '') + '</small></span></button>'; }).join('');
@@ -3737,16 +3920,6 @@ function ytShelfHTML(){
   return '<section class="sec sec-tint ysec" id="watch-again"><div class="container"><div class="sec-h"><div><p class="eyebrow">On YouTube</p><h2>Missed a class? Watch it again</h2></div><a class="more" href="' + YTD.channel.streams + '" target="_blank" rel="noopener">All live streams ' + icon('ext') + '</a></div>' +
     '<p class="muted" style="max-width:44em;margin:-8px 0 6px">Many classes are streamed live and kept on the centre’s YouTube channel. Look for the <span class="tag tag-yt" style="vertical-align:1px">' + icon('rec') + 'On YouTube</span> tag on a class.</p>' +
     '<h3 class="ys-h">Current classes</h3><div class="ys-row">' + cur + '</div><h3 class="ys-h">Earlier series</h3><div class="ys-row">' + ser + '</div></div></section>';
-}
-function ytOpen(id){
-  const v = YTV[id];
-  $('#igdlg-t').textContent = v ? (v.t + ' · ' + v.sub) : 'Recording'; $('#igdlg-s').textContent = '@TICmasjid on YouTube';
-  const a = $('#igdlg-a'); a.href = 'https://www.youtube.com/watch?v=' + id; a.textContent = 'Open on YouTube';
-  $('#igdlg-n').textContent = 'Plays from YouTube, only after you tap.';
-  { const ls = $('.igdlg-load span'); if (ls) ls.textContent = 'Loading from YouTube…'; }
-  igdlg.classList.add('wide'); igdlg.classList.remove('loaded'); igf.style.height = '';
-  igf.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1';
-  igdlg.showModal();
 }
 
 /* ---------- gallery and past activities ---------- */
@@ -3896,7 +4069,7 @@ function navGroupsHTML(){
       col('By person', [it('For sisters', n('sisters') + ' classes', '#/classes?who=sisters', 'users'), it('For brothers', n('brothers') + ' classes', '#/classes?who=brothers', 'users'),
         it('Kids and youth', n('u18') + ' classes', '#/classes?who=u18', 'cap'), it('New to Islam', 'A gentle start, step by step', '#/new', 'book')]),
       col('Ways to look', [it('Weekly planner', 'The whole week as a time grid', '#/classes?view=planner&who=all', 'cal'), it('Day by day', 'One day at a time', '#/classes?view=day&who=all', 'clock'),
-        it('Watch again', 'Recordings on YouTube', '#/classes?view=week&who=all&go=watch-again', 'rec'), it('My classes', 'The ones you saved', '#/classes?view=week&who=mine', 'star')]),
+        it('Watch again', 'Recordings on YouTube', '#/watch', 'rec'), it('My classes', 'The ones you saved', '#/classes?view=week&who=mine', 'star')]),
       col('Downloads', [it('Schedule for phones', 'A phone-sized PDF', '#/phonepdf', 'phone'), it('Printable planner', 'For the notice board', '#/plansheet', 'print'), it('Weekly poster', 'A poster of the week', '#/poster', 'print'), it('Share picture', 'To send on WhatsApp', '#/share', 'share')])]) +
     grp('community', 'Community', '', [col('', [it('Events and news', 'What is coming up', '#/events', 'cal'), it('Weekend School', 'Sundays, 10 am to 2 pm', '#/classes/weekend-school', 'cap'),
         it('Around the masjid', 'Study space, Friday Night Social', '#/visit?go=around', 'users'), it('Gallery', 'Past activities and photos', '#/gallery', 'photo'), it('On Instagram', 'Posts and videos', '#/?go=instagram', 'ig'),
@@ -3908,7 +4081,7 @@ function navGroupsHTML(){
 }
 function tabbarHTML(){
   return '<nav class="tabbar" aria-label="Quick links"><a data-tab="prayer" href="#/prayer">' + icon('clock') + 'Prayer</a><a data-tab="classes" href="#/classes">' + icon('cal') + 'Classes</a>' +
-    '<a data-tab="watch" href="#/classes?view=week&who=all&go=watch-again">' + icon('rec') + 'Watch</a><button type="button" id="tab-more" aria-label="Open the menu">' + icon('menu') + 'More</button></nav>';
+    '<a data-tab="watch" href="#/watch">' + icon('rec') + 'Watch</a><button type="button" id="tab-more" aria-label="Open the menu">' + icon('menu') + 'More</button></nav>';
 }
 /* ---------- giving: campaign bar, home band, Give page ---------- */
 const GV = D.give, LOAN = D.loan;
@@ -4021,9 +4194,9 @@ function siteGroups(){
       ['Weekly planner', 'The whole week as a time grid', '#/classes?view=planner&who=all'],
       ['Download the weekly view', 'Planner, phone schedule and flyers (PDF)', '#/classes?go=download', false, 'dl'],
       ['My classes', 'The ones you saved', '#/classes?view=week&who=mine', false, 'star']]},
-    {k:'watch', t:'Watch', d:'Live and recordings', ic:'rec', href:'#/classes?view=week&who=all&go=watch-again', items:[
+    {k:'watch', t:'Watch', d:'Live and recordings', ic:'rec', href:'#/watch', items:[
       ['Watch live', 'Jumu’ah and classes on YouTube', YTD.channel.live, true],
-      ['Watch again', 'Recordings of the classes', '#/classes?view=week&who=all&go=watch-again']]},
+      ['Watch again', 'Recordings of the classes', '#/watch']]},
     {k:'events', t:'Events and news', d:'What is on', ic:'calplus', href:'#/events', items:[
       ['Coming up', 'Events and news from the centre', '#/events'],
       ['On Instagram', 'Posts and videos', '#/?go=instagram', false, 'ig']]},
@@ -4059,7 +4232,7 @@ const SITE_MORE = [
   ['What changed', 'What was confusing, and what this version does', '#/notes', false, 'alert'],
   ['More ideas', 'Ideas for the site, with time and what each needs', '#/ideas', false, 'star']
 ];
-const ROUTE_GROUP = {prayer:'prayer', ramadan:'ramadan', classes:'classes', events:'more', gallery:'more', visit:'visit', plan:'visit', new:'start', start:'start', find:'start', help:'start', explore:'start', give:'give', phonepdf:'more', plansheet:'more', poster:'more', share:'more', tv:'more', sitemap:'more', menus:'more', notes:'more', ideas:'more'};
+const ROUTE_GROUP = {watch:'watch', prayer:'prayer', ramadan:'ramadan', classes:'classes', events:'more', gallery:'more', visit:'visit', plan:'visit', new:'start', start:'start', find:'start', help:'start', explore:'start', give:'give', phonepdf:'more', plansheet:'more', poster:'more', share:'more', tv:'more', sitemap:'more', menus:'more', notes:'more', ideas:'more'};
 function slimGroups(){
   const G = siteGroups(), by = k => G.find(g => g.k === k);
   const pick = (g, ts) => Object.assign({}, g, {items: ts.map(t => g.items.find(i => i[0] === t)).filter(Boolean)});
@@ -4130,21 +4303,24 @@ function ppKeep(){ clearTimeout(ppTimer); ppTimer = 0; }
 function ppHide(now){
   if (now) { ppKeep(); ppPop.classList.remove('on'); ppCur = null; return; }
   if (ppTimer) return;
-  ppTimer = setTimeout(() => { ppTimer = 0; ppPop.classList.remove('on'); ppCur = null; }, 90);
+  ppTimer = setTimeout(() => { ppTimer = 0; ppPop.classList.remove('on'); ppCur = null; }, 60);
 }
+const ppOwn = el => !!(el && el.closest && (el.closest('#pp-pop') || (ppCur && el.closest('#pstrip .pp') === ppCur)));
 document.addEventListener('mouseover', e => {
   if (ppTouch() || !e.target.closest) return;
   const a = e.target.closest('#pstrip .pp');
-  if (a && a.dataset.cls) ppShow(a); else if (e.target.closest('#pp-pop')) ppKeep();
+  if (a && a.dataset.cls) ppShow(a);
+  else if (e.target.closest('#pp-pop')) ppKeep();
+  else if (a) ppHide(true);
 });
 document.addEventListener('mouseout', e => {
-  if (ppTouch() || !e.target.closest) return;
-  if (e.target.closest('#pstrip .pp, #pp-pop') && !(e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('#pstrip .pp, #pp-pop'))) ppHide();
+  if (ppTouch() || !ppPop.classList.contains('on')) return;
+  if (!ppOwn(e.relatedTarget)) ppHide(!!(e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('#pstrip .pp')));
 });
 /* a safety net: whenever the pointer is somewhere else, the card closes (also when the pointer leaves the window) */
 document.addEventListener('mousemove', e => {
   if (!ppPop.classList.contains('on') || ppTouch() || !e.target.closest) return;
-  if (e.target.closest('#pstrip .pp, #pp-pop')) ppKeep(); else ppHide();
+  if (ppOwn(e.target)) ppKeep(); else ppHide(!!e.target.closest('#pstrip .pp'));
 });
 document.documentElement.addEventListener('mouseleave', () => ppHide(true));
 document.addEventListener('focusin', e => {
@@ -4170,7 +4346,7 @@ function panelHTML(){
 function dockHTML(){
   const it = (k, t, ic, href) => '<a data-dk="' + k + '" href="' + href + '">' + icon(ic) + '<span>' + t + '</span></a>';
   const more = [['Gallery', 'Past activities and photos', '#/gallery', 'photo'], ['Plan a visit', 'First visit, tour or group', '#/plan', 'users'], ['New to Islam?', 'A gentle start', '#/new', 'chat'], ['Ramadan', 'Timetable, iftar and Eid', '#/ramadan', 'moon'], ['Events and news', 'What is on', '#/events', 'calplus'], ['Volunteer', 'Help keep the masjid running', LIVE + '/volunteer', 'users', 1], ['Give', 'Help repay the masjid', '#/give', 'heart'], ['Instagram', 'Posts and videos', '#/?go=instagram', 'ig'], ['Downloads', 'Phone schedule, poster, planner', '#/sitemap?go=tools', 'dl'], ['All pages', 'Every page in one list', '#/sitemap', 'menu'], ['Call the office', C.phone, 'tel:' + C.tel, 'phone']];
-  return '<nav class="dock" aria-label="Main">' + it('start', 'Start', 'chat', '#/start') + it('prayer', 'Prayer', 'clock', '#/prayer') + it('classes', 'Classes', 'cal', '#/classes') + it('watch', 'Watch', 'rec', '#/classes?view=week&who=all&go=watch-again') + it('visit', 'Visit', 'pin', '#/visit') +
+  return '<nav class="dock" aria-label="Main">' + it('start', 'Start', 'chat', '#/start') + it('prayer', 'Prayer', 'clock', '#/prayer') + it('classes', 'Classes', 'cal', '#/classes') + it('watch', 'Watch', 'rec', '#/watch') + it('visit', 'Visit', 'pin', '#/visit') +
     '<button type="button" id="dk-more" data-mo="dock" aria-expanded="false" aria-controls="dock-sheet">' + icon('menu') + '<span>More</span></button></nav>' +
     '<div class="dock-sheet" id="dock-sheet" role="group" aria-label="More">' + more.map(x => '<a href="' + x[2] + '"' + (x[4] ? ' target="_blank" rel="noopener"' : '') + '>' + icon(x[3]) + '<span>' + x[0] + '<small>' + x[1] + '</small></span></a>').join('') + '</div>';
 }
@@ -4961,7 +5137,7 @@ function stopMedia(){
 }
 const ytCmd = (f, fn) => { try { f.contentWindow.postMessage(JSON.stringify({event:'command', func:fn, args:[]}), '*'); } catch (e) { /* ignore */ } };
 function pauseMedia(){
-  $$('.tw-stage.on iframe').forEach(f => ytCmd(f, 'pauseVideo'));
+  $$('.tw-stage.on iframe, .wt-player iframe').forEach(f => ytCmd(f, 'pauseVideo'));
   if (igdlg.open && /youtube/.test(igf.getAttribute('src') || '')) ytCmd(igf, 'pauseVideo');
 }
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') pauseMedia(); });
@@ -4981,7 +5157,7 @@ function parseHash(){
   new URLSearchParams(qs).forEach((v, k) => q[k] = v);
   return {parts:path.split('/').filter(Boolean), q, qs};
 }
-const PAGE_TITLES = {start:'Start here', find:'Find a class', help:'Support and services', explore:'Learn about Islam', sitemap:'All pages', ramadan:'Ramadan', new:'New to Islam', plan:'Plan a visit', prayer:'Prayer times', classes:'Weekly class schedule', events:'Events and news', visit:'Visit and contact', notes:'What changed', ideas:'More ideas', tv:'Lobby screen', poster:'Poster', share:'Share picture', plansheet:'Weekly planner', phonepdf:'Weekly schedule for phones', menus:'Menu samples', gallery:'Gallery and past activities', give:'Support the masjid'};
+const PAGE_TITLES = {watch:'Watch', start:'Start here', find:'Find a class', help:'Support and services', explore:'Learn about Islam', sitemap:'All pages', ramadan:'Ramadan', new:'New to Islam', plan:'Plan a visit', prayer:'Prayer times', classes:'Weekly class schedule', events:'Events and news', visit:'Visit and contact', notes:'What changed', ideas:'More ideas', tv:'Lobby screen', poster:'Poster', share:'Share picture', plansheet:'Weekly planner', phonepdf:'Weekly schedule for phones', menus:'Menu samples', gallery:'Gallery and past activities', give:'Support the masjid'};
 /* long pages are split into tabs: one part at a time instead of one very long scroll */
 const TAB_DEFS = {
   ramadan: {root:'#ram-body', tabs:[['today', 'Tonight', 'moon'], ['timetable', 'Timetable', 'clock'], ['sponsor', 'Sponsor a night', 'dates'], ['taraweeh', 'Taraweeh', 'rec'], ['ten', 'Last ten nights', 'star'], ['faq', 'Questions', 'chat']]},
@@ -5051,6 +5227,8 @@ try {
   })).observe(document.body, {attributes:true, attributeFilter:['hidden'], attributeOldValue:true, subtree:true});
 } catch (e) { /* an older browser: no animation */ }
 /* a smooth change of content: the old fades out, the height eases to the new height, the new rises in */
+function setHdrH(){ const h = document.querySelector('header'); if (h) document.documentElement.style.setProperty('--hdh', Math.round(h.getBoundingClientRect().height) + 'px'); }
+window.addEventListener('resize', setHdrH); window.addEventListener('load', setHdrH); setTimeout(setHdrH, 400);
 function swapRender(el, fn){
   if (!el || REDUCED || inRoute) { fn(); return; }
   clearTimeout(el._swT); clearTimeout(el._swT2);
@@ -5086,7 +5264,7 @@ function route(){
 }
 function routeNow(mode){
   const r = parseHash(), p0 = r.parts[0] || 'home';
-  { const t0 = p0 === 'classes' && r.parts[1] && BYID[r.parts[1]] ? BYID[r.parts[1]].title : PAGE_TITLES[p0]; document.title = p0 === 'home' || !t0 ? 'Toronto Islamic Centre – redesign concept' : t0 + ' · Toronto Islamic Centre (concept)'; }
+  { const t0 = p0 === 'classes' && r.parts[1] && BYID[r.parts[1]] ? BYID[r.parts[1]].title : (p0 === 'watch' && r.parts[1] && YTV[r.parts[1]] ? YTV[r.parts[1]].t + ' · ' + YTV[r.parts[1]].sub : PAGE_TITLES[p0]); document.title = p0 === 'home' || !t0 ? 'Toronto Islamic Centre – redesign concept' : t0 + ' · Toronto Islamic Centre (concept)'; }
   const key = p0 + (p0 === 'classes' ? '' : '|' + r.parts.join('/'));
   document.body.dataset.page = p0;
   document.documentElement.dataset.page = p0;
@@ -5095,7 +5273,7 @@ function routeNow(mode){
   const popEl = document.getElementById('pl-pop'); if (popEl) popEl.style.display = 'none';
   document.body.classList.remove('menu-open'); const b = $('#burger'); if (b) b.setAttribute('aria-expanded', 'false'); setOv('');
   if (key !== renderedKey) {
-    const pages = {home:pageHome, visit:pageVisit, classes:() => pageClasses(r), prayer:pagePrayer, events:pageEvents, notes:pageNotes, poster:pagePoster, share:pageShare, ideas:pageIdeas, tv:pageTV, plansheet:pagePlanSheet, phonepdf:pagePhonePdf, menus:pageMenus, gallery:() => pageGallery(r), give:pageGive, ramadan:() => pageRamadan(r), new:pageNew, plan:() => pagePlan(r), sitemap:pageSitemap, start:pageStart, find:pageFind, help:pageHelp, explore:pageExplore};
+    const pages = {watch:() => pageWatch(r), home:pageHome, visit:pageVisit, classes:() => pageClasses(r), prayer:pagePrayer, events:pageEvents, notes:pageNotes, poster:pagePoster, share:pageShare, ideas:pageIdeas, tv:pageTV, plansheet:pagePlanSheet, phonepdf:pagePhonePdf, menus:pageMenus, gallery:() => pageGallery(r), give:pageGive, ramadan:() => pageRamadan(r), new:pageNew, plan:() => pagePlan(r), sitemap:pageSitemap, start:pageStart, find:pageFind, help:pageHelp, explore:pageExplore};
     PAGE_KEYS = Object.keys(pages);
     inRoute = true;
     delete tabSel[p0];
@@ -5117,7 +5295,7 @@ function routeNow(mode){
   }
   else if (p0 === 'classes' && !r.parts[1]) {
     /* same page, but the address changed (back button or a link): follow it */
-    const nv = r.q.view || state.view, nw = r.q.who || state.who, nd = r.q.day != null ? +r.q.day : state.day;
+    let nv = r.q.view || state.view; if (innerWidth < 760 && nv === 'planner') nv = 'week'; const nw = r.q.who || state.who, nd = r.q.day != null ? +r.q.day : state.day;
     if (nv !== state.view || nw !== state.who || nd !== state.day) { state.view = nv; state.who = nw; state.day = nd; renderSched(); }
   }
   else if (p0 === 'gallery' && (r.q.view || r.q.cat)) {
@@ -5153,7 +5331,7 @@ document.addEventListener('click', e => {
   if (!t) return;
   if (t.dataset.close !== undefined) { dlg.close(); return; }
   if (t.dataset.igclose !== undefined) { igdlg.close(); return; }
-  if (t.dataset.yt) { ytOpen(t.dataset.yt); return; }
+  if (t.dataset.yt) { location.hash = '#/watch/' + t.dataset.yt; return; }
   if (t.id === 'tab-more') { const o = document.body.classList.toggle('menu-open'); t.setAttribute('aria-expanded', o); return; }
   if (t.dataset.typePick) { document.documentElement.dataset.type = t.dataset.typePick; store.set('tic-type', t.dataset.typePick); $$('[data-type-pick]').forEach(b => b.setAttribute('aria-pressed', b.dataset.typePick === t.dataset.typePick)); return; }
   if (t.id === 'ms-open') { const m = $('#mstyle'), o = m.hasAttribute('hidden'); m.toggleAttribute('hidden', !o); t.setAttribute('aria-expanded', String(o)); return; }
