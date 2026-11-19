@@ -5017,7 +5017,7 @@ document.addEventListener('click', e => {
     if (a.dataset.cls && ppTouch()) {
       /* on a phone the first tap opens the small card under the prayer; a tap on the class in the card opens the class (a second tap on the prayer closes the card) */
       if (ppCur === a && ppPop.classList.contains('on')) ppHide(true); else ppShow(a);
-    }
+    } else if (ppTouch()) ppHide(true);   /* a prayer without a class: the open card goes away */
     return;
   }
   const tl = e.target.closest('.now-line.is-link');
@@ -5028,6 +5028,15 @@ document.addEventListener('click', e => {
   }
   if (!e.target.closest('#pp-pop') || e.target.closest('#pp-pop a')) ppHide(true);
 }, true);
+/* a touch anywhere else closes the card, even on a part of the page that does not react to taps (a phone then sends no click) */
+function ppAway(e){
+  if (!ppPop.classList.contains('on') || !e.target || !e.target.closest) return;
+  if (e.target.closest('#pp-pop') || (ppCur && ppCur.contains(e.target))) return;
+  ppHide(true);
+}
+document.addEventListener('pointerdown', ppAway, true);
+document.addEventListener('touchstart', ppAway, {capture:true, passive:true});
+window.addEventListener('resize', () => { if (ppPop.classList.contains('on')) ppHide(true); });
 window.addEventListener('scroll', () => { if (ppPop.classList.contains('on')) ppHide(true); }, {passive:true});
 window.addEventListener('hashchange', () => ppHide(true));
 function panelHTML(){
